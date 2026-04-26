@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Product Business Selector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Section -->
+    <section id="welcome" class="section active">
+        <div class="container">
+            <div class="welcome-content">
+                <div class="hero-image">
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/31d32490724ea3de47c78fd2dbc61be0/5fa55aec-4efb-4356-8e31-c06111b28f36/5ca3de07.png" alt="Digital product difficulty levels" class="chart-img">
+                </div>
+                <h1>Digital Product Business Selector</h1>
+                <p class="subtitle">Find the perfect digital product to start earning passive income</p>
+                <p class="description">Answer 5 simple questions and get personalized recommendations for digital products that match your skills, budget, and goals.</p>
+                <button class="btn btn--primary btn--lg" onclick="startQuestionnaire()">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Questionnaire Section -->
+    <section id="questionnaire" class="section">
+        <div class="container">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">Question 1 of 5</span>
+            </div>
+
+            <div class="question-container" id="questionContainer">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+
+            <div class="question-navigation">
+                <button class="btn btn--outline" id="backBtn" onclick="previousQuestion()" style="display: none;">Back</button>
+                <button class="btn btn--primary" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="section">
+        <div class="container">
+            <h2>Your Personalized Recommendations</h2>
+            <p class="results-intro">Based on your answers, here are the best digital product opportunities for you:</p>
+            
+            <div class="recommendations-grid" id="recommendationsGrid">
+                <!-- Recommendations will be dynamically inserted here -->
+            </div>
+
+            <div class="earnings-chart">
+                <h3>Digital Products Earnings Potential</h3>
+                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/31d32490724ea3de47c78fd2dbc61be0/9b27420f-6c0a-4425-91ae-f0f45c5606aa/70e39b43.png" alt="Digital products monthly earnings potential" class="chart-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section">
+        <div class="container">
+            <h2>Next Steps & Resources</h2>
+            
+            <div class="resources-grid">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Action Items</h3>
+                        <ul id="actionItems">
+                            <!-- Action items will be dynamically inserted -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Recommended Tools</h3>
+                        <div class="tools-list" id="toolsList">
+                            <!-- Tools will be dynamically inserted -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Success Tips</h3>
+                        <ul class="tips-list">
+                            <li>Start with one product type and master it before expanding</li>
+                            <li>Research your target audience thoroughly</li>
+                            <li>Create high-quality visuals for your product listings</li>
+                            <li>Use social media to market your products</li>
+                            <li>Continuously gather customer feedback and improve</li>
+                            <li>Be patient - passive income takes time to build</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-actions">
+                <button class="btn btn--primary" onclick="restartQuestionnaire()">Take Quiz Again</button>
+                <button class="btn btn--outline" onclick="goToWelcome()">Back to Home</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

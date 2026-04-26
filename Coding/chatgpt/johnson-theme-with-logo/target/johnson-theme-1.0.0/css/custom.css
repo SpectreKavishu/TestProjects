@@ -1,0 +1,11 @@
+/* Johnson&Johnson custom theme styles */
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #cc0000;
+    color: white;
+    padding: 10px;
+}

@@ -1,0 +1,1 @@
+Create a new SwiftUI Xcode project named 'SafeBite' and copy these Swift files under the project. Add GoogleService-Info.plist from Firebase and configure SPM packages as per README.

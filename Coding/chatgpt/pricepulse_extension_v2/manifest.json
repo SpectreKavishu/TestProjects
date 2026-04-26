@@ -1,0 +1,19 @@
+
+{
+  "manifest_version": 3,
+  "name": "PricePulse+ Amazon Tracker",
+  "version": "2.0",
+  "description": "Upgraded full UI for Amazon price tracking",
+  "permissions": ["tabs", "scripting", "activeTab"],
+  "action": {
+    "default_title": "PricePulse+",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["*://www.amazon.in/*"],
+    "js": ["content.js"]
+  }]
+}

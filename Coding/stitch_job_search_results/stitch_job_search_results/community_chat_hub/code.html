@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vector Career - Community Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#c2d0df",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d9e3f9",
+                        "outline-variant": "#c3c6d5",
+                        "on-surface-variant": "#434653",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "surface-container-high": "#dee8ff",
+                        "secondary-container": "#d6e0f6",
+                        "surface-tint": "#1d59c1",
+                        "primary": "#003c90",
+                        "secondary-fixed": "#d9e3f9",
+                        "secondary": "#555f71",
+                        "surface": "#f9f9ff",
+                        "on-primary-fixed": "#001945",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#0f1d28",
+                        "tertiary-fixed": "#d6e4f4",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737784",
+                        "on-surface": "#121c2c",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "on-secondary-container": "#596376",
+                        "surface-bright": "#f9f9ff",
+                        "surface-dim": "#d0daf0",
+                        "on-primary-container": "#bcceff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bac8d7",
+                        "tertiary": "#35424e",
+                        "tertiary-container": "#4c5966",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "inverse-surface": "#273141",
+                        "on-tertiary-fixed-variant": "#3b4855",
+                        "on-secondary-fixed": "#121c2c",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b0c6ff",
+                        "surface-container": "#e7eeff",
+                        "on-primary-fixed-variant": "#00419c",
+                        "surface-variant": "#d9e3f9",
+                        "on-background": "#121c2c",
+                        "primary-fixed": "#d9e2ff",
+                        "primary-container": "#0f52ba",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d9e3f9; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- Top Navigation (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-br from-[#003c90] to-[#0f52ba] bg-clip-text text-transparent">Vector Career</span>
+<nav class="hidden md:flex items-center gap-6 font-['Inter'] tracking-tight">
+<a class="text-[#555f71] hover:text-[#0f52ba] transition-colors duration-200" href="#">Network</a>
+<a class="text-[#555f71] hover:text-[#0f52ba] transition-colors duration-200" href="#">Jobs</a>
+<a class="text-[#555f71] hover:text-[#0f52ba] transition-colors duration-200" href="#">Events</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#555f71] hover:text-[#0f52ba] transition-colors">notifications</button>
+<button class="material-symbols-outlined text-[#555f71] hover:text-[#0f52ba] transition-colors">settings</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a kind expression in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCiHtIu_0Ag9TkzHyX_9u29ZV-BqOZgl0pEPYPxWzMx-jfDTRQ4vNbFWWLutTPtVQ83ZUK2kSWX6r9Z537F-M213N1zWAoRxI3vjqvk-BrIPxVtday1GySVkDiLE4sZXeQ6oa1Uyf3Q3zEa3caHmqLxIHXiGLZxAsWuY2ysjZhnXs47RHVpoRP23ldj_Muk-u87uSqSrc1OCBK0rCNuAZZ2cG9e06499xj6cNq7gRBJqb6FD0rsiCGcqDno4TJ8RI0R8vhOhQpy1U"/>
+</div>
+<button class="px-4 py-1.5 bg-gradient-to-br from-[#003c90] to-[#0f52ba] text-white rounded-xl text-sm font-medium active:scale-95 transition-transform">Post</button>
+</div>
+</header>
+<div class="flex pt-16 h-screen overflow-hidden">
+<!-- Side Navigation (Shared Component) -->
+<aside class="h-screen w-64 hidden md:flex flex-col p-4 gap-2 bg-[#f9f9ff] dark:bg-slate-950 border-r border-outline-variant/15">
+<div class="px-2 py-4 mb-2">
+<h2 class="text-lg font-bold text-[#003c90]">Global Network</h2>
+<p class="text-xs text-[#555f71]">Senior Architects</p>
+</div>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">chat_bubble</span> Channels
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] bg-[#d9e2ff] text-[#003c90] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">mail</span> Direct Messages
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">school</span> Career Prep
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">group</span> Mentors
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">settings</span> Settings
+                </button>
+</div>
+<div class="mt-8 px-2">
+<h3 class="text-[10px] uppercase tracking-wider font-bold text-outline mb-3">Channels</h3>
+<div class="space-y-1">
+<a class="block px-3 py-1.5 text-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#"># product-management</a>
+<a class="block px-3 py-1.5 text-sm font-semibold text-primary bg-surface-container-low rounded-lg" href="#"># ux-design</a>
+<a class="block px-3 py-1.5 text-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#"># tech-interviews</a>
+<a class="block px-3 py-1.5 text-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#"># referrals</a>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/15">
+<div class="p-4 bg-primary-fixed rounded-xl mb-4">
+<p class="text-xs font-bold text-on-primary-fixed mb-1">Go Premium</p>
+<p class="text-[10px] text-on-primary-fixed-variant mb-3">Unlock exclusive career roadmaps</p>
+<button class="w-full py-2 bg-primary text-white text-xs font-bold rounded-lg">Upgrade to Pro</button>
+</div>
+<div class="flex flex-col gap-1">
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs text-[#555f71] hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-sm">help</span> Help Center
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs text-[#555f71] hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-sm">shield</span> Privacy
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Chat Canvas -->
+<main class="flex-1 flex flex-col bg-surface relative">
+<!-- Channel Header -->
+<div class="h-16 flex items-center justify-between px-8 bg-surface-container-lowest border-b border-outline-variant/10 shadow-sm">
+<div class="flex items-center gap-3">
+<span class="text-xl font-bold text-primary"># ux-design</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="text-sm text-on-surface-variant">1,204 members</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Search in channel..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg">search</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">star</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">info</button>
+</div>
+</div>
+<!-- Messages Area -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8 custom-scrollbar">
+<!-- Date Separator -->
+<div class="flex items-center gap-4">
+<div class="flex-1 h-px bg-outline-variant/15"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">Today, October 24</span>
+<div class="flex-1 h-px bg-outline-variant/15"></div>
+</div>
+<!-- Message 1 -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Sarah Chen Avatar" class="w-full h-full object-cover" data-alt="professional portrait of a woman with a confident smile against a clean neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWRqGhQMIfUhSejiuluhu2NPPgQGOVXGITVLp6J803SAoVIZX9PIdbB9Jwm59eW-8W5H7xpEpHom0eVFbi5sIxpMPhxByjZTQoPHbC3x1lHnSTNBFzxyknhAbzHOLq7fAa4QQUF2FlxhQPc4J5qEAXNMUOz489S44O3Skysi8oWtfvbttXuM7q3xCmhVpNZOERhycDZyJFLOwAJRNIWQMx-FICdlLI2lN1VlZjJLf3qQoP0AXsrCwc5fWkvNjv8M6CAtUXukI3at4"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface">Sarah Chen</span>
+<span class="text-[10px] font-medium text-white bg-primary-container px-1.5 py-0.5 rounded-md uppercase">Lead Designer</span>
+<span class="text-xs text-outline">10:24 AM</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl rounded-tl-none shadow-sm max-w-2xl text-on-surface-variant leading-relaxed">
+                            Hey everyone! I just finished a round of portfolio reviews for some junior candidates. One thing I noticed is a lack of focus on "business impact" in case studies. Make sure you quantify your design decisions! 🚀
+                        </div>
+</div>
+</div>
+<!-- Message 2 (Asymmetric Layout / Bento Card Style for Link) -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Marcus Thompson Avatar" class="w-full h-full object-cover" data-alt="portrait of a creative professional man with glasses in a modern studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBSQ4U2Nn7P0j4bIzc9u6bHRttvb0P3sAt688FxpdNJnylS4P0lVBRRZ2qz3RPCXQhlaxaMMMK6JNPIbAuLjrwcK4YXtzhrHPaJH3WtGl8yGVTNhb9UDzFNWnC2PdEJ0pEqgABAo0LnHMI7r5qPNlPcvDf4d_eRuESO_0kD29MDhvZNxpVvVx0wyOs-rdY-p1LqVt3YYATwVqiwf7p4bWrjKIVUKqSe7VEmyyDOFMLKS0_AzH-MvkAuiYneJOZOYNb4wmhV2wVtpE"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface">Marcus Thompson</span>
+<span class="text-xs text-outline">10:28 AM</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl rounded-tl-none shadow-sm max-w-2xl text-on-surface-variant leading-relaxed mb-3">
+                            Thanks for the tip, Sarah! Speaking of portfolios, I found this amazing resource for structuring high-converting UX case studies.
+                        </div>
+<div class="max-w-md bg-white border border-outline-variant/20 rounded-xl overflow-hidden flex hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-32 h-24 bg-surface-container-high flex-shrink-0">
+<img alt="Resource Preview" class="w-full h-full object-cover" data-alt="close-up of a high-end designer workspace with a tablet and sleek wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVDvKMGE1yqISH3IJYQQwVcyDH-7VFjqBZi_rWvCrrqzphUN7YKnHzuY6zcZIvZ_Qh0s_eeqdisJGEnXQ5ZnBCSIo8tPTxryJOZGZeeVNjQxADDz5xuea2yhRDXqMvtgT17ZxLaAOmas7Pq6XDEjfZH2e3FZZ0l4d01JP1Hq8H-j7Pl2ByQK2_qg56PZ1kgqj5ujXtOFk3tDKk1XOx9n7PyeXSJ_NdnHDwQukmZIl3MBJEocAX3_XUyfF7FK69asUfODbuZz0YWME"/>
+</div>
+<div class="p-3 flex flex-col justify-center">
+<p class="text-xs font-bold text-primary mb-1">ux-mastery.io</p>
+<p class="text-sm font-medium text-on-surface line-clamp-1">The Architecture of a 6-Figure Design Portfolio</p>
+<p class="text-[10px] text-on-surface-variant mt-1">4 minute read • Shared by Marcus</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Message 3 -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Elena Rodriguez Avatar" class="w-full h-full object-cover" data-alt="portrait of a focused professional woman with dark hair in a light-filled office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrkezROvIF9o5r5oJ19zFog0v0RBVDXMzx2mKoRlfOBZLoLBNXTld6nE2fHaHYKJrOg7iOYORQLp2_Nizipo_WTwyMQFHc_5gWXzHati1lpsGWzL4AqwKoqi5BGEaZMeydD7I0JPQmlzd2Y3pz08hCFUZRnv9bNiHvRnicu_NoszJ1_atAVZ-HnCt86U7ybymQoRk6B5-d9CxPY2pgxrIl7dNRFWXx8-K4_V4pwP36CxAHAKWsrTqjbTfmK55ioCdABpNow8SQTvE"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface">Elena Rodriguez</span>
+<span class="text-xs text-outline">10:45 AM</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl rounded-tl-none shadow-sm max-w-2xl text-on-surface-variant leading-relaxed">
+                            I have a final round interview at a FinTech startup tomorrow. Any specific tips for the whiteboarding challenge? 🎨
+                        </div>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-surface-container-high hover:bg-surface-container-highest text-primary text-[10px] font-bold rounded-full transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span> 12
+                            </button>
+<button class="px-3 py-1 bg-surface-container-high hover:bg-surface-container-highest text-primary text-[10px] font-bold rounded-full transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">reply</span> Reply
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Input Area -->
+<div class="px-8 pb-8">
+<div class="bg-surface-container-lowest rounded-2xl shadow-[0_-10px_40px_rgba(18,28,44,0.03)] border border-outline-variant/10 p-2">
+<div class="flex items-center gap-1 px-2 mb-2 border-b border-outline-variant/5 pb-2">
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">format_bold</button>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">format_italic</button>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">link</button>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">list</button>
+<div class="w-px h-4 bg-outline-variant/20 mx-1"></div>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">code</button>
+</div>
+<div class="flex items-end gap-3 px-2">
+<button class="p-2 bg-surface-container-low text-primary rounded-xl hover:bg-primary/10 transition-colors material-symbols-outlined">add</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2.5 resize-none" placeholder="Message #ux-design" rows="1"></textarea>
+<div class="flex items-center gap-2 pb-1.5">
+<button class="p-2 text-on-surface-variant hover:text-primary material-symbols-outlined text-xl">mood</button>
+<button class="p-2 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl active:scale-95 transition-transform material-symbols-outlined">send</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Side Panel -->
+<aside class="w-80 hidden xl:flex flex-col bg-surface-container-lowest border-l border-outline-variant/15 p-6 overflow-y-auto custom-scrollbar">
+<div class="mb-8">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Channel Info</h3>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-sm text-on-surface font-medium mb-2">About this channel</p>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-4">
+                        A space for professional UX designers to share resources, critique work, and discuss career growth.
+                    </p>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Created Feb 2024</span>
+</div>
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>Public Channel</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline">Pinned Messages</h3>
+<span class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary-fixed rounded-full">3</span>
+</div>
+<div class="space-y-3">
+<div class="p-3 bg-white border border-outline-variant/10 rounded-xl hover:shadow-sm transition-all cursor-pointer group">
+<p class="text-xs font-bold text-on-surface mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-amber-500" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+                            Channel Guidelines
+                        </p>
+<p class="text-[10px] text-on-surface-variant line-clamp-2">Please read the updated community standards before posting your first portfolio piece...</p>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline">Active Members</h3>
+<button class="text-[10px] font-bold text-primary hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full overflow-hidden">
+<img alt="Active Member" class="w-full h-full object-cover" data-alt="close-up portrait of a professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCFHKF3NqGzKYNh9o71cLkc3oLWhXucJFS6xR-_jVd8m41BZh9dseTuhIH44l5UlrEj5O3pQC9UGXVp-7RjsV-ZtmlCDZKtbiX5_PUzHZaL9eTsbGu1iWklALxcxW-rm_Ib_6YBif_F9wf_bt2N9zoy9LMbti-fSkZAkPdx3W4tktNrfRsfUbAhuB0_Fwkf7cJLuSlW5Do8CvBa5ggDAKC4NSgCuB9A05-4EaiTRDo9_zSZjDeZfMaV_YX0qrNq05egbjcfghr8Fk"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Sarah Chen</p>
+<p class="text-[10px] text-on-surface-variant">Design Lead</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full overflow-hidden">
+<img alt="Active Member" class="w-full h-full object-cover" data-alt="portrait of a creative professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAYIgesfRpqEAl77njco49Kija-ZBRPnsoj7mr8ixAosCriM28SyIVsTrMbISdJ5jpzqhoeMS4U5ZxxKGdn-sHJw-hAFqDB-DuEtVPFGk-F-QaxihZCkOwhTbQaXGmLyjhr6p-JldwXIdzEW6zU862PJOy4ZgpKIR3yASa7WHi6tiLOe0dQWcEC4kaAsKluuEKHCD2oNpzOHJy9iGw4ycomPEjL1Bj41gSM4Myn3woTRzHJcuZSUe0EE7E1RDUH8askkmd0UjAR6M"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Marcus Thompson</p>
+<p class="text-[10px] text-on-surface-variant">Senior Product Designer</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full overflow-hidden">
+<div class="w-full h-full bg-surface-container-highest flex items-center justify-center text-primary font-bold text-xs">ER</div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-outline border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-[10px] text-on-surface-variant">UX Researcher</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6">
+<button class="w-full py-3 bg-surface-container-low text-primary font-bold text-xs rounded-xl hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">group_add</span>
+                    Invite Colleagues
+                </button>
+</div>
+</aside>
+</div>
+</body></html>

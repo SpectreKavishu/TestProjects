@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard | Curated Career Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f0f3ff",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "tertiary": "#35424e",
+              "surface-dim": "#d0daf0",
+              "on-primary-container": "#bcceff",
+              "tertiary-fixed-dim": "#bac8d7",
+              "on-background": "#121c2c",
+              "on-secondary-container": "#596376",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#273141",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#b0c6ff",
+              "primary-fixed": "#d9e2ff",
+              "secondary-fixed": "#d9e3f9",
+              "on-primary-fixed": "#001945",
+              "surface-bright": "#f9f9ff",
+              "secondary": "#555f71",
+              "on-surface": "#121c2c",
+              "on-secondary-fixed-variant": "#3d4759",
+              "secondary-fixed-dim": "#bdc7dc",
+              "primary-container": "#0f52ba",
+              "tertiary-fixed": "#d6e4f4",
+              "on-tertiary-fixed": "#0f1d28",
+              "on-tertiary-fixed-variant": "#3b4855",
+              "surface": "#f9f9ff",
+              "secondary-container": "#d6e0f6",
+              "outline": "#737784",
+              "surface-tint": "#1d59c1",
+              "surface-container-high": "#dee8ff",
+              "on-secondary-fixed": "#121c2c",
+              "error": "#ba1a1a",
+              "background": "#f9f9ff",
+              "on-tertiary-container": "#c2d0df",
+              "surface-variant": "#d9e3f9",
+              "inverse-on-surface": "#ebf1ff",
+              "on-primary-fixed-variant": "#00419c",
+              "primary": "#003c90",
+              "surface-container-highest": "#d9e3f9",
+              "on-surface-variant": "#434653",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#e7eeff",
+              "tertiary-container": "#4c5966",
+              "inverse-primary": "#b0c6ff",
+              "outline-variant": "#c3c6d5",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)]">
+<nav class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">Curated Career Architect</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Jobs</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Prep Hub</a>
+<a class="text-[#003c90] dark:text-[#d9e2ff] border-b-2 border-[#003c90] dark:border-[#d9e2ff] pb-1 font-semibold" href="#">Dashboard</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-low border-none rounded-full px-6 py-2 w-64 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search applications..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-[#555f71] hover:bg-[#e7eeff] rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#555f71] hover:bg-[#e7eeff] rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqw1nmArmw8znb6ER0_s1yWvh34bemYZ4YPu1XowTIFOaDLuwlTRns7Y_ELZJFlptwM8FWEVDAWzEnmijjn6jlkQ82-QEflPOhe9S1wKBxnP8xWwKeKVUI2k8zCSetzloARmIZumPb3ztQ5xc7vgYcZIpjXib1g3y8S23Z0LhRr7C9MulOlj0ta5LofPnSxBH2zj3mNCWwAyRVg0Opn_zAmufVaxOA3MbQa2xGwa0sa6mOGFOisOufCA5A_E08hxpvotiuFA_Bi0w"/>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow pt-32 pb-20 px-8 max-w-[1440px] mx-auto w-full">
+<!-- Dashboard Header -->
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-2">Welcome back, Alex.</h1>
+<p class="text-secondary text-lg">You have 2 interviews scheduled for this week. Keep up the momentum.</p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Main Dashboard Content -->
+<div class="col-span-12 lg:col-span-8 space-y-12">
+<!-- Quick Links: Bento-ish Style -->
+<section>
+<h2 class="text-sm font-bold uppercase tracking-widest text-secondary mb-6">Quick Actions</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<a class="group p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-4 active:scale-[0.98]" href="#">
+<div class="p-3 rounded-full bg-primary-fixed text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Resume Builder</h3>
+<p class="text-xs text-on-surface-variant">Update your tailored CVs</p>
+</div>
+</a>
+<a class="group p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-4 active:scale-[0.98]" href="#">
+<div class="p-3 rounded-full bg-secondary-fixed text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="video_chat">video_chat</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Mock Interview</h3>
+<p class="text-xs text-on-surface-variant">Practice with AI curators</p>
+</div>
+</a>
+<a class="group p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-4 active:scale-[0.98]" href="#">
+<div class="p-3 rounded-full bg-surface-container-high text-on-surface-variant group-hover:bg-outline-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Profile Settings</h3>
+<p class="text-xs text-on-surface-variant">Refine your preferences</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Application Tracker: Kanban Style -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-sm font-bold uppercase tracking-widest text-secondary">Application Tracker</h2>
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+                            View all <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column: Applied -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Applied (12)</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4 min-h-[200px]">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] font-bold text-primary mb-1">Product Designer</p>
+<h4 class="font-bold text-sm mb-2">Linear</h4>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">2 days ago</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] font-bold text-primary mb-1">Senior UI Engineer</p>
+<h4 class="font-bold text-sm mb-2">Vercel</h4>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">5 days ago</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Interviewing -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Interviewing (3)</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4 min-h-[200px]">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm border-l-4 border-primary">
+<p class="text-[10px] font-bold text-primary mb-1">Lead Creative</p>
+<h4 class="font-bold text-sm mb-2">Stripe</h4>
+<div class="bg-primary-fixed/30 p-2 rounded text-[10px] text-primary font-medium mb-3">
+                                        Final Round: Tomorrow, 10 AM
+                                    </div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">Step 4/5</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Offer -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Offer (1)</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4 min-h-[200px]">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm ring-1 ring-green-500/20">
+<p class="text-[10px] font-bold text-green-600 mb-1">Principal Architect</p>
+<h4 class="font-bold text-sm mb-2">Supabase</h4>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">Received today</span>
+<span class="material-symbols-outlined text-xs text-green-600" data-icon="celebration">celebration</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Saved Jobs Grid -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-sm font-bold uppercase tracking-widest text-secondary">Saved for Later</h2>
+<button class="text-sm font-semibold text-primary hover:underline">Manage alerts</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl group hover:shadow-lg transition-all relative">
+<button class="absolute top-6 right-6 text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="token">token</span>
+</div>
+<div>
+<h3 class="font-bold text-primary tracking-tight">Design Systems Lead</h3>
+<p class="text-sm text-secondary">Airbnb • Remote</p>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">Full-time</span>
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">$180k - $240k</span>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">Apply Now</button>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl group hover:shadow-lg transition-all relative">
+<button class="absolute top-6 right-6 text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="filter_vintage">filter_vintage</span>
+</div>
+<div>
+<h3 class="font-bold text-primary tracking-tight">Staff Product Designer</h3>
+<p class="text-sm text-secondary">Figma • San Francisco</p>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">Hybrid</span>
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">Equity+</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-primary rounded-xl font-bold text-sm hover:bg-surface-container-high transition-colors">Apply Now</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar / Widgets -->
+<aside class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Prep Progress Widget -->
+<div class="bg-surface-container p-8 rounded-2xl">
+<h2 class="text-sm font-bold uppercase tracking-widest text-primary mb-6">Prep Progress</h2>
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-bold text-on-surface">Overall Completion</span>
+<span class="text-xl font-black text-primary">68%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 68%;"></div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="text-sm font-bold mb-1">Behavioral Fundamentals</h4>
+<p class="text-xs text-secondary leading-relaxed">Completed 12/12 scenarios</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="text-sm font-bold mb-1">System Design Case</h4>
+<p class="text-xs text-secondary leading-relaxed">Next: Scalability Patterns</p>
+<button class="mt-2 text-xs font-bold text-primary hover:underline">Start Challenge</button>
+</div>
+</div>
+<div class="flex gap-4 opacity-50">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+</div>
+<div>
+<h4 class="text-sm font-bold mb-1">Executive Presentation</h4>
+<p class="text-xs text-secondary leading-relaxed">Unlocks at 75% progress</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant mb-4">RECOMMENDED NEXT STEP</p>
+<div class="bg-surface-container-lowest p-4 rounded-xl">
+<p class="text-xs text-on-surface leading-relaxed mb-3 italic">"You've been applying to Lead roles. We recommend practicing the 'Conflict Resolution' module."</p>
+<button class="w-full py-2 bg-primary/10 text-primary rounded-lg text-xs font-bold hover:bg-primary/20 transition-colors">Go to Prep Hub</button>
+</div>
+</div>
+</div>
+<!-- Career Insights Widget -->
+<div class="bg-[#003c90] text-[#d9e2ff] p-8 rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="insights">insights</span>
+<h3 class="text-xl font-bold mb-2">Market Insight</h3>
+<p class="text-sm opacity-80 leading-relaxed mb-6">Demand for Design System roles is up 14% this month in your preferred locations.</p>
+<button class="px-4 py-2 bg-white text-primary rounded-lg text-xs font-bold hover:bg-opacity-90 transition-all">Deep Dive</button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-4 -bottom-4 w-32 h-32 bg-primary-container rounded-full opacity-20 blur-2xl"></div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 mt-auto bg-[#e7eeff] dark:bg-[#0f172a] text-[#003c90] dark:text-[#d9e2ff] font-['Inter'] leading-relaxed">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-bold text-lg mb-4 block">Curated Career Architect</span>
+<p class="text-[#555f71] dark:text-[#94a3b8] text-sm">Elevating the job search through organic functionalism and editorial precision.</p>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-6 uppercase tracking-widest">Platform</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">LinkedIn Integration</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Help Center</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-6 uppercase tracking-widest">Legal</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<p class="text-xs text-[#555f71] dark:text-[#94a3b8] opacity-80">© 2024 Curated Career Architect. Organic Functionalism in Recruitment.</p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>simple-liferay-theme</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+
+    <name>Simple Liferay Theme</name>
+    <description>A simple Liferay theme for development and testing</description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Liferay 7.3.5 compatible versions -->
+        <liferay.version>7.3.5</liferay.version>
+        <com.liferay.css.builder.version>3.0.2</com.liferay.css.builder.version>
+        <com.liferay.frontend.css.common.version>5.0.3</com.liferay.frontend.css.common.version>
+        <com.liferay.frontend.theme.styled.version>5.0.23</com.liferay.frontend.theme.styled.version>
+        <com.liferay.frontend.theme.unstyled.version>5.0.23</com.liferay.frontend.theme.unstyled.version>
+        <com.liferay.portal.tools.theme.builder.version>1.1.9</com.liferay.portal.tools.theme.builder.version>
+
+        <!-- Maven properties -->
+        <maven.war.src>src/main/webapp</maven.war.src>
+    </properties>
+
+    <dependencies>
+        <!-- Liferay Portal API -->
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>release.portal.bom.compile.only</artifactId>
+            <version>${liferay.version}</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JSP API -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.3</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Dependency Plugin - Copy theme dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.liferay</groupId>
+                                    <artifactId>com.liferay.frontend.css.common</artifactId>
+                                    <version>${com.liferay.frontend.css.common.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.liferay</groupId>
+                                    <artifactId>com.liferay.frontend.theme.styled</artifactId>
+                                    <version>${com.liferay.frontend.theme.styled.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.liferay</groupId>
+                                    <artifactId>com.liferay.frontend.theme.unstyled</artifactId>
+                                    <version>${com.liferay.frontend.theme.unstyled.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/deps</outputDirectory>
+                            <stripVersion>true</stripVersion>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Liferay Theme Builder Plugin -->
+            <plugin>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.portal.tools.theme.builder</artifactId>
+                <version>${com.liferay.portal.tools.theme.builder.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <diffsDir>${maven.war.src}</diffsDir>
+                            <name>${project.artifactId}</name>
+                            <outputDir>${project.build.directory}/${project.build.finalName}</outputDir>
+                            <parentDir>${project.build.directory}/deps/com.liferay.frontend.theme.styled.jar</parentDir>
+                            <parentName>_styled</parentName>
+                            <templateExtension>ftl</templateExtension>
+                            <unstyledDir>${project.build.directory}/deps/com.liferay.frontend.theme.unstyled.jar</unstyledDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Liferay CSS Builder Plugin -->
+            <plugin>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.css.builder</artifactId>
+                <version>${com.liferay.css.builder.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-build</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <docrootDirName>target/${project.build.finalName}</docrootDirName>
+                    <outputDirName>/</outputDirName>
+                    <portalCommonPath>target/deps/com.liferay.frontend.css.common.jar</portalCommonPath>
+                </configuration>
+            </plugin>
+
+            <!-- Maven WAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <packagingExcludes>**/*.scss</packagingExcludes>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Resources Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- Profile for local development -->
+        <profile>
+            <id>local-dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Set your local Liferay installation path -->
+                <liferay.auto.deploy.dir>/Users/kavishugoyal/Downloads/liferay-dxp/deploy</liferay.auto.deploy.dir>
+                <liferay.app.server.deploy.dir>/Users/kavishugoyal/Downloads/liferay-dxp/tomcat/webapps</liferay.app.server.deploy.dir>
+                <liferay.app.server.lib.global.dir>/Users/kavishugoyal/Downloads/liferay-dxp/tomcat/lib/ext</liferay.app.server.lib.global.dir>
+                <liferay.app.server.portal.dir>/Users/kavishugoyal/Downloads/liferay-dxp/tomcat/webapps/ROOT</liferay.app.server.portal.dir>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

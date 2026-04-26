@@ -1,0 +1,85 @@
+/* 
+ * Theme Mixins
+ * Reusable SCSS mixins
+ */
+
+/* Responsive breakpoints */
+@mixin media-breakpoint-up($breakpoint) {
+  @if $breakpoint == xs {
+    @content;
+  } @else if $breakpoint == sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (max-width: 767.98px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: 991.98px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: 1199.98px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @content;
+  }
+}
+
+/* Button mixins */
+@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%)) {
+  color: color-contrast($background);
+  background-color: $background;
+  border-color: $border;
+
+  &:hover {
+    color: color-contrast($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: color-contrast($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+    box-shadow: 0 0 0 0.2rem rgba($border, 0.5);
+  }
+}
+
+/* Box shadow mixin */
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+/* Transition mixin */
+@mixin transition($transition...) {
+  transition: $transition;
+}
+
+/* Border radius mixin */
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+}

@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    consumer:
+      group-id: kafka-test-group
+      auto-offset-reset: earliest
+
+app:
+  kafka:
+    topic: test-messages

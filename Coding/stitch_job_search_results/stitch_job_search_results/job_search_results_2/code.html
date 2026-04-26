@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jobs | Curated Career Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f0f3ff",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "tertiary": "#35424e",
+              "surface-dim": "#d0daf0",
+              "on-primary-container": "#bcceff",
+              "tertiary-fixed-dim": "#bac8d7",
+              "on-background": "#121c2c",
+              "on-secondary-container": "#596376",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#273141",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#b0c6ff",
+              "primary-fixed": "#d9e2ff",
+              "secondary-fixed": "#d9e3f9",
+              "on-primary-fixed": "#001945",
+              "surface-bright": "#f9f9ff",
+              "secondary": "#555f71",
+              "on-surface": "#121c2c",
+              "on-secondary-fixed-variant": "#3d4759",
+              "secondary-fixed-dim": "#bdc7dc",
+              "primary-container": "#0f52ba",
+              "tertiary-fixed": "#d6e4f4",
+              "on-tertiary-fixed": "#001945",
+              "on-tertiary-fixed-variant": "#3b4855",
+              "surface": "#f9f9ff",
+              "secondary-container": "#d6e0f6",
+              "outline": "#737784",
+              "surface-tint": "#1d59c1",
+              "surface-container-high": "#dee8ff",
+              "on-secondary-fixed": "#121c2c",
+              "error": "#ba1a1a",
+              "background": "#f9f9ff",
+              "on-tertiary-container": "#c2d0df",
+              "surface-variant": "#d9e3f9",
+              "inverse-on-surface": "#ebf1ff",
+              "on-primary-fixed-variant": "#00419c",
+              "primary": "#003c90",
+              "surface-container-highest": "#d9e3f9",
+              "on-surface-variant": "#434653",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#e7eeff",
+              "tertiary-container": "#4c5966",
+              "inverse-primary": "#b0c6ff",
+              "outline-variant": "#c3c6d5",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)]">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">
+                Curated Career Architect
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#003c90] dark:text-[#d9e2ff] border-b-2 border-[#003c90] dark:border-[#d9e2ff] pb-1 font-semibold" href="#">Jobs</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Prep Hub</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Dashboard</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90]" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/10">
+<img alt="User Profile Avatar" data-alt="Close up portrait of a professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl4yAPhQlSy729XmJsjYC_I6KtQh7iHcvjpH0yYoJujr8hrVMojeUSaVKtpzmbA5WCG0YRKc43gpAvDmwrt1rYTkoEG2ZZC1Pf8q7790RXmGJmwrpi1VmD0q3VVr10mmILeoGXd4PjJUBvXVtg1vo43YZhlF7deD12xVc60mexbdcyB32V7N8TVQfoqXP_9lmX5MnhKzEUqth_y3uUsfH8IBLYIEXpVDShiMl8zjuV5FSMst-e7ugQ0GQ_B1f4vqXoLUMCcF1kfWM"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="pt-28 pb-20 px-8 max-w-[1440px] mx-auto min-h-screen">
+<!-- Search Hero Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row gap-4 items-center bg-surface-container-low p-6 rounded-full shadow-sm">
+<div class="flex-1 flex items-center bg-surface-container-lowest px-6 py-3 rounded-full border border-outline-variant/10 focus-within:border-primary/20 transition-all w-full">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder-on-surface-variant/60" placeholder="Job title, keywords, or company" type="text"/>
+</div>
+<div class="flex-1 flex items-center bg-surface-container-lowest px-6 py-3 rounded-full border border-outline-variant/10 focus-within:border-primary/20 transition-all w-full">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="location_on">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder-on-surface-variant/60" placeholder="City, state, or remote" type="text"/>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all active:scale-95">
+                    Find Jobs
+                </button>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<span class="text-sm font-medium text-secondary py-2">Suggested:</span>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Product Designer</button>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Software Engineer</button>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Marketing Manager</button>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Data Analyst</button>
+</div>
+</section>
+<div class="flex flex-col md:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-72 flex-shrink-0 space-y-10">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Job Type</h3>
+<div class="space-y-4">
+<label class="flex items-center group cursor-pointer">
+<input class="rounded-sm border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Full-time</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="rounded-sm border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Contract</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="rounded-sm border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Freelance</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Experience Level</h3>
+<div class="space-y-4">
+<label class="flex items-center group cursor-pointer">
+<input class="border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" name="exp" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Entry Level</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" name="exp" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Senior (5+ yrs)</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" name="exp" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Principal / Lead</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Salary Range</h3>
+<div class="bg-surface-container-high h-1.5 rounded-full relative mb-4">
+<div class="absolute left-1/4 right-1/4 h-full bg-primary rounded-full"></div>
+<div class="absolute left-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md"></div>
+<div class="absolute right-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md"></div>
+</div>
+<div class="flex justify-between text-sm text-secondary">
+<span>$80k</span>
+<span>$180k+</span>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Source</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-md bg-primary text-on-primary text-xs font-semibold">LinkedIn</button>
+<button class="px-4 py-2 rounded-md bg-surface-container-highest text-on-surface-variant text-xs font-semibold hover:bg-surface-container-high transition-colors">Nauru.com</button>
+<button class="px-4 py-2 rounded-md bg-surface-container-highest text-on-surface-variant text-xs font-semibold hover:bg-surface-container-high transition-colors">Indeed</button>
+</div>
+</div>
+</aside>
+<!-- Jobs Feed -->
+<div class="flex-1 space-y-6">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-lg font-semibold text-primary">124 Relevant Opportunities</h2><div class="flex items-center gap-3 mt-2"><span class="flex items-center gap-1.5 px-2.5 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold uppercase tracking-wider rounded-full border border-green-200 dark:border-green-800/50"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Real-time data from LinkedIn &amp; Naukri.com</span><span class="text-xs text-secondary italic flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">history</span>Updated 2 hours ago</span></div>
+<div class="flex items-center text-sm text-secondary">
+<span>Sort by:</span>
+<select class="bg-transparent border-none focus:ring-0 font-semibold text-on-surface cursor-pointer">
+<option>Most Recent</option>
+<option>Highest Salary</option>
+<option>Best Match</option>
+</select>
+</div>
+</div>
+<!-- Job Card 1 -->
+<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center p-2 overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Corporate minimalist technology company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHcGzMhkmXVWB5ztUswChTsA-dg4MgJLYo6--I4YrlH7AbJQZcSkS3WiwyEiSXem3tqzhxXWVJE0RCP4t_Euut--nOlTgG1SBc7FMUCY3xtboIW48XhXoaNfVEECGgIGcqrajgkNFxomCzUcLjjh7VEiyA82PuN5IW0reMPevOlYX8h_Wo0OIkk_pdD4bloAZOE2mDkq5OpJb9AeFHzca8t9pdzn0yy7Nnhxl_c5A1E-fVt6ppDKVTiGxpkW1C4w6HFli8oHFfyEA"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-1 tracking-tight">Senior Experience Designer</h3>
+<p class="text-on-surface-variant font-medium">Lumina Systems • <span class="text-secondary font-normal">Remote</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-md text-xs font-bold uppercase tracking-tighter">LinkedIn</span>
+<span class="text-xs text-secondary">2 hours ago</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">We are looking for a curator of digital experiences to lead our core product vertical. You will define the visual language for our next-gen analytics suite using Organic Functionalism...</p>
+<div class="flex flex-wrap items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span>
+                                $145k – $190k
+                            </div>
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="work">work</span>
+                                Full-time
+                            </div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-xl text-primary font-semibold hover:bg-surface-container-high transition-colors">Details</button>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Quick Apply</button>
+</div>
+</div>
+</article>
+<!-- Job Card 2 -->
+<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center p-2 overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Modern geometric startup company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkEfjWCywMGy-rnnkWPsWkSLJpxhqad5BPjiML7IieNtW7oyY8M_7F2_OlVYl7LHjiv-H3Xg92KUqyz-Q0bwp9NW8kPIjLRETwtnG98cA0dBEC8JnfUbMT53dIjrg25Gef30SF_5fv2FLPhmItoBy2LCuDXfGUQTi3S4smMA1DE6w8CvqyPPqzpYUVEoQTLEnUS3e01Sqs-Fm0W5KT_7YthjJkkIdpf9ygKCtldsZeWbRDgxqJhh4fimLqkjV6As_w5AuP2QIgbzw"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-1 tracking-tight">Principal Product Architect</h3>
+<p class="text-on-surface-variant font-medium">Aura Labs • <span class="text-secondary font-normal">San Francisco, CA</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-md text-xs font-bold uppercase tracking-tighter">Nauru.com</span>
+<span class="text-xs text-secondary">5 hours ago</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">Lead the architectural vision for high-scale distributed systems. Focus on performance, scalability, and elegant engineering solutions for global markets...</p>
+<div class="flex flex-wrap items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span>
+                                $210k – $280k
+                            </div>
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="work">work</span>
+                                Contract
+                            </div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-xl text-primary font-semibold hover:bg-surface-container-high transition-colors">Details</button>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Quick Apply</button>
+</div>
+</div>
+</article>
+<!-- Job Card 3 -->
+<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center p-2 overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Sleek abstract corporate branding icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXxrimnht7zUrLUnA6KA9dgveyMpGUoYptNiCtORJpfSpN2rNcEjil0maj6AaVl1vYgMeD-ilIuJdRQXHFrFPDxjRmMG4CckK-alAfJ2e1zIriR_NlcmZtfGQZ413Zq0W02XzZRR_edpYh_UWkCJX2X1TAhvjNJomb5JdeGd4aAGesvaqW_8IT5gDorp112h6ZIt_nmtBPdxo26Wo5GBtiVPVlx76xcMl7sIHSSsQtvWreeFdDuA9cdatVeAFuBufo_yLAZjM89X0"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-1 tracking-tight">Growth Marketing Strategist</h3>
+<p class="text-on-surface-variant font-medium">Cortex Digital • <span class="text-secondary font-normal">New York, NY (Hybrid)</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-md text-xs font-bold uppercase tracking-tighter">LinkedIn</span>
+<span class="text-xs text-secondary">Yesterday</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">Develop data-driven marketing frameworks that scale. We need a strategist who understands the intersection of brand narrative and performance analytics...</p>
+<div class="flex flex-wrap items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span>
+                                $120k – $155k
+                            </div>
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="work">work</span>
+                                Full-time
+                            </div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-xl text-primary font-semibold hover:bg-surface-container-high transition-colors">Details</button>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Quick Apply</button>
+</div>
+</div>
+</article>
+<div class="pt-10 flex justify-center">
+<nav class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">3</button>
+<span class="px-2 text-secondary">...</span>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">12</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 mt-auto bg-[#e7eeff] dark:bg-[#0f172a]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto text-sm font-['Inter'] leading-relaxed">
+<div class="space-y-6">
+<div class="font-bold text-[#003c90] dark:text-[#d9e2ff] text-lg">Curated Career Architect</div>
+<p class="text-[#555f71] dark:text-[#94a3b8]">Precision-engineered recruitment for the modern professional. Organic Functionalism in action.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#003c90] cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-[#003c90] cursor-pointer" data-icon="hub">hub</span>
+<span class="material-symbols-outlined text-[#003c90] cursor-pointer" data-icon="share">share</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Platform</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Jobs</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Prep Hub</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">LinkedIn Integration</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Newsletter</h4>
+<p class="text-[#555f71] dark:text-[#94a3b8] mb-4">Get the best job matches delivered to your inbox weekly.</p>
+<div class="flex bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/20 focus-within:ring-2 focus-within:ring-primary/10">
+<input class="bg-transparent border-none px-4 py-2 w-full text-xs" placeholder="Email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-8 mt-20 pt-8 border-t border-primary/5 text-center text-[#555f71] dark:text-[#94a3b8]">
+            © 2026 Curated Career Architect. Organic Functionalism in Recruitment.
+        </div>
+</footer>
+</body></html>

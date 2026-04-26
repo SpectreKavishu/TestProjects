@@ -1,0 +1,39 @@
+{
+    "layoutTemplateId": "2_columns_ii",
+    "privatePages": [
+        {
+            "friendlyURL": "/home",
+            "name": "Home",
+            "title": "Home - Simple Theme",
+            "columns": [
+                [
+                    {
+                        "portletId": "com_liferay_hello_world_web_portlet_HelloWorldPortlet"
+                    }
+                ],
+                [
+                    {
+                        "portletId": "com_liferay_login_web_portlet_LoginPortlet"
+                    }
+                ]
+            ]
+        }
+    ],
+    "publicPages": [
+        {
+            "friendlyURL": "/welcome",
+            "name": "Welcome",
+            "title": "Welcome - Simple Theme Demo",
+            "columns": [
+                [
+                    {
+                        "portletId": "com_liferay_hello_world_web_portlet_HelloWorldPortlet",
+                        "portletPreferences": {
+                            "greeting": ["Welcome to our simple theme!"]
+                        }
+                    }
+                ]
+            ]
+        }
+    ]
+}

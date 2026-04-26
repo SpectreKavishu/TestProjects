@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: pgvector/pgvector:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: finance_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgvector-data:/var/lib/postgresql/data
+      # Mount schema.sql to initialize the database
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+volumes:
+  pgvector-data:

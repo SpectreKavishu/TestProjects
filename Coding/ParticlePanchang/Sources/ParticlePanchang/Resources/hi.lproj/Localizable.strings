@@ -1,0 +1,44 @@
+"app_title" = "पंचांग";
+"today_title" = "आज";
+"upcoming_title" = "आगामी";
+"settings_title" = "सेटिंग्स";
+"day_details_title" = "दिन का विवरण";
+
+"tab_today" = "आज";
+"tab_upcoming" = "आगामी";
+"tab_settings" = "सेटिंग्स";
+
+"time_ist" = "भारतीय मानक समय";
+
+"key_observances" = "मुख्य व्रत/अनुष्ठान";
+"astronomical_details" = "खगोलीय विवरण";
+
+"sunrise" = "सूर्योदय";
+"sunset" = "सूर्यास्त";
+"moonrise" = "चंद्रोदय";
+"moonset" = "चंद्रास्त";
+
+"nakshatra" = "नक्षत्र";
+"yoga" = "योग";
+"karana" = "करण";
+"paksha" = "पक्ष";
+"month" = "मास";
+"auspicious" = "शुभ समय";
+
+"no_data_title" = "डेटा उपलब्ध नहीं";
+"no_data_body" = "आज का विवरण देखने के लिए पंचांग डेटा स्रोत जोड़ें।";
+
+"section_tithi" = "तिथि";
+"section_panchang" = "पंचांग";
+"section_sun_moon" = "सूर्य व चंद्र";
+"section_auspicious" = "शुभ मुहूर्त";
+"section_festivals" = "त्योहार";
+
+"location_title" = "स्थान";
+"data_source_title" = "डेटा स्रोत";
+
+"timezone_label" = "समय क्षेत्र: %@";
+"gps_coming" = "जीपीएस समर्थन जल्द आ रहा है।";
+
+"data_source_name" = "नमूना पंचांग फ़ीड";
+"data_source_body" = "लाइव तिथि, नक्षत्र और त्यौहार डेटा के लिए API जोड़ें।";

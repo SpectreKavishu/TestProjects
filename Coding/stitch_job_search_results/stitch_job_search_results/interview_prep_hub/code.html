@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prep Hub | Curated Career Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f0f3ff",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "tertiary": "#35424e",
+              "surface-dim": "#d0daf0",
+              "on-primary-container": "#bcceff",
+              "tertiary-fixed-dim": "#bac8d7",
+              "on-background": "#121c2c",
+              "on-secondary-container": "#596376",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#273141",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#b0c6ff",
+              "primary-fixed": "#d9e2ff",
+              "secondary-fixed": "#d9e3f9",
+              "on-primary-fixed": "#001945",
+              "surface-bright": "#f9f9ff",
+              "secondary": "#555f71",
+              "on-surface": "#121c2c",
+              "on-secondary-fixed-variant": "#3d4759",
+              "secondary-fixed-dim": "#bdc7dc",
+              "primary-container": "#0f52ba",
+              "tertiary-fixed": "#d6e4f4",
+              "on-tertiary-fixed": "#0f1d28",
+              "on-tertiary-fixed-variant": "#3b4855",
+              "surface": "#f9f9ff",
+              "secondary-container": "#d6e0f6",
+              "outline": "#737784",
+              "surface-tint": "#1d59c1",
+              "surface-container-high": "#dee8ff",
+              "on-secondary-fixed": "#121c2c",
+              "error": "#ba1a1a",
+              "background": "#f9f9ff",
+              "on-tertiary-container": "#c2d0df",
+              "surface-variant": "#d9e3f9",
+              "inverse-on-surface": "#ebf1ff",
+              "on-primary-fixed-variant": "#00419c",
+              "primary": "#003c90",
+              "surface-container-highest": "#d9e3f9",
+              "on-surface-variant": "#434653",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#e7eeff",
+              "tertiary-container": "#4c5966",
+              "inverse-primary": "#b0c6ff",
+              "outline-variant": "#c3c6d5",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #003c90 0%, #0f52ba 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] font-['Inter'] antialiased tracking-tight">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">Curated Career Architect</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Jobs</a>
+<a class="text-[#003c90] dark:text-[#d9e2ff] border-b-2 border-[#003c90] dark:border-[#d9e2ff] pb-1 font-semibold" href="#">Prep Hub</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Dashboard</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out text-[#003c90] dark:text-[#d9e2ff]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out text-[#003c90] dark:text-[#d9e2ff]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden ml-2 border-2 border-primary-fixed">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5oa83Sc2EQwuh-Q-wCqj2JhSrkWqBN3HArg7BvsdUq8LT7ufDsZF9ne_mcMilikBb5IGAhxURDwr-iBRLAUtesTw9hF2H5XoQZSWpsQp_7fBtQEbqv4qK7IE23EdV6afspEvHM724GrmxhGGH7KzvoZAgjZGZV5xhG_QsSMurE2XsOM072GBqg0aDRk_jWPhMKQQr2yE-I9YB1AASmf4cYDO4iwna3pPR6MoL7UmF--Cchpd5k-WnzDA_hcYcy7H5j6FcVeCHkq4"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-8 max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<header class="mb-20">
+<h1 class="text-[3.5rem] font-extrabold text-primary leading-tight tracking-tight mb-6">Master the Interview.</h1>
+<p class="text-xl text-secondary max-w-2xl leading-relaxed">
+                Precision-engineered resources to help you navigate high-stakes technical assessments and behavioral panels with clinical confidence.
+            </p>
+</header>
+<!-- Featured Categories (Bento Grid) -->
+<section class="mb-24">
+<h2 class="text-label-md uppercase tracking-widest text-primary font-bold mb-8">Featured Learning Paths</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+<!-- Large DSA Card -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between group cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all">
+<div>
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4">Data Structures &amp; Algorithms</h3>
+<p class="text-on-surface-variant leading-relaxed">HackerRank-inspired curriculum covering everything from basic arrays to complex dynamic programming. Optimized for Big Tech standards.</p>
+</div>
+<div class="flex items-center gap-4 mt-8">
+<span class="bg-surface-container-high text-primary px-3 py-1 rounded-md text-sm font-semibold">124 Challenges</span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-md text-sm font-semibold">Most Popular</span>
+</div>
+</div>
+<!-- System Design -->
+<div class="md:col-span-2 bg-surface-container-highest rounded-xl p-8 flex items-center gap-6 group cursor-pointer transition-all hover:bg-surface-container-high">
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-4xl" data-icon="hub">hub</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">System Design</h3>
+<p class="text-secondary text-sm">Scalability, Load Balancing, and Database Sharding for L5+ roles.</p>
+</div>
+</div>
+<!-- Behavioral -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col justify-center group cursor-pointer transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="record_voice_over">record_voice_over</span>
+<h3 class="text-lg font-bold text-primary mb-2">Behavioral Masterclass</h3>
+<p class="text-secondary text-xs">The STAR Method, refined for cultural alignment.</p>
+</div>
+<!-- SQL -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col justify-center group cursor-pointer transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="database">database</span>
+<h3 class="text-lg font-bold text-primary mb-2">SQL Practice</h3>
+<p class="text-secondary text-xs">Query optimization and complex joins for Data Engineers.</p>
+</div>
+</div>
+</section>
+<!-- Resource Cards (Editorial Grid) -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-label-md uppercase tracking-widest text-primary font-bold mb-2">Curated Challenges</h2>
+<p class="text-secondary">Hand-picked by lead architects from Meta and Google.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary text-sm font-semibold">All</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">Easy</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">Medium</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">Hard</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/15 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="px-2 py-1 rounded bg-green-100 text-green-800 text-[10px] font-bold uppercase tracking-wider">Easy</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 15m
+                        </span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-3">Two Sum Optimization</h4>
+<p class="text-on-surface-variant text-sm flex-grow mb-6 leading-relaxed">Learn how to reduce time complexity from O(n²) to O(n) using HashMaps. A classic warm-up for any coding interview.</p>
+<button class="w-full py-3 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">Launch Editor</button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/15 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="px-2 py-1 rounded bg-orange-100 text-orange-800 text-[10px] font-bold uppercase tracking-wider">Medium</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 45m
+                        </span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-3">LRU Cache Design</h4>
+<p class="text-on-surface-variant text-sm flex-grow mb-6 leading-relaxed">Implement a Least Recently Used (LRU) cache with O(1) get and put operations. Tests your understanding of Doubly Linked Lists.</p>
+<button class="w-full py-3 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">Launch Editor</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/15 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="px-2 py-1 rounded bg-red-100 text-red-800 text-[10px] font-bold uppercase tracking-wider">Hard</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 90m
+                        </span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-3">Messenger System Design</h4>
+<p class="text-on-surface-variant text-sm flex-grow mb-6 leading-relaxed">Design a real-time chat application. Focus on WebSockets, Message Queues, and eventual consistency across regions.</p>
+<button class="w-full py-3 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">View Case Study</button>
+</div>
+</div>
+</section>
+<!-- Tips from Experts (Asymmetric Two-Tone Layout) -->
+<section class="bg-surface-container rounded-3xl p-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary-fixed/30 -skew-x-12 translate-x-1/2"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-label-md uppercase tracking-widest text-primary font-bold mb-4">Tips from Experts</h2>
+<h3 class="text-4xl font-extrabold text-on-surface mb-8">Move beyond the technical.</h3>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-primary mb-2">Resume Revamp</h4>
+<p class="text-secondary leading-relaxed">"Stop listing tasks; start listing impact. Use the 'Accomplished [X] as measured by [Y] by doing [Z]' formula." — Elena, Talent Lead</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-primary mb-2">Salary Negotiation</h4>
+<p class="text-secondary leading-relaxed">"Never be the first to blink. Research the median for your role and level, but anchor your value to the problem you solve." — Marcus, Hiring Manager</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-xl">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-secondary-container"></div>
+<div>
+<p class="font-bold text-primary">Pro Tip of the Week</p>
+<p class="text-xs text-secondary">Updated 2 hours ago</p>
+</div>
+</div>
+<blockquote class="text-xl italic text-on-surface-variant leading-relaxed mb-6">
+                        "The best candidates don't just solve the problem; they narrate their thought process. I'm hiring your brain, not your keyboard."
+                    </blockquote>
+<button class="bg-gradient-primary text-on-primary px-8 py-4 rounded-xl font-bold w-full active:scale-95 transition-transform">Unlock Full Guide</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 mt-auto bg-[#e7eeff] dark:bg-[#0f172a] text-sm font-['Inter'] leading-relaxed">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto">
+<div class="md:col-span-1">
+<span class="font-bold text-[#003c90] dark:text-[#d9e2ff] text-lg block mb-6">Curated Career Architect</span>
+<p class="text-[#555f71] dark:text-[#94a3b8]">© 2024 Curated Career Architect. Organic Functionalism in Recruitment.</p>
+</div>
+<div>
+<h5 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Resources</h5>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Integration</h5>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">LinkedIn Integration</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Github Sync</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Contact</h5>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

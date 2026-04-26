@@ -1,0 +1,156 @@
+/* Sample Liferay Theme CSS */
+
+/* Basic styling for the theme */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+#banner {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.site-title {
+    margin: 0;
+    text-align: center;
+}
+
+.site-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-name {
+    font-size: 2em;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+/* Navigation Styles */
+#navigation {
+    background-color: #343a40;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#navigation li {
+    position: relative;
+}
+
+#navigation a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+#navigation a:hover {
+    background-color: #495057;
+}
+
+#navigation .selected > a {
+    background-color: #007bff;
+}
+
+/* Child menu styles */
+#navigation .child-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #495057;
+    min-width: 200px;
+    display: none;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+#navigation li:hover .child-menu {
+    display: flex;
+}
+
+#navigation .child-menu a {
+    padding: 10px 20px;
+    border-bottom: 1px solid #6c757d;
+}
+
+#navigation .child-menu a:hover {
+    background-color: #6c757d;
+}
+
+/* Content Styles */
+#content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    min-height: 400px;
+}
+
+/* Footer Styles */
+#footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    color: #6c757d;
+}
+
+.powered-by a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.powered-by a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #wrapper {
+        padding: 10px;
+    }
+
+    #navigation ul {
+        flex-direction: column;
+    }
+
+    .site-name {
+        font-size: 1.5em;
+    }
+
+    #content {
+        padding: 20px;
+    }
+}
+
+/* Utility Classes */
+.hide-accessible {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

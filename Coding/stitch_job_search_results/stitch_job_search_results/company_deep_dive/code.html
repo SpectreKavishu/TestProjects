@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Deep-Dive | Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#4c5966",
+                        "on-secondary-fixed": "#121c2c",
+                        "surface-container": "#e7eeff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#0f1d28",
+                        "on-tertiary-container": "#c2d0df",
+                        "inverse-primary": "#b0c6ff",
+                        "surface-container-low": "#f0f3ff",
+                        "on-surface": "#121c2c",
+                        "background": "#f9f9ff",
+                        "outline-variant": "#c3c6d5",
+                        "secondary-fixed": "#d9e3f9",
+                        "on-secondary-container": "#596376",
+                        "surface-variant": "#d9e3f9",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#434653",
+                        "on-primary-fixed": "#001945",
+                        "tertiary-fixed-dim": "#bac8d7",
+                        "surface": "#f9f9ff",
+                        "secondary": "#555f71",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#00419c",
+                        "on-primary-container": "#bcceff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "primary-container": "#0f52ba",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-tint": "#1d59c1",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "on-background": "#121c2c",
+                        "primary": "#003c90",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dee8ff",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "on-tertiary-fixed-variant": "#3b4855",
+                        "tertiary": "#35424e",
+                        "surface-container-highest": "#d9e3f9",
+                        "secondary-container": "#d6e0f6",
+                        "surface-dim": "#d0daf0",
+                        "tertiary-fixed": "#d6e4f4",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#737784",
+                        "inverse-surface": "#273141"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-3 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-blue-900 dark:text-blue-100 font-sans antialiased tracking-tight">
+                Architect
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Jobs</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Prep Hub</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Resume</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Network</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">settings</span>
+</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYnlVHjqyow38PVTWDd74Vs9aiAEHIm5xAVobO51pMlkaVnyxVFa_3yXcZfZJwD6PTlD9TqWjMS8yD-6isgApFvmXlmdd5ITnFL-KGPY-6MqwrARjcmfF-pEXNgnVn_rV4H6-ItR0KTcoAjeDi0700uI7VkLCdLX-m08DdqqYwaFtSKJz7rHGD-wFPD3pgcY2Z7CWHpYTG1Vzu3wMFXlJQyjeMFnxSfSTXMF1ye2qRPwIU-mwGqK3QiXwCDSkIncpXaK5sJwI3sLE"/>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-px"></div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 py-6 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r-0 z-40">
+<div class="px-6 mb-10 flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-blue-900 dark:text-blue-50 leading-tight">Career Architect</h2>
+<p class="text-[10px] uppercase tracking-widest text-secondary font-bold">The Digital Curator</p>
+</div>
+</div>
+<nav class="space-y-1 px-3 flex-1">
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">work</span> Jobs
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">psychology</span> Prep Hub
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">description</span> Resume
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">hub</span> Networking
+            </div>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-primary-container text-white rounded-xl font-bold text-sm shadow-md active:scale-95 transition-all">
+                Upgrade to Pro
+            </button>
+<div class="mt-6 flex flex-col space-y-2 border-t border-outline-variant/10 pt-4">
+<div class="text-slate-600 dark:text-slate-400 flex items-center px-2 py-1 text-sm hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-lg">settings</span> Settings
+                </div>
+<div class="text-slate-600 dark:text-slate-400 flex items-center px-2 py-1 text-sm hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-lg">help_outline</span> Help
+                </div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-20 pb-24 min-h-screen">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+<!-- Hero Section: Organic Asymmetry -->
+<section class="mb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-16 h-16 bg-surface-container-highest rounded-xl flex items-center justify-center">
+<img alt="Stripe Logo" class="w-10 h-10 object-contain" data-alt="Stripe Company Logo Minimalist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9zdncQWIDBv5YiqLB8xV_30t3aXI5jXQrAOrlYbIxeOGPtzaj1dFtliZeJp14A9UhpbaIgjh_uhU8G8K33P8Vf26dTeRaDZLHND2N7WbODevvM7Xg6cfJtB4piHk12lZ5pbwI4190GTVI7uKzb1HRp-JurHDjFhgLdVgYgvSRWmqKA_RXnm45a-jIiA8ggUBaIgkYMt5mEO-rWun3H-JJp9CIfyagfVmCGnQDDor12HefCXirJK9UZDwfk6Med34sccSJwAj0OIo"/>
+</div>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-xs font-bold rounded-full">Active Hiring</span>
+</div>
+<h1 class="text-6xl font-headline font-bold tracking-tight text-on-surface mb-6 leading-[1.1]">
+                        Stripe: Building <br/><span class="text-primary italic">Financial Infrastructure</span> for the Internet.
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed mb-8">
+                        Stripe is a technology company that builds economic infrastructure for the internet. Businesses of every size use their software to accept payments and manage their businesses online.
+                    </p>
+<div class="flex space-x-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+                            View Open Roles
+                        </button>
+<button class="bg-surface-container-highest text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-high transition-all">
+                            Save Company
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square bg-surface-container rounded-[2rem] overflow-hidden rotate-3 shadow-xl">
+<img alt="Stripe Office" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern high-end office interior with glass walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMDhDpwJmN11UiU5T6mDEqXtFP9eRqqXu8XzMni1Ks7YF5JSUs3x8TJ580hN3yXLYd24DSuxeSp5qzOaBxC2U-w3UPaxkT3qVHENbXLeDyJZ9UNyRzekDH5Sc8MnP5Qrw5SQHL6mReh375Q4yaBT27s23rQQX2kNiaZeHDVvgSsTJos_sM6L1auL2XjjFAh405GX8lDeoRfJcSeCoYQtI9F8xVvhwIOeVmKK9CXQpWazOqdVDhQ1lK2IuSk9nal-FwNntP17DDPo4"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-2xl shadow-2xl max-w-[240px]">
+<p class="text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">Headquarters</p>
+<p class="text-sm font-semibold text-on-surface">San Francisco, CA</p>
+<div class="mt-4 flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2RuFzNdbHMYA5k69sQjEf39gVdi4OTiS7K9jmX-bm-9aCUaGiw4YSjN5qUVRqmxJy9ANa9sdpu2Wh3HPv0bYE4zMfgWUtcaXoZ-2nmLfuOfDT70QWOCmBVb7RKqRtwdIEP54Sk8WSQ5lWFcwYcwrISdBEIdwBRTExnSJMN3QKYHIKW2tThjy2SvsiccSngIQH0TtxsL_juuXv2os-hbHfWt4vfKjJNMuzxu0XRjGqNk9viaBjyvAp-PltNO3GVNtJSRwoU28fyP0"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbJt6Bt9Un_rHFbKo50Ryv8Irb6EDVldSx1yD3L9BMjc1NT3kOXzokJvS1dmC4sDH0gAepsJ5IhibcZuhhuC4Ip-UyHj8zXT0V4hj4m0rg-o0g6vRDXkqndZ5VWdxf_axQ6v1bWY4pPPNbUF8pf2ydZ4fS4MAUZ7dpa-TV866g2Ink_WxHlLeJKbvyafFaadb0W5VmOIu3STiCSeCHs8HoLuTD9WFgLasY5U5ym1lt_P37q_af8xwTESFzE_Ks_jrZh-qOB4TiwBA"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPacMhOrZ8Hk_9yQFPG2Qk8Bh3TwN4UHn6Zo3WZBEhRFxwV961n_wa6iCItuf7CUs6rtDPqh0dOWHE67E5NLMGnKX_dhhqVFZEHAw0QtCnfPaIi8svaXDCvchXAdDKcZqqqJQf2Ec7CE5ZQ54YlB0iWJ1I3cOGU8Ytnkj8zJLN_Y284vQKzvCtiPi0eluWCufb6IrKFib6cZBI1s_zgXOMAxxdaYSry5kAKUYyWXxZ2MYJagFXQUru6YiqesDN8ZmcFGEURj4Tpk"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Culture Showcase: Bento Large -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-2xl font-bold text-on-surface tracking-tight">Operating Principles</h3>
+<span class="material-symbols-outlined text-primary">diversity_3</span>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-sm font-bold text-primary mb-2">Users First</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We obsess over the customer experience and prioritize long-term user value over short-term gains.
+                            </p>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-2">Move Fast</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Stripe is a place for builders who value velocity and iterate quickly to solve complex problems.
+                            </p>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-2">Micro-Excellence</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We believe details matter. From API design to documentation, we strive for craft and precision.
+                            </p>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-2">Think Rigorously</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We value clear thinking and debate. Decisions are data-driven and backed by strong logical foundations.
+                            </p>
+</div>
+</div>
+<div class="mt-10 grid grid-cols-3 gap-4">
+<div class="h-32 bg-surface-container-low rounded-lg overflow-hidden">
+<img alt="Team Work" class="w-full h-full object-cover" data-alt="Team of developers collaborating in a lounge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqSk6-MdN1_UFmdZnAfJNvZ0UKBqcmS5kCxepNgjuEgUUnRsM9O2RMfIdQ9U47Wy9dqJsTIg3YXfZEdXU4Y_BDv0CC14yu1y6LsUu1ZDe4PHGOcVOCJWo5cBY9gOe8b0lj1Pydr3QhJkt9vtUbs8BPW6jCzktWKYJvz1jqPCiFM5trFaxfZSOyHdUSHuFnIJSIL3owT4mZto19rZi2XmWz7RvYpquukXMzrGk3--4NqLNU6r2pEsNe-7hsLAc3WlYfO1wSu-bDYL0"/>
+</div>
+<div class="h-32 bg-surface-container-low rounded-lg overflow-hidden">
+<img alt="Office Culture" class="w-full h-full object-cover" data-alt="Spacious modern office with wooden tables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaT2PRb_pWaXUX1bcWujRJ9UhOrmiUSUWCCexqPgjVHRHibQ4_f0J-QVy-vTE98jCoi_OLRrlM3L0m6q7O9SiFea9hUTWABNmKgGgzOdxbDbZ8OUKnCFVEvYe-myBJdDGG1jIyprncoYfHkhm-LFCaB-SjChZBoPsXo4rBAqkwhUpO_TsLv39BePVqRXR4VcuVxAgbFpj4lgoKzzC74GS4qM5RKquQQN1EtQ6uwcGbe5mMnOW8CX2WlyVlTb3Yqyllvy7oSBiBric"/>
+</div>
+<div class="h-32 bg-surface-container-low rounded-lg overflow-hidden">
+<img alt="Tech Setup" class="w-full h-full object-cover" data-alt="Close up of developer code on monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHGSk4WFgXmBx0UMXZtuOiSwSC8W-4QKpXYZCtSACuRsoGvUNJqy5u03-W6mzkaFsFYPfobVMHeYhUDRZCDZl1rpiZhIblOS1CLssObN4nKYrQFyq4C3ha0Uvkjlc7rLJobmIRoN9Ps64KcUyEjHTq5HAwqw4MVLpKhShBvx0TSJ_dwQ3i6kY1nqS77KRjJbxkSBt23vo2xroP9B3GR4ftWjU5klfXa9OuylcWkgzbzPQMNoRyzQgyQWeMgpg6qaDF-O_v0mSqHNQ"/>
+</div>
+</div>
+</div>
+<!-- Salary Intelligence -->
+<div class="bg-surface-container p-8 rounded-xl flex flex-col">
+<h3 class="text-xl font-bold text-on-surface tracking-tight mb-8">Compensation</h3>
+<div class="space-y-6 flex-1">
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Software Engineer L4</span>
+<span class="text-primary">$210k - $285k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Product Designer</span>
+<span class="text-primary">$180k - $240k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Site Reliability Eng</span>
+<span class="text-primary">$195k - $260k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-4/5 rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Data Scientist</span>
+<span class="text-primary">$175k - $230k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/2 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<p class="text-[10px] text-on-surface-variant italic">Data sourced from crowdsourced verified offers and internal benchmarks.</p>
+</div>
+</div>
+<!-- Interview Hub: Hackerrank Insights -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-error">terminal</span>
+<h3 class="text-xl font-bold text-on-surface tracking-tight">Interview Lab</h3>
+</div>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 block">Coding Challenge</span>
+<h4 class="text-sm font-bold text-on-surface mb-2">Idempotency Key Implementation</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">How would you design a system to ensure that repeated API calls with the same key don't trigger duplicate transactions?</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 block">System Design</span>
+<h4 class="text-sm font-bold text-on-surface mb-2">Design a Global Ledger</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Scale requirements: 100k TPS with strong consistency and auditability across multiple regions.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 block">Behavioral</span>
+<h4 class="text-sm font-bold text-on-surface mb-2">Disagreement with Data</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Tell me about a time you disagreed with a peer's technical approach and how you used data to find the best outcome.</p>
+</div>
+</div>
+<button class="w-full mt-6 py-3 text-sm font-bold text-primary hover:underline flex items-center justify-center">
+                        View All 42 Questions <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Alumni Network -->
+<div class="md:col-span-2 bg-surface-container-highest p-8 rounded-xl">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="text-2xl font-bold text-on-surface tracking-tight">Your Network Alumni</h3>
+<p class="text-sm text-on-secondary-container">6 connections from your network currently or previously worked at Stripe.</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYXfeRjXHTd0XvUUgEFiQE543gg78W0XLEDez8y4g-YNnbCusgq_VItXfwws3AAMRSRm0JkMZA7Hf_5OrRAPNbKWfIRi2MUJv5LHA7TXOivTLGxWYAkxFESkaM9RrUeqP2K14g1J9ZBoT03Q5-vWNCo4FmMCFZvqEEshOeZeeEhMu4qnHxPuMv0nLlVZUakdyWrolFm0SJvXEMSIAW1LuTgG4Geoqq5y_fBoPAXo_dqlSInflleM04L3SAC2A-4AG7TLvfAYL1Ho0"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Alex Rivera</h4>
+<p class="text-xs text-on-surface-variant">Senior Staff Engineer • Worked 2018-2022</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Request Intro</button>
+</div>
+</div>
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbjaEln8qziCybLlu6UcLyTx-2YarV8DUr_yJuArPFAWvMSVF1G-Sro7aT94Bf7t14I5qEuK69-4iS9-khMMLTAvOS-z_92hZytrxpmHk6uwri1cIrtNRA0zezObOy8IaSOonLTBufvWx18yJ70Oe3_Wta13OlmSJZQTM3GS3Z5MBkSqWZvjMJY0M7yvKdrao1rRym5FbvTMXKE07qRc0IJBcZ5JSKOYPaclFTudbHAcoPm3bHTlPc8of5tYISm12mN_gCg3_zxAw"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Sarah Jenkins</h4>
+<p class="text-xs text-on-surface-variant">Product Manager • Current</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Send Message</button>
+</div>
+</div>
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpOUicYX5RRzVwW5dd4Pe7me3VdQzY5Azgrx0CX1Dt5ZJDjW-Fv1bDd9nFRoKZMf8r7X7AzsOITpwB_boRLgyVa1sXRU90US1PnEqLmL2xWQjajk0i-lP5FKQf4vQALPxCHo4m6FrMgaM8IwcfoPuRow8DCArin7LuImhjON9QnSa5oaMvwCQ4ZrodoqU3_J5sh9TNI5BiIVUEwYRMSK0hPU3xsxqBYgSisnhPpXGKvXLLg9r5AaZy2CdOEpIPovD2KW-z11hT83g"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Marcus Thorne</h4>
+<p class="text-xs text-on-surface-variant">Infrastructure Lead • Worked 2016-2020</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Request Intro</button>
+</div>
+</div>
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCk2gllgLt56Q1D55DJZ2yQO_ytwkxc9Mo7uR8jwJR2Y4e6FzY1c4_K4ivzRwY2Hujtj2XLQ043Fyo88wduEGCFI02D1owLRFGJRFdkvUpiHFob8Rp37l-dT2G1wp_INAS1XNy6hH6zZx3ybiC6gf_es3zLn8Rx4eDeWQTomDXZcsEdxzGi7Pt0gTHSumIvDCXK2xg_l4jzoFV-rtcPWqqQqvGYhlzGcIE7ALL20LLPK4Ck_CzJ9oxI-SxGSHife-iB3xJkHNvWqI"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Elena Zhao</h4>
+<p class="text-xs text-on-surface-variant">UX Researcher • Current</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Send Message</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- News & Impact Section -->
+<section class="mt-20">
+<div class="flex justify-between items-end mb-10">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Latest Updates</span>
+<h3 class="text-4xl font-headline font-bold text-on-surface mt-2">Market Impact</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="space-y-8">
+<article class="flex space-x-6">
+<div class="w-24 h-24 bg-surface-container rounded-lg flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover rounded-lg" data-alt="Financial data dashboard on a screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeOXvk72S9XcXuBbRnGrXDPFdHrTWsctd2NKHA5TtuSYssRBxIiTuumPBWkCEpeKPtZ9DUitx4IlTT5KgdtEPjDkHc-YiDGmc5YdDpnmpJa8ecM5U8YRdYPgmemrvAQGRK4uJPYm0OEs6s-EmEUvemVwDlBeolWLZmW9wrtJfUmhBPnp3pur-WQ_Bpyzgu474bbPDUxQK3_Cjf3yTrrcqee_BKsr5L7SqnLB4M3pF6cAUqrmV40IsgJrmE0NbxEMdPJF-webMkG98"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">Stripe expands global footprint with new Asia-Pacific hub</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">The company announced a significant expansion in Singapore, aiming to hire 500+ engineers in the region over the next 24 months.</p>
+<span class="text-xs text-secondary font-medium">3 days ago • Business Insider</span>
+</div>
+</article>
+<article class="flex space-x-6">
+<div class="w-24 h-24 bg-surface-container rounded-lg flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover rounded-lg" data-alt="Close up of a keyboard and workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm6tRv4Qjcw7xtvEJC3gzay09rc2JegTy7s8mfNueGLRAWsFMff3JwbEnVT75LirbjL86Sqhu6KFMvui5Qh7zQ2RQa-g2WmG_Dtr_iOI3nmwuVZjBTntaxgLTLPv_-XxtPSa9VXUOuPdXF42FZdL8aFHpiDNoOMonXvLYsHVnnQbycWXDr5erBwyM7-neASqJNlubV9piVacEGfXltKnQInJZc3q2HpeKfLyA1ppEIpHTMnDeEySF7WdFLRMDL9jYBnoS8k13cQRk"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">Unveiling Stripe Apps: A new platform for developer tools</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">The new marketplace allows third-party developers to build custom workflows directly into the Stripe dashboard interface.</p>
+<span class="text-xs text-secondary font-medium">1 week ago • TechCrunch</span>
+</div>
+</article>
+</div>
+<div class="bg-primary text-white p-10 rounded-[2rem] flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-primary-container rounded-full opacity-50 blur-3xl"></div>
+<h4 class="text-3xl font-bold mb-6 relative z-10 italic">"The internet is still in its early stages."</h4>
+<p class="text-on-primary-container text-lg leading-relaxed relative z-10 opacity-90">
+                            Stripe’s mission is to increase the GDP of the internet. This isn't just about moving money; it's about building the complex systems that allow new businesses to exist.
+                        </p>
+<div class="mt-8 flex items-center relative z-10">
+<img alt="CEO" class="w-12 h-12 rounded-full border-2 border-primary-container mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOUCb71w2EqughWkpcbF5NiY22miBvNKhJCtGZj_bH2XiUFpJVZL_yqq4jNAMKnCJxb5WuXs--lktJFt3iphuhmQK-DCli4u0ldyVqMNVxMUf74n6gX5uWSogcVYJHMg9gWTLeOEGdGBRjs-b6TadGPAc7FfwHwZ1GcGs6GYTPf4Jp2JTTON4f41jyfMaOLjlRg_71Ay-l30NKhgofHokyZZrPYf4JNpWNioUX3_kUrID2xrU9S2ynB38TJEXt5cDSveo8lHHPO24"/>
+<div>
+<p class="text-sm font-bold">Patrick Collison</p>
+<p class="text-xs opacity-70">CEO &amp; Co-founder</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white/90 backdrop-blur-xl border-t border-slate-100 dark:bg-slate-900/90 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-[10px] font-bold mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] font-bold mt-1">Prep</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Dash</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="text-[10px] font-bold mt-1">Network</span>
+</a>
+</nav>
+</body></html>

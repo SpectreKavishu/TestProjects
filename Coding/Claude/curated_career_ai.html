@@ -1,0 +1,3070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curated Career Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-container-low": "#f0f3ff", "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff", "tertiary": "#35424e",
+        "surface-dim": "#d0daf0", "on-primary-container": "#bcceff",
+        "tertiary-fixed-dim": "#bac8d7", "on-background": "#121c2c",
+        "on-secondary-container": "#596376", "on-error": "#ffffff",
+        "on-secondary": "#ffffff", "inverse-surface": "#273141",
+        "on-primary": "#ffffff", "primary-fixed-dim": "#b0c6ff",
+        "primary-fixed": "#d9e2ff", "secondary-fixed": "#d9e3f9",
+        "on-primary-fixed": "#001945", "surface-bright": "#f9f9ff",
+        "secondary": "#555f71", "on-surface": "#121c2c",
+        "on-secondary-fixed-variant": "#3d4759", "secondary-fixed-dim": "#bdc7dc",
+        "primary-container": "#0f52ba", "tertiary-fixed": "#d6e4f4",
+        "on-tertiary-fixed": "#0f1d28", "on-tertiary-fixed-variant": "#3b4855",
+        "surface": "#f9f9ff", "secondary-container": "#d6e0f6",
+        "outline": "#737784", "surface-tint": "#1d59c1",
+        "surface-container-high": "#dee8ff", "on-secondary-fixed": "#121c2c",
+        "error": "#ba1a1a", "background": "#f9f9ff",
+        "on-tertiary-container": "#c2d0df", "surface-variant": "#d9e3f9",
+        "inverse-on-surface": "#ebf1ff", "on-primary-fixed-variant": "#00419c",
+        "primary": "#003c90", "surface-container-highest": "#d9e3f9",
+        "on-surface-variant": "#434653", "on-tertiary": "#ffffff",
+        "surface-container": "#e7eeff", "tertiary-container": "#4c5966",
+        "inverse-primary": "#b0c6ff", "outline-variant": "#c3c6d5",
+        "error-container": "#ffdad6"
+      },
+      fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] },
+      borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle;
+  }
+  #sidebar-nav {
+    position: fixed; top: 0; left: 0; height: 100vh; width: 76px;
+    background: rgba(249,249,255,0.94); backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 4px 0 24px rgba(18,28,44,0.06); z-index: 9999;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 12px 0 16px; gap: 2px; overflow-y: auto;
+    border-right: 1px solid rgba(195,198,213,0.2);
+  }
+  #sidebar-nav .site-logo {
+    font-size: 10px; font-weight: 900; color: #003c90; letter-spacing: -0.02em;
+    text-align: center; padding: 4px 6px 10px; line-height: 1.3;
+    border-bottom: 1px solid rgba(195,198,213,0.25); margin-bottom: 6px; width: 100%;
+  }
+  .nav-btn {
+    width: 64px; border: none; background: none; cursor: pointer;
+    font-family: "Inter", sans-serif; padding: 8px 4px; border-radius: 10px;
+    transition: all 0.15s;
+  }
+  .nav-btn:hover { background: #e7eeff; color: #003c90; }
+  .nav-btn.active { color: #003c90 !important; background: #d9e2ff !important; }
+  .nav-btn .material-symbols-outlined { font-size: 20px; display: block; margin: 0 auto 3px; }
+  .page-section { margin-left: 76px; }
+  .page-section nav.fixed, .page-section header.fixed {
+    left: 76px !important; width: calc(100% - 76px) !important;
+  }
+  .glass-header { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); }
+  .primary-gradient { background: linear-gradient(135deg, #003c90 0%, #0f52ba 100%); }
+  /* AI pages badge */
+  .ai-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: linear-gradient(135deg,#003c90,#0f52ba); color: #fff;
+    font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 20px;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-left: 4px;
+    vertical-align: middle;
+  }
+  
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    
+
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    
+
+
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    
+
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #003c90 0%, #0f52ba 100%);
+        }
+    
+
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .network-gradient {
+            background: linear-gradient(135deg, #003c90 0%, #0f52ba 100%);
+        }
+    
+
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    
+
+
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d9e3f9; border-radius: 10px; }
+    
+
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    
+
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Sidebar Nav -->
+<nav id="sidebar-nav">
+  <div class="site-logo">Curated<br/>Career</div>
+  <button onclick="showPage('landing_page')" id="nav-landing_page" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">home</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Home</span></button>
+<button onclick="showPage('job_search_results_1')" id="nav-job_search_results_1" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">work</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Jobs</span></button>
+<button onclick="showPage('user_dashboard')" id="nav-user_dashboard" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">dashboard</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Dashboard</span></button>
+<button onclick="showPage('interview_prep_hub')" id="nav-interview_prep_hub" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">psychology</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Interview<br/>Prep</span></button>
+<button onclick="showPage('networking_hub_1')" id="nav-networking_hub_1" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">hub</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Networking</span></button>
+<button onclick="showPage('salary_negotiation_guide_1')" id="nav-salary_negotiation_guide_1" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">payments</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Salary<br/>Guide</span></button>
+<button onclick="showPage('community_chat_hub')" id="nav-community_chat_hub" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">forum</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Community</span></button>
+<button onclick="showPage('company_deep_dive')" id="nav-company_deep_dive" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">business</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Companies</span></button>
+<button onclick="showPage('mock_interview_simulator')" id="nav-mock_interview_simulator" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">record_voice_over</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Mock<br/>Interview</span></button>
+<button onclick="showPage('ai_resume_builder')" id="nav-ai_resume_builder" class="nav-btn flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all text-[#555f71] hover:text-[#003c90] hover:bg-[#e7eeff]"><span class="material-symbols-outlined" style="font-size:20px">description</span><span style="font-size:9px;font-weight:600;line-height:1.2;text-align:center">Resume<br/>Builder</span></button>
+</nav>
+
+<!-- All Pages -->
+<div id="page-landing_page" class="page-section" style="display:block;">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)]">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">
+                Curated Career Architect
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Jobs</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Prep Hub</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Dashboard</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff]">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff]">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary-fixed">
+<img alt="User Profile Avatar" data-alt="Professional user avatar illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo71J98XCu2DYP0y6nIJ9nBzvXwuEyjplbSIM04tOIMAuxYLnlb_MNZB2ewxqAuzUx4TaVJcnoWefQej14F8r0W3wdFWOt4tLzXPlNH3IPkNdlwbMV9Ipif2U4AU9DYedR369VxuGefEpP1oAGcZJqWummJYeSumO9JgYFMzj4tBbh6A3TTVS7JhSSZLhq7lvRf7BgXePLS2u9Fle992-0ejArWTLF3-T3-fJCXVp1UFRGJsNGjuItvaFXsRPkJc2Nb0rz8_mNeOI"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex flex-col items-center justify-center px-8 py-20 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20">
+<div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary-container blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-secondary-container blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-4xl text-center space-y-8">
+<h1 class="text-6xl md:text-7xl font-extrabold text-primary tracking-tighter leading-[1.1]">
+                    Architect Your <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Next Big Move.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                    A bespoke recruitment consultancy experience, digitally curated for precision career advancement. No noise, just focus.
+                </p>
+<!-- Powerful Search Bar -->
+<div class="mt-12 bg-surface-container-lowest p-2 rounded-full shadow-[0_20px_40px_rgba(18,28,44,0.06)] flex flex-col md:flex-row items-center w-full max-w-3xl mx-auto border border-outline-variant/10">
+<div class="flex items-center flex-1 px-6 py-3 w-full border-b md:border-b-0 md:border-r border-outline-variant/15">
+<span class="material-symbols-outlined text-secondary mr-3">work</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-secondary/60" placeholder="Job Title or Keyword" type="text"/>
+</div>
+<div class="flex items-center flex-1 px-6 py-3 w-full">
+<span class="material-symbols-outlined text-secondary mr-3">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-secondary/60" placeholder="City or Remote" type="text"/>
+</div>
+<button class="w-full md:w-auto px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-full hover:shadow-lg transition-all active:scale-95">
+                        Search Jobs
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Jobs Grid -->
+<section class="max-w-[1440px] mx-auto px-8 py-24 bg-surface">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs">Curated Selection</span>
+<h2 class="text-4xl font-bold text-on-surface mt-2">Featured Positions</h2>
+</div>
+<button class="text-primary font-semibold flex items-center hover:underline">
+                    View All Jobs <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Job Card 1 (LinkedIn) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center p-2">
+<img alt="LinkedIn Logo" data-alt="LinkedIn company logo square" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjRAMJNTxxu8jNwRCZaqQ6DAHu1MN4S1967d6OlvvBnPKkf0GAh1qiMZB6G0ddEClH_7OudtfR7Fdi0Ih85kZ-3ath9qvbhtCLT815LtEHfMpZAyCqPdMiDSH8MB2qEjCOTRlmgHMBszJmd0R6AdFRuWa-RFoWTh2g-4UFSG8pjq_tQf_NIWKGMywTcgeJodEg4t_PszwMVVT3Jmz2Xbqub7ia8RoVt9vZzLTQqrZizV1i_HndIMPXftLTG0-EYcMI9MgT93BRZGI"/>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-md text-xs font-medium text-on-secondary-container">Full-time</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Senior UX Architect</h3>
+<p class="text-on-surface-variant text-sm mb-6">LinkedIn · San Francisco, CA</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">System Design</span>
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Leadership</span>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface">$160k - $210k</span>
+<span class="text-xs text-secondary italic">Posted 4h ago</span>
+</div>
+</div>
+<!-- Job Card 2 (Nauru.com) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center p-2">
+<span class="material-symbols-outlined text-primary text-3xl">language</span>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-md text-xs font-medium text-on-secondary-container">Remote</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Lead Backend Engineer</h3>
+<p class="text-on-surface-variant text-sm mb-6">Nauru.com · Global</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Go</span>
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Kubernetes</span>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface">$145k - $180k</span>
+<span class="text-xs text-secondary italic">Posted 1d ago</span>
+</div>
+</div>
+<!-- Job Card 3 (Design Agency) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center p-2 text-primary font-bold">
+                            CCA
+                        </div>
+<span class="bg-surface-container-high px-3 py-1 rounded-md text-xs font-medium text-on-secondary-container">Contract</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Visual Systems Designer</h3>
+<p class="text-on-surface-variant text-sm mb-6">Design Hub · London, UK</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Tokens</span>
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Figma</span>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface">£800/day</span>
+<span class="text-xs text-secondary italic">Posted 2h ago</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Elevate Your Interview Section -->
+<section class="bg-surface-container py-24">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="max-w-2xl mb-16">
+<h2 class="text-4xl font-bold text-primary mb-6">Elevate Your Interview</h2>
+<p class="text-lg text-secondary leading-relaxed">
+                        Getting the interview is only half the battle. Our curated resources ensure you're the most prepared candidate in the room.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Resource Card 1 -->
+<div class="flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="md:w-2/5 relative min-h-[240px]">
+<img alt="Interview Prep" class="absolute inset-0 w-full h-full object-cover" data-alt="Professional woman in a business meeting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkMWrK3sAriZKXsRDzO77yVwdBsO_8Bi7OsPkj21jK3Gn9-5e0mqs8pivCLQ_kFtqXaiyuBR53IYaqaeuuq_nntldrnFwEvxGnKCCAW8S9fucUgAxEgCYwWylbJU0i_4mkqlvxpwT3Oy22CN3m_T1RSorj9GxZ5aSjd4m6bogrCDgagsFNa2VOo9d6cvBC7MeIcTrfOLZ5OguEsAgNrI_Vm59N_A2zQ6oa-PQ9ckHaYtJUmA8DvijWtl2MPnDFeWWmKWRqOMgbXA0"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="md:w-3/5 p-8 flex flex-col justify-center">
+<div class="flex items-center text-primary-container text-xs font-bold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm mr-2">psychology</span> Behavioral Mastery
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Master Behavioral Questions</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                                Learn the STAR method through actual case studies from FAANG hiring managers.
+                            </p>
+<button class="text-primary font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                                Explore Guide <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Resource Card 2 -->
+<div class="flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="md:w-2/5 relative min-h-[240px]">
+<img alt="Technical Prep" class="absolute inset-0 w-full h-full object-cover" data-alt="Coding lines on a dark screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCuURKd2X4NlmILlRCSuJjioXvjB3ngN-emOQeQHNnM2K1DzTdjiO52v_Bti5G8gzg_p6Wcqe_e_sVDv4PNA8uqr6t5MThPdOLTTkYG6RqV5sbhhvFncTMlTFNC1qlzJaN9DY7j1SHjMqDoJ4E6iBj4B5H-XOgzcFYNY_RXNoKbBb31T_JyrE_jkGfQq-2RVYP2y4dV5JlLdfA1j32vX94OZ66Km6D9heJ7CbZiHGNlGcWI5rHCesq8-NEh_qFq8cNIdExXh1ccT0"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="md:w-3/5 p-8 flex flex-col justify-center">
+<div class="flex items-center text-primary-container text-xs font-bold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm mr-2">code</span> Engineering Track
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Technical Prep with HackerRank</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                                Integrated coding challenges and system design drills tailored to your target role.
+                            </p>
+<button class="text-primary font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                                Start Drills <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Use Our Platform (Asymmetric Bento Grid) -->
+<section class="max-w-[1440px] mx-auto px-8 py-32">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-bold text-on-surface">The Curator's Edge</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]">
+<div class="md:col-span-2 md:row-span-2 bg-primary rounded-xl p-12 text-on-primary flex flex-col justify-end relative overflow-hidden">
+<span class="material-symbols-outlined absolute top-12 right-12 text-[120px] opacity-10">verified_user</span>
+<h3 class="text-3xl font-bold mb-4">Unrivaled Security</h3>
+<p class="text-on-primary/80 max-w-md text-lg">
+                        Your career data is encrypted and confidential. We ensure your job search remains private from current employers with advanced stealth mode.
+                    </p>
+</div>
+<div class="bg-surface-container-high rounded-xl p-8 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Instant Sync</h3>
+<p class="text-sm text-on-surface-variant">Real-time alerts for jobs that match your exact profile criteria.</p>
+</div>
+</div>
+<div class="bg-secondary-container rounded-xl p-8 flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl">inventory_2</span>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Total Resources</h3>
+<p class="text-sm text-on-surface-variant">From CV templates to salary negotiation scripts, all in one place.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1440px] mx-auto px-8 mb-24">
+<div class="bg-gradient-to-r from-primary to-primary-container rounded-[2rem] p-16 text-center text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<h2 class="text-4xl md:text-5xl font-extrabold mb-6 relative z-10">Ready to Architect Your Future?</h2>
+<p class="text-xl text-primary-fixed mb-10 max-w-2xl mx-auto relative z-10">Join 50,000+ professionals who have elevated their careers through our curated ecosystem.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="px-12 py-5 bg-surface-container-lowest text-primary font-bold rounded-full hover:shadow-xl transition-all active:scale-95">Get Started for Free</button>
+<button class="px-12 py-5 border-2 border-primary-fixed text-on-primary font-bold rounded-full hover:bg-primary-fixed/10 transition-all">Book a Demo</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 bg-[#e7eeff] dark:bg-[#0f172a] mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto text-sm font-['Inter'] leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<div class="font-bold text-[#003c90] dark:text-[#d9e2ff] text-lg mb-6">
+                    Curated Career Architect
+                </div>
+<p class="text-[#555f71] dark:text-[#94a3b8] mb-6">
+                    © 2024 Curated Career Architect. Organic Functionalism in Recruitment.
+                </p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff] cursor-pointer opacity-80 hover:opacity-100 transition-opacity">language</span>
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff] cursor-pointer opacity-80 hover:opacity-100 transition-opacity">share</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6 uppercase tracking-widest text-xs">Platform</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Jobs</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">LinkedIn Integration</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Prep Hub</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Salary Benchmarks</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6 uppercase tracking-widest text-xs">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Help Center</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
+<p class="text-[#555f71] dark:text-[#94a3b8] mb-4">Curated career insights delivered weekly.</p>
+<div class="flex">
+<input class="bg-surface-container-lowest border-none rounded-l-lg px-4 py-2 w-full focus:ring-1 focus:ring-primary text-xs" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-r-lg">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+<div id="page-job_search_results_1" class="page-section" style="display:none;">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)]">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">
+                Curated Career Architect
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#003c90] dark:text-[#d9e2ff] border-b-2 border-[#003c90] dark:border-[#d9e2ff] pb-1 font-semibold" href="#">Jobs</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Prep Hub</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Dashboard</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90]" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/10">
+<img alt="User Profile Avatar" data-alt="Close up portrait of a professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl4yAPhQlSy729XmJsjYC_I6KtQh7iHcvjpH0yYoJujr8hrVMojeUSaVKtpzmbA5WCG0YRKc43gpAvDmwrt1rYTkoEG2ZZC1Pf8q7790RXmGJmwrpi1VmD0q3VVr10mmILeoGXd4PjJUBvXVtg1vo43YZhlF7deD12xVc60mexbdcyB32V7N8TVQfoqXP_9lmX5MnhKzEUqth_y3uUsfH8IBLYIEXpVDShiMl8zjuV5FSMst-e7ugQ0GQ_B1f4vqXoLUMCcF1kfWM"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="pt-28 pb-20 px-8 max-w-[1440px] mx-auto min-h-screen">
+<!-- Search Hero Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row gap-4 items-center bg-surface-container-low p-6 rounded-full shadow-sm">
+<div class="flex-1 flex items-center bg-surface-container-lowest px-6 py-3 rounded-full border border-outline-variant/10 focus-within:border-primary/20 transition-all w-full">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder-on-surface-variant/60" placeholder="Job title, keywords, or company" type="text"/>
+</div>
+<div class="flex-1 flex items-center bg-surface-container-lowest px-6 py-3 rounded-full border border-outline-variant/10 focus-within:border-primary/20 transition-all w-full">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="location_on">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder-on-surface-variant/60" placeholder="City, state, or remote" type="text"/>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all active:scale-95">
+                    Find Jobs
+                </button>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<span class="text-sm font-medium text-secondary py-2">Suggested:</span>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Product Designer</button>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Software Engineer</button>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Marketing Manager</button>
+<button class="px-4 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant text-sm hover:bg-primary-fixed transition-colors">Data Analyst</button>
+</div>
+</section>
+<div class="flex flex-col md:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-72 flex-shrink-0 space-y-10">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Job Type</h3>
+<div class="space-y-4">
+<label class="flex items-center group cursor-pointer">
+<input class="rounded-sm border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Full-time</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="rounded-sm border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Contract</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="rounded-sm border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Freelance</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Experience Level</h3>
+<div class="space-y-4">
+<label class="flex items-center group cursor-pointer">
+<input class="border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" name="exp" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Entry Level</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" name="exp" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Senior (5+ yrs)</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="border-outline-variant text-primary focus:ring-primary/20 h-5 w-5 mr-3" name="exp" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Principal / Lead</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Salary Range</h3>
+<div class="bg-surface-container-high h-1.5 rounded-full relative mb-4">
+<div class="absolute left-1/4 right-1/4 h-full bg-primary rounded-full"></div>
+<div class="absolute left-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md"></div>
+<div class="absolute right-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md"></div>
+</div>
+<div class="flex justify-between text-sm text-secondary">
+<span>$80k</span>
+<span>$180k+</span>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-6">Source</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-md bg-primary text-on-primary text-xs font-semibold">LinkedIn</button>
+<button class="px-4 py-2 rounded-md bg-surface-container-highest text-on-surface-variant text-xs font-semibold hover:bg-surface-container-high transition-colors">Nauru.com</button>
+<button class="px-4 py-2 rounded-md bg-surface-container-highest text-on-surface-variant text-xs font-semibold hover:bg-surface-container-high transition-colors">Indeed</button>
+</div>
+</div>
+</aside>
+<!-- Jobs Feed -->
+<div class="flex-1 space-y-6">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-lg font-semibold text-primary">124 Relevant Opportunities</h2>
+<div class="flex items-center text-sm text-secondary">
+<span>Sort by:</span>
+<select class="bg-transparent border-none focus:ring-0 font-semibold text-on-surface cursor-pointer">
+<option>Most Recent</option>
+<option>Highest Salary</option>
+<option>Best Match</option>
+</select>
+</div>
+</div>
+<!-- Job Card 1 -->
+<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center p-2 overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Corporate minimalist technology company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHcGzMhkmXVWB5ztUswChTsA-dg4MgJLYo6--I4YrlH7AbJQZcSkS3WiwyEiSXem3tqzhxXWVJE0RCP4t_Euut--nOlTgG1SBc7FMUCY3xtboIW48XhXoaNfVEECGgIGcqrajgkNFxomCzUcLjjh7VEiyA82PuN5IW0reMPevOlYX8h_Wo0OIkk_pdD4bloAZOE2mDkq5OpJb9AeFHzca8t9pdzn0yy7Nnhxl_c5A1E-fVt6ppDKVTiGxpkW1C4w6HFli8oHFfyEA"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-1 tracking-tight">Senior Experience Designer</h3>
+<p class="text-on-surface-variant font-medium">Lumina Systems • <span class="text-secondary font-normal">Remote</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-md text-xs font-bold uppercase tracking-tighter">LinkedIn</span>
+<span class="text-xs text-secondary">2 hours ago</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">We are looking for a curator of digital experiences to lead our core product vertical. You will define the visual language for our next-gen analytics suite using Organic Functionalism...</p>
+<div class="flex flex-wrap items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span>
+                                $145k – $190k
+                            </div>
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="work">work</span>
+                                Full-time
+                            </div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-xl text-primary font-semibold hover:bg-surface-container-high transition-colors">Details</button>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Quick Apply</button>
+</div>
+</div>
+</article>
+<!-- Job Card 2 -->
+<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center p-2 overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Modern geometric startup company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkEfjWCywMGy-rnnkWPsWkSLJpxhqad5BPjiML7IieNtW7oyY8M_7F2_OlVYl7LHjiv-H3Xg92KUqyz-Q0bwp9NW8kPIjLRETwtnG98cA0dBEC8JnfUbMT53dIjrg25Gef30SF_5fv2FLPhmItoBy2LCuDXfGUQTi3S4smMA1DE6w8CvqyPPqzpYUVEoQTLEnUS3e01Sqs-Fm0W5KT_7YthjJkkIdpf9ygKCtldsZeWbRDgxqJhh4fimLqkjV6As_w5AuP2QIgbzw"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-1 tracking-tight">Principal Product Architect</h3>
+<p class="text-on-surface-variant font-medium">Aura Labs • <span class="text-secondary font-normal">San Francisco, CA</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-md text-xs font-bold uppercase tracking-tighter">Nauru.com</span>
+<span class="text-xs text-secondary">5 hours ago</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">Lead the architectural vision for high-scale distributed systems. Focus on performance, scalability, and elegant engineering solutions for global markets...</p>
+<div class="flex flex-wrap items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span>
+                                $210k – $280k
+                            </div>
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="work">work</span>
+                                Contract
+                            </div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-xl text-primary font-semibold hover:bg-surface-container-high transition-colors">Details</button>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Quick Apply</button>
+</div>
+</div>
+</article>
+<!-- Job Card 3 -->
+<article class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center p-2 overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Sleek abstract corporate branding icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXxrimnht7zUrLUnA6KA9dgveyMpGUoYptNiCtORJpfSpN2rNcEjil0maj6AaVl1vYgMeD-ilIuJdRQXHFrFPDxjRmMG4CckK-alAfJ2e1zIriR_NlcmZtfGQZ413Zq0W02XzZRR_edpYh_UWkCJX2X1TAhvjNJomb5JdeGd4aAGesvaqW_8IT5gDorp112h6ZIt_nmtBPdxo26Wo5GBtiVPVlx76xcMl7sIHSSsQtvWreeFdDuA9cdatVeAFuBufo_yLAZjM89X0"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-1 tracking-tight">Growth Marketing Strategist</h3>
+<p class="text-on-surface-variant font-medium">Cortex Digital • <span class="text-secondary font-normal">New York, NY (Hybrid)</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-md text-xs font-bold uppercase tracking-tighter">LinkedIn</span>
+<span class="text-xs text-secondary">Yesterday</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">Develop data-driven marketing frameworks that scale. We need a strategist who understands the intersection of brand narrative and performance analytics...</p>
+<div class="flex flex-wrap items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span>
+                                $120k – $155k
+                            </div>
+<div class="flex items-center text-sm text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="work">work</span>
+                                Full-time
+                            </div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-xl text-primary font-semibold hover:bg-surface-container-high transition-colors">Details</button>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Quick Apply</button>
+</div>
+</div>
+</article>
+<div class="pt-10 flex justify-center">
+<nav class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">3</button>
+<span class="px-2 text-secondary">...</span>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">12</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 mt-auto bg-[#e7eeff] dark:bg-[#0f172a]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto text-sm font-['Inter'] leading-relaxed">
+<div class="space-y-6">
+<div class="font-bold text-[#003c90] dark:text-[#d9e2ff] text-lg">Curated Career Architect</div>
+<p class="text-[#555f71] dark:text-[#94a3b8]">Precision-engineered recruitment for the modern professional. Organic Functionalism in action.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#003c90] cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-[#003c90] cursor-pointer" data-icon="hub">hub</span>
+<span class="material-symbols-outlined text-[#003c90] cursor-pointer" data-icon="share">share</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Platform</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Jobs</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Prep Hub</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">LinkedIn Integration</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Newsletter</h4>
+<p class="text-[#555f71] dark:text-[#94a3b8] mb-4">Get the best job matches delivered to your inbox weekly.</p>
+<div class="flex bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/20 focus-within:ring-2 focus-within:ring-primary/10">
+<input class="bg-transparent border-none px-4 py-2 w-full text-xs" placeholder="Email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-8 mt-20 pt-8 border-t border-primary/5 text-center text-[#555f71] dark:text-[#94a3b8]">
+            © 2024 Curated Career Architect. Organic Functionalism in Recruitment.
+        </div>
+</footer>
+
+</div>
+<div id="page-user_dashboard" class="page-section" style="display:none;">
+
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)]">
+<nav class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">Curated Career Architect</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Jobs</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Prep Hub</a>
+<a class="text-[#003c90] dark:text-[#d9e2ff] border-b-2 border-[#003c90] dark:border-[#d9e2ff] pb-1 font-semibold" href="#">Dashboard</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-low border-none rounded-full px-6 py-2 w-64 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search applications..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-[#555f71] hover:bg-[#e7eeff] rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#555f71] hover:bg-[#e7eeff] rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqw1nmArmw8znb6ER0_s1yWvh34bemYZ4YPu1XowTIFOaDLuwlTRns7Y_ELZJFlptwM8FWEVDAWzEnmijjn6jlkQ82-QEflPOhe9S1wKBxnP8xWwKeKVUI2k8zCSetzloARmIZumPb3ztQ5xc7vgYcZIpjXib1g3y8S23Z0LhRr7C9MulOlj0ta5LofPnSxBH2zj3mNCWwAyRVg0Opn_zAmufVaxOA3MbQa2xGwa0sa6mOGFOisOufCA5A_E08hxpvotiuFA_Bi0w"/>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow pt-32 pb-20 px-8 max-w-[1440px] mx-auto w-full">
+<!-- Dashboard Header -->
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-2">Welcome back, Alex.</h1>
+<p class="text-secondary text-lg">You have 2 interviews scheduled for this week. Keep up the momentum.</p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Main Dashboard Content -->
+<div class="col-span-12 lg:col-span-8 space-y-12">
+<!-- Quick Links: Bento-ish Style -->
+<section>
+<h2 class="text-sm font-bold uppercase tracking-widest text-secondary mb-6">Quick Actions</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<a class="group p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-4 active:scale-[0.98]" href="#">
+<div class="p-3 rounded-full bg-primary-fixed text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Resume Builder</h3>
+<p class="text-xs text-on-surface-variant">Update your tailored CVs</p>
+</div>
+</a>
+<a class="group p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-4 active:scale-[0.98]" href="#">
+<div class="p-3 rounded-full bg-secondary-fixed text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="video_chat">video_chat</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Mock Interview</h3>
+<p class="text-xs text-on-surface-variant">Practice with AI curators</p>
+</div>
+</a>
+<a class="group p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-4 active:scale-[0.98]" href="#">
+<div class="p-3 rounded-full bg-surface-container-high text-on-surface-variant group-hover:bg-outline-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Profile Settings</h3>
+<p class="text-xs text-on-surface-variant">Refine your preferences</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Application Tracker: Kanban Style -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-sm font-bold uppercase tracking-widest text-secondary">Application Tracker</h2>
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+                            View all <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column: Applied -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Applied (12)</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4 min-h-[200px]">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] font-bold text-primary mb-1">Product Designer</p>
+<h4 class="font-bold text-sm mb-2">Linear</h4>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">2 days ago</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] font-bold text-primary mb-1">Senior UI Engineer</p>
+<h4 class="font-bold text-sm mb-2">Vercel</h4>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">5 days ago</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Interviewing -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Interviewing (3)</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4 min-h-[200px]">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm border-l-4 border-primary">
+<p class="text-[10px] font-bold text-primary mb-1">Lead Creative</p>
+<h4 class="font-bold text-sm mb-2">Stripe</h4>
+<div class="bg-primary-fixed/30 p-2 rounded text-[10px] text-primary font-medium mb-3">
+                                        Final Round: Tomorrow, 10 AM
+                                    </div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">Step 4/5</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Offer -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Offer (1)</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4 min-h-[200px]">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm ring-1 ring-green-500/20">
+<p class="text-[10px] font-bold text-green-600 mb-1">Principal Architect</p>
+<h4 class="font-bold text-sm mb-2">Supabase</h4>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-secondary">Received today</span>
+<span class="material-symbols-outlined text-xs text-green-600" data-icon="celebration">celebration</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Saved Jobs Grid -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-sm font-bold uppercase tracking-widest text-secondary">Saved for Later</h2>
+<button class="text-sm font-semibold text-primary hover:underline">Manage alerts</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl group hover:shadow-lg transition-all relative">
+<button class="absolute top-6 right-6 text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="token">token</span>
+</div>
+<div>
+<h3 class="font-bold text-primary tracking-tight">Design Systems Lead</h3>
+<p class="text-sm text-secondary">Airbnb • Remote</p>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">Full-time</span>
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">$180k - $240k</span>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">Apply Now</button>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl group hover:shadow-lg transition-all relative">
+<button class="absolute top-6 right-6 text-primary">
+<span class="material-symbols-outlined" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="filter_vintage">filter_vintage</span>
+</div>
+<div>
+<h3 class="font-bold text-primary tracking-tight">Staff Product Designer</h3>
+<p class="text-sm text-secondary">Figma • San Francisco</p>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">Hybrid</span>
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold rounded-md">Equity+</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-primary rounded-xl font-bold text-sm hover:bg-surface-container-high transition-colors">Apply Now</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar / Widgets -->
+<aside class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Prep Progress Widget -->
+<div class="bg-surface-container p-8 rounded-2xl">
+<h2 class="text-sm font-bold uppercase tracking-widest text-primary mb-6">Prep Progress</h2>
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-bold text-on-surface">Overall Completion</span>
+<span class="text-xl font-black text-primary">68%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 68%;"></div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="text-sm font-bold mb-1">Behavioral Fundamentals</h4>
+<p class="text-xs text-secondary leading-relaxed">Completed 12/12 scenarios</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="text-sm font-bold mb-1">System Design Case</h4>
+<p class="text-xs text-secondary leading-relaxed">Next: Scalability Patterns</p>
+<button class="mt-2 text-xs font-bold text-primary hover:underline">Start Challenge</button>
+</div>
+</div>
+<div class="flex gap-4 opacity-50">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+</div>
+<div>
+<h4 class="text-sm font-bold mb-1">Executive Presentation</h4>
+<p class="text-xs text-secondary leading-relaxed">Unlocks at 75% progress</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant mb-4">RECOMMENDED NEXT STEP</p>
+<div class="bg-surface-container-lowest p-4 rounded-xl">
+<p class="text-xs text-on-surface leading-relaxed mb-3 italic">"You've been applying to Lead roles. We recommend practicing the 'Conflict Resolution' module."</p>
+<button class="w-full py-2 bg-primary/10 text-primary rounded-lg text-xs font-bold hover:bg-primary/20 transition-colors">Go to Prep Hub</button>
+</div>
+</div>
+</div>
+<!-- Career Insights Widget -->
+<div class="bg-[#003c90] text-[#d9e2ff] p-8 rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="insights">insights</span>
+<h3 class="text-xl font-bold mb-2">Market Insight</h3>
+<p class="text-sm opacity-80 leading-relaxed mb-6">Demand for Design System roles is up 14% this month in your preferred locations.</p>
+<button class="px-4 py-2 bg-white text-primary rounded-lg text-xs font-bold hover:bg-opacity-90 transition-all">Deep Dive</button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-4 -bottom-4 w-32 h-32 bg-primary-container rounded-full opacity-20 blur-2xl"></div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 mt-auto bg-[#e7eeff] dark:bg-[#0f172a] text-[#003c90] dark:text-[#d9e2ff] font-['Inter'] leading-relaxed">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-bold text-lg mb-4 block">Curated Career Architect</span>
+<p class="text-[#555f71] dark:text-[#94a3b8] text-sm">Elevating the job search through organic functionalism and editorial precision.</p>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-6 uppercase tracking-widest">Platform</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">LinkedIn Integration</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Help Center</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-6 uppercase tracking-widest">Legal</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<p class="text-xs text-[#555f71] dark:text-[#94a3b8] opacity-80">© 2024 Curated Career Architect. Organic Functionalism in Recruitment.</p>
+</div>
+</div>
+</footer>
+
+</div>
+<div id="page-interview_prep_hub" class="page-section" style="display:none;">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] font-['Inter'] antialiased tracking-tight">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">Curated Career Architect</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Jobs</a>
+<a class="text-[#003c90] dark:text-[#d9e2ff] border-b-2 border-[#003c90] dark:border-[#d9e2ff] pb-1 font-semibold" href="#">Prep Hub</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Dashboard</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out text-[#003c90] dark:text-[#d9e2ff]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out text-[#003c90] dark:text-[#d9e2ff]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden ml-2 border-2 border-primary-fixed">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5oa83Sc2EQwuh-Q-wCqj2JhSrkWqBN3HArg7BvsdUq8LT7ufDsZF9ne_mcMilikBb5IGAhxURDwr-iBRLAUtesTw9hF2H5XoQZSWpsQp_7fBtQEbqv4qK7IE23EdV6afspEvHM724GrmxhGGH7KzvoZAgjZGZV5xhG_QsSMurE2XsOM072GBqg0aDRk_jWPhMKQQr2yE-I9YB1AASmf4cYDO4iwna3pPR6MoL7UmF--Cchpd5k-WnzDA_hcYcy7H5j6FcVeCHkq4"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-8 max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<header class="mb-20">
+<h1 class="text-[3.5rem] font-extrabold text-primary leading-tight tracking-tight mb-6">Master the Interview.</h1>
+<p class="text-xl text-secondary max-w-2xl leading-relaxed">
+                Precision-engineered resources to help you navigate high-stakes technical assessments and behavioral panels with clinical confidence.
+            </p>
+</header>
+<!-- Featured Categories (Bento Grid) -->
+<section class="mb-24">
+<h2 class="text-label-md uppercase tracking-widest text-primary font-bold mb-8">Featured Learning Paths</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+<!-- Large DSA Card -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between group cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all">
+<div>
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4">Data Structures &amp; Algorithms</h3>
+<p class="text-on-surface-variant leading-relaxed">HackerRank-inspired curriculum covering everything from basic arrays to complex dynamic programming. Optimized for Big Tech standards.</p>
+</div>
+<div class="flex items-center gap-4 mt-8">
+<span class="bg-surface-container-high text-primary px-3 py-1 rounded-md text-sm font-semibold">124 Challenges</span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-md text-sm font-semibold">Most Popular</span>
+</div>
+</div>
+<!-- System Design -->
+<div class="md:col-span-2 bg-surface-container-highest rounded-xl p-8 flex items-center gap-6 group cursor-pointer transition-all hover:bg-surface-container-high">
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-4xl" data-icon="hub">hub</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-2">System Design</h3>
+<p class="text-secondary text-sm">Scalability, Load Balancing, and Database Sharding for L5+ roles.</p>
+</div>
+</div>
+<!-- Behavioral -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col justify-center group cursor-pointer transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="record_voice_over">record_voice_over</span>
+<h3 class="text-lg font-bold text-primary mb-2">Behavioral Masterclass</h3>
+<p class="text-secondary text-xs">The STAR Method, refined for cultural alignment.</p>
+</div>
+<!-- SQL -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col justify-center group cursor-pointer transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="database">database</span>
+<h3 class="text-lg font-bold text-primary mb-2">SQL Practice</h3>
+<p class="text-secondary text-xs">Query optimization and complex joins for Data Engineers.</p>
+</div>
+</div>
+</section>
+<!-- Resource Cards (Editorial Grid) -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-label-md uppercase tracking-widest text-primary font-bold mb-2">Curated Challenges</h2>
+<p class="text-secondary">Hand-picked by lead architects from Meta and Google.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary text-sm font-semibold">All</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">Easy</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">Medium</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">Hard</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/15 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="px-2 py-1 rounded bg-green-100 text-green-800 text-[10px] font-bold uppercase tracking-wider">Easy</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 15m
+                        </span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-3">Two Sum Optimization</h4>
+<p class="text-on-surface-variant text-sm flex-grow mb-6 leading-relaxed">Learn how to reduce time complexity from O(n²) to O(n) using HashMaps. A classic warm-up for any coding interview.</p>
+<button class="w-full py-3 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">Launch Editor</button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/15 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="px-2 py-1 rounded bg-orange-100 text-orange-800 text-[10px] font-bold uppercase tracking-wider">Medium</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 45m
+                        </span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-3">LRU Cache Design</h4>
+<p class="text-on-surface-variant text-sm flex-grow mb-6 leading-relaxed">Implement a Least Recently Used (LRU) cache with O(1) get and put operations. Tests your understanding of Doubly Linked Lists.</p>
+<button class="w-full py-3 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">Launch Editor</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/15 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="px-2 py-1 rounded bg-red-100 text-red-800 text-[10px] font-bold uppercase tracking-wider">Hard</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 90m
+                        </span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-3">Messenger System Design</h4>
+<p class="text-on-surface-variant text-sm flex-grow mb-6 leading-relaxed">Design a real-time chat application. Focus on WebSockets, Message Queues, and eventual consistency across regions.</p>
+<button class="w-full py-3 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">View Case Study</button>
+</div>
+</div>
+</section>
+<!-- Tips from Experts (Asymmetric Two-Tone Layout) -->
+<section class="bg-surface-container rounded-3xl p-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary-fixed/30 -skew-x-12 translate-x-1/2"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-label-md uppercase tracking-widest text-primary font-bold mb-4">Tips from Experts</h2>
+<h3 class="text-4xl font-extrabold text-on-surface mb-8">Move beyond the technical.</h3>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-primary mb-2">Resume Revamp</h4>
+<p class="text-secondary leading-relaxed">"Stop listing tasks; start listing impact. Use the 'Accomplished [X] as measured by [Y] by doing [Z]' formula." — Elena, Talent Lead</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-primary mb-2">Salary Negotiation</h4>
+<p class="text-secondary leading-relaxed">"Never be the first to blink. Research the median for your role and level, but anchor your value to the problem you solve." — Marcus, Hiring Manager</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-xl">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-secondary-container"></div>
+<div>
+<p class="font-bold text-primary">Pro Tip of the Week</p>
+<p class="text-xs text-secondary">Updated 2 hours ago</p>
+</div>
+</div>
+<blockquote class="text-xl italic text-on-surface-variant leading-relaxed mb-6">
+                        "The best candidates don't just solve the problem; they narrate their thought process. I'm hiring your brain, not your keyboard."
+                    </blockquote>
+<button class="bg-gradient-primary text-on-primary px-8 py-4 rounded-xl font-bold w-full active:scale-95 transition-transform">Unlock Full Guide</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 mt-auto bg-[#e7eeff] dark:bg-[#0f172a] text-sm font-['Inter'] leading-relaxed">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto">
+<div class="md:col-span-1">
+<span class="font-bold text-[#003c90] dark:text-[#d9e2ff] text-lg block mb-6">Curated Career Architect</span>
+<p class="text-[#555f71] dark:text-[#94a3b8]">© 2024 Curated Career Architect. Organic Functionalism in Recruitment.</p>
+</div>
+<div>
+<h5 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Resources</h5>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Integration</h5>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">LinkedIn Integration</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Github Sync</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6">Contact</h5>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+</div>
+<div id="page-networking_hub_1" class="page-section" style="display:none;">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-3 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-blue-900 dark:text-blue-100 font-sans antialiased tracking-tight">Architect</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Jobs</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Prep Hub</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Resume</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="#">Network</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="User profile avatar" data-alt="Professional male user portrait avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAReCRpbq6ZhQWI33PfBFSMgJnBMhEdO_UAsH_8Db3VHDcgfykUPVqi5eKPRvQiSP5oBH_6tmJ-g3HXfekxg4ykVPW-8FHyHqba0xgz-EDiqR8LDXgooXyMzJXlRqFh5TkVgYGm_jtIaHL5gsuX1ZqXHM572VIXHxrEMcLdxFzj_nc-uBmagdjpSViu2lfsMVM_Hcw1vmVz6yXo5vpJZ3DWTE4p8sTLuwLQ_5r4AaDfvKIp_W9W8jUxUQV42BvZfkgIrhbbyy84gPM"/>
+</div>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-px"></div>
+</nav>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 py-6 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r-0 z-40">
+<div class="px-6 mb-10">
+<div class="text-lg font-black text-blue-900 dark:text-blue-50">Career Architect</div>
+<div class="text-xs text-secondary opacity-70">The Digital Curator</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-sm font-medium">Prep Hub</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-sm font-medium">Resume</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="text-sm font-medium">Networking</span>
+</a>
+</nav>
+<div class="px-6 py-4">
+<button class="w-full network-gradient text-white py-3 rounded-xl font-bold text-sm shadow-lg shadow-blue-900/10 active:opacity-80 transition-all">
+                Upgrade to Pro
+            </button>
+</div>
+<div class="mt-auto space-y-1 px-3 border-t border-slate-200/50 pt-4">
+<a class="flex items-center space-x-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-sm font-medium">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-black tracking-tight text-primary mb-2">Network Hub</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl">Curate your professional ecosystem. Manage high-value connections and track referral velocity across your target companies.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Network Strength Visualizer (Bento Item 1) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-full p-8 flex flex-col justify-between min-h-[400px]">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-2xl font-bold text-on-surface">Network Strength</h2>
+<p class="text-secondary text-sm">Target Company Saturation</p>
+</div>
+<div class="bg-primary-fixed px-4 py-1 rounded-full text-on-primary-fixed font-bold text-xs uppercase tracking-widest">High Velocity</div>
+</div>
+<!-- Abstract Visualizer Graphic -->
+<div class="relative h-48 flex items-center justify-center">
+<!-- Central Node -->
+<div class="w-24 h-24 network-gradient rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-2xl relative z-10">
+                        84%
+                    </div>
+<!-- Orbiting Nodes -->
+<div class="absolute w-full h-full border border-outline-variant/30 rounded-full animate-spin-slow"></div>
+<div class="absolute w-[70%] h-[70%] border border-outline-variant/30 rounded-full"></div>
+<!-- Floating Data Points -->
+<div class="absolute top-4 left-1/4 bg-white shadow-sm px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-2 border border-slate-100">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span>Google (12)</span>
+</div>
+<div class="absolute bottom-8 right-1/4 bg-white shadow-sm px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-2 border border-slate-100">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Vercel (8)</span>
+</div>
+<div class="absolute top-1/2 right-12 bg-white shadow-sm px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-2 border border-slate-100">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span>Linear (5)</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 border-t border-surface-container pt-6">
+<div>
+<div class="text-xs text-secondary mb-1">Total Connections</div>
+<div class="text-xl font-bold">1,248</div>
+</div>
+<div>
+<div class="text-xs text-secondary mb-1">Referral Path Available</div>
+<div class="text-xl font-bold">14 Jobs</div>
+</div>
+<div>
+<div class="text-xs text-secondary mb-1">Active Mentors</div>
+<div class="text-xl font-bold">4</div>
+</div>
+</div>
+</div>
+<!-- Referral Requests (Bento Item 2) -->
+<div class="md:col-span-4 bg-surface-container rounded-full p-8 flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold">Active Referrals</h2>
+<span class="material-symbols-outlined text-primary">send</span>
+</div>
+<div class="space-y-4 flex-1">
+<!-- Referral Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-slate-200">
+<img alt="Referrer" class="rounded-full" data-alt="Female professional headshot avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhyafQQ_2H9xPT88UyjzGtzxdvdiJn5-81wXnX9TSAz-TUw3AnlpH77AiQrnTQu31DMyAiKTvU1qwho_5X9fqMMlSkLbWCzpgpML-ncByyMOuoRtmJWBM1iUIh95H5__c73dL0SazMDZ9QvKYKrwRrs-Gm0a7V1N0BXGiFbT_RJI_jk88IKQklK4IwcA1XgiUYC11Ahpg5-rGSbyl1VuGEgY5GrlocN984WdOkVxuMfysGzVRHjEqum4NU0yrVejAc0OCxsbSvQ78"/>
+</div>
+<div>
+<div class="text-sm font-bold">Sarah Chen</div>
+<div class="text-[10px] text-secondary">Sr. Product Designer @ Stripe</div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase">Pending</span>
+</div>
+<div class="text-xs text-on-surface-variant line-clamp-2">"Referral submitted for Senior Design Lead role. Expect a reach out soon."</div>
+</div>
+<!-- Referral Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-slate-200">
+<img alt="Referrer" class="rounded-full" data-alt="Male professional headshot avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABqBoNrwVYlVR-nc4rsrgypxjhrQxPzpuXIMBfKn-xtV4vrZRrXVls4MubAZgiO6pi8zADS4f_EtncQ0rhfOI1NZJVqPxM4zuPiGm3QeKPERqUwGq6WqU1wybTF_kgy4doc-LSdbTuV5njUvdtxT1FuAM_5A_1dk_EXxOu_v62FKAFN6G2dHE2Q2AAkz8ogXUn2nhZmtmZVfUFMJzdvNfad3uhgXhU2iLzVyvqQkOjRAfLhn856DJuao1tq8Fr5sQHGFpL1vPxVsg"/>
+</div>
+<div>
+<div class="text-sm font-bold">Marcus Thorne</div>
+<div class="text-[10px] text-secondary">Director of Eng @ OpenAI</div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-emerald-600 uppercase">Confirmed</span>
+</div>
+<div class="text-xs text-on-surface-variant line-clamp-2">"Chatted with the recruiter. They're looking for your specific stack."</div>
+</div>
+</div>
+<button class="mt-6 text-primary text-sm font-bold flex items-center space-x-2 hover:opacity-70 transition-opacity">
+<span>Manage all requests</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<!-- Coffee Chats (Bento Item 3) -->
+<div class="md:col-span-5 bg-surface-container-low rounded-full p-8">
+<h2 class="text-xl font-bold mb-6">Upcoming Coffee Chats</h2>
+<div class="space-y-6">
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex flex-col items-center justify-center border border-outline-variant/10">
+<span class="text-[10px] font-bold text-secondary uppercase">Oct</span>
+<span class="text-lg font-black text-primary leading-none">12</span>
+</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Coffee w/ Alex Rivera</div>
+<div class="text-xs text-secondary">Recruiting Manager @ Google • 10:30 AM</div>
+</div>
+<button class="p-2 bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-sm">video_call</span>
+</button>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex flex-col items-center justify-center border border-outline-variant/10">
+<span class="text-[10px] font-bold text-secondary uppercase">Oct</span>
+<span class="text-lg font-black text-primary leading-none">15</span>
+</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Mentorship Catch-up</div>
+<div class="text-xs text-secondary">Lydia Moore @ Airbnb • 2:00 PM</div>
+</div>
+<button class="p-2 bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-sm">location_on</span>
+</button>
+</div>
+</div>
+<button class="mt-10 w-full py-3 bg-white rounded-xl text-primary font-bold text-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
+                    Schedule New Chat
+                </button>
+</div>
+<!-- Recommended Connections (Bento Item 4) -->
+<div class="md:col-span-7 bg-surface-container-highest rounded-full p-8">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="text-xl font-bold">Targeted Recommendations</h2>
+<p class="text-xs text-secondary">Based on your saved jobs at Vercel &amp; Supabase</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Recommendation Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center space-x-4 group cursor-pointer hover:ring-2 ring-primary/10 transition-all">
+<img alt="Connection" class="w-12 h-12 rounded-full" data-alt="Smiling professional woman headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClA0FKOhBj0VldRRH2wgA6SGg8_hBJDr3wr61f6r4fMOv0oXj5DT7ptCoMKPBsY_U_BpL2Ps4CeqJTavCecCza34JWx1ixMp2xgfyuH-slqbPgkVZ7PWL-XhJSUVeZa_8j4erTFpl9DoAP3-NuNMA0G3W9W6Mp40yFrRqn0PEimnIjCmTmdHtwtU_3ruwYIezmLa3SODSrepxPHPsAc7q7SUrVtgsgEiHy91Uwx5dKudOK4RrVsJou9jOVhrt5_gwLdOqZvzZRhYg"/>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-bold truncate">Jessica Wong</div>
+<div class="text-[10px] text-secondary truncate">Design Ops @ Vercel</div>
+<div class="flex items-center text-[9px] text-emerald-600 mt-1">
+<span class="material-symbols-outlined text-[10px] mr-1">check_circle</span>
+                                2 Shared Connections
+                            </div>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">person_add</span>
+</div>
+<!-- Recommendation Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center space-x-4 group cursor-pointer hover:ring-2 ring-primary/10 transition-all">
+<img alt="Connection" class="w-12 h-12 rounded-full" data-alt="Confident professional male headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAskHM0p9e0UaEtM_xnMvwolUYOlkRybeBl7X0O1qy_elVZ3DLQcvkhJf0gtFEgqeMl3KpkaH6lS7AsLLDN5PXMKE1gNstFiPzyDAP9ZmfHlIqUkei1HzuBZHlqxjemN3qcksBh4cQ_uCLcdEar2cel91faBRt9UD3zhKX2OZSqZanfctvPQvEVIiOenKs9kz4kY6ieE_dFHSCzC7FVcm388OFySnJxPUkdEeCZ_f51NFK1C_4GH2ZXL41FjNrCt0CIGt3Bjlpev0"/>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-bold truncate">David Miller</div>
+<div class="text-[10px] text-secondary truncate">Engineering Lead @ Supabase</div>
+<div class="flex items-center text-[9px] text-blue-600 mt-1">
+<span class="material-symbols-outlined text-[10px] mr-1">hub</span>
+                                Alumni: Stanford
+                            </div>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">person_add</span>
+</div>
+<!-- Recommendation Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center space-x-4 group cursor-pointer hover:ring-2 ring-primary/10 transition-all">
+<img alt="Connection" class="w-12 h-12 rounded-full" data-alt="Corporate professional female avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCosC38GvZTn1Yqi9jdknSFjRyHjZDLQG32fvVag06FyQoqgzigSLhFTKitheanD82iZiASvZHMzM0Mn9e7qdaUcr3pCmAovFXkFK0xNiQ00MqA-hEz4I0xsQccrNEgpXsvhYWHlPH3eBEFTfygpEcJMBAAKlGcTnx1vWbP1SClJnaQywzBnmsCxXsEjgW7qNBcO0Em2rTvrZDisZTTKYSYF5-EY7_XRGUOiwivVZXeWLEicCRqeOl3kS6260P19yQI0oxJPJiAub0"/>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-bold truncate">Elena Rodriguez</div>
+<div class="text-[10px] text-secondary truncate">Product @ Framer</div>
+<div class="flex items-center text-[9px] text-secondary mt-1">
+<span class="material-symbols-outlined text-[10px] mr-1">apartment</span>
+                                Ex-Google
+                            </div>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">person_add</span>
+</div>
+<!-- Recommendation Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center space-x-4 group cursor-pointer hover:ring-2 ring-primary/10 transition-all">
+<div class="w-12 h-12 rounded-full network-gradient flex items-center justify-center text-white text-xs font-bold">View</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Discover More</div>
+<div class="text-[10px] text-secondary">24+ others found</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Connection History & Velocity Section -->
+<section class="mt-20">
+<h2 class="text-3xl font-black text-on-surface mb-8">Networking Velocity</h2>
+<div class="bg-surface-container-lowest p-12 rounded-full">
+<div class="flex flex-col md:flex-row justify-between items-center mb-12">
+<div>
+<div class="text-4xl font-black text-primary">24</div>
+<div class="text-sm font-medium text-secondary">New connections this month</div>
+</div>
+<div class="h-16 w-px bg-surface-container hidden md:block"></div>
+<div class="mt-4 md:mt-0">
+<div class="text-4xl font-black text-primary">85%</div>
+<div class="text-sm font-medium text-secondary">Response rate on intro emails</div>
+</div>
+<div class="h-16 w-px bg-surface-container hidden md:block"></div>
+<div class="mt-4 md:mt-0 text-right">
+<div class="text-4xl font-black text-primary">3.2</div>
+<div class="text-sm font-medium text-secondary">Average coffee chats per week</div>
+</div>
+</div>
+<!-- Subtle Activity Graph Representation -->
+<div class="w-full h-32 flex items-end justify-between space-x-1">
+<div class="w-full bg-primary/10 rounded-t-lg h-[40%]"></div>
+<div class="w-full bg-primary/10 rounded-t-lg h-[60%]"></div>
+<div class="w-full bg-primary/20 rounded-t-lg h-[30%]"></div>
+<div class="w-full bg-primary/30 rounded-t-lg h-[80%]"></div>
+<div class="w-full bg-primary/40 rounded-t-lg h-[50%]"></div>
+<div class="w-full bg-primary/50 rounded-t-lg h-[90%]"></div>
+<div class="w-full network-gradient rounded-t-lg h-[100%]"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-secondary uppercase tracking-widest px-1">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Current</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t-0 py-3 flex justify-around items-center z-50">
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-[10px] mt-1 font-medium">Jobs</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] mt-1 font-medium">Prep</span>
+</a>
+<a class="flex flex-col items-center text-blue-700" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span class="text-[10px] mt-1 font-bold">Network</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] mt-1 font-medium">Resume</span>
+</a>
+</nav>
+
+</div>
+<div id="page-salary_negotiation_guide_1" class="page-section" style="display:none;">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-slate-200/15 bg-white/80 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-blue-900">Curated Career Architect</div>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] font-medium tracking-tight text-sm">
+<a class="text-slate-500 hover:text-blue-800 transition-colors" href="#">Market Data</a>
+<a class="text-slate-500 hover:text-blue-800 transition-colors" href="#">Tactical Guides</a>
+<a class="text-slate-500 hover:text-blue-800 transition-colors" href="#">Scripts</a>
+<a class="text-blue-900 border-b-2 border-blue-900 pb-1" href="#">Calculator</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<button class="p-2 hover:bg-slate-100/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-500">account_circle</span>
+</button>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded-xl text-sm font-semibold active:scale-95 transition-all">
+                    Unlock Pro
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 mb-20">
+<div class="max-w-3xl">
+<h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-primary mb-6">
+                    The Art of <br/><span class="text-blue-700">Negotiation</span>
+</h1>
+<p class="text-xl text-on-surface-variant leading-relaxed mb-8">
+                    Data-driven confidence is your strongest leverage. Move beyond guesswork with institutional-grade compensation analytics and expert-vetted tactical playbooks.
+                </p>
+<div class="flex gap-4">
+<div class="flex items-center space-x-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+<span class="text-sm font-semibold text-secondary">Updated for Q4 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Dashboard Layout -->
+<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Calculator & Market Data -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Compensation Calculator -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h2 class="text-2xl font-bold text-primary">Compensation Calculator</h2>
+<p class="text-sm text-on-surface-variant">Break down your offer against real-time benchmarks.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-3xl" data-weight="fill">calculate</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-secondary">Base Salary ($)</label>
+<input class="w-full bg-surface-container-low border-none rounded-full px-6 py-3 focus:ring-2 focus:ring-primary/20 text-on-surface font-medium" placeholder="e.g. 145,000" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-secondary">Annual Bonus (%)</label>
+<input class="w-full bg-surface-container-low border-none rounded-full px-6 py-3 focus:ring-2 focus:ring-primary/20 text-on-surface font-medium" placeholder="e.g. 15" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-secondary">Equity (RSUs)</label>
+<input class="w-full bg-surface-container-low border-none rounded-full px-6 py-3 focus:ring-2 focus:ring-primary/20 text-on-surface font-medium" placeholder="e.g. 50,000" type="text"/>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-center md:text-left">
+<span class="text-xs font-semibold text-secondary uppercase tracking-widest">Calculated Total Comp</span>
+<div class="text-4xl font-black text-primary mt-1">$216,750 <span class="text-sm font-medium text-secondary">/ yr</span></div>
+</div>
+<div class="h-12 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="text-center md:text-left">
+<span class="text-xs font-semibold text-secondary uppercase tracking-widest">Market Comparison</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xl font-bold text-green-700">Top 15%</span>
+<span class="material-symbols-outlined text-green-600">trending_up</span>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-8 py-3 rounded-xl font-bold shadow-lg shadow-primary/10 hover:opacity-90 transition-all">Generate Benchmark Report</button>
+</div>
+</div>
+</div>
+<!-- Market Data Visualization -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="mb-8">
+<h2 class="text-2xl font-bold text-primary">Market Data Insights</h2>
+<p class="text-sm text-on-surface-variant">Regional salary bands for Senior Product Architect in NYC.</p>
+</div>
+<!-- Custom Distribution Curve (Asymmetric Layout) -->
+<div class="relative h-64 w-full flex items-end justify-between px-4">
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<div class="w-full h-full bg-gradient-to-t from-primary to-transparent rounded-t-full"></div>
+</div>
+<!-- Simulated Histogram/Curve -->
+<div class="w-12 bg-primary-fixed h-16 rounded-t-lg"></div>
+<div class="w-12 bg-primary-fixed h-24 rounded-t-lg"></div>
+<div class="w-12 bg-primary-fixed-dim h-40 rounded-t-lg"></div>
+<div class="w-12 bg-primary h-56 rounded-t-lg shadow-xl relative">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded font-bold whitespace-nowrap">YOU ARE HERE</div>
+</div>
+<div class="w-12 bg-primary-fixed-dim h-48 rounded-t-lg"></div>
+<div class="w-12 bg-primary-fixed h-32 rounded-t-lg"></div>
+<div class="w-12 bg-primary-fixed h-12 rounded-t-lg"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-secondary uppercase tracking-widest px-4">
+<span>$140k</span>
+<span>$180k</span>
+<span class="text-primary font-black">$215k (Median)</span>
+<span>$250k</span>
+<span>$290k</span>
+</div>
+</div>
+<!-- Scripts Library (Editorial Layout) -->
+<div>
+<h2 class="text-2xl font-bold text-primary mb-8">Negotiation Script Library</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Script Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:shadow-md transition-shadow group">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</div>
+<h3 class="font-bold text-on-surface">Handling the Initial Offer</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 italic leading-relaxed">
+                                "I’m very excited about the role and the team. Based on the market data for this specific scope..."
+                            </p>
+<button class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
+                                View Full Script <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Script Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:shadow-md transition-shadow group">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">bar_chart_4_bars</span>
+</div>
+<h3 class="font-bold text-on-surface">Counter-Offering with Data</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 italic leading-relaxed">
+                                "Looking at the 75th percentile for comparable roles in our industry, I’d like to discuss adjusting the base..."
+                            </p>
+<button class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
+                                View Full Script <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Script Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:shadow-md transition-shadow group">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">card_giftcard</span>
+</div>
+<h3 class="font-bold text-on-surface">Negotiating Non-Monetary</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 italic leading-relaxed">
+                                "While I understand the budget constraints, I'd like to explore flexibility in the PTO policy or remote work..."
+                            </p>
+<button class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
+                                View Full Script <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Script Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center p-8">
+<span class="material-symbols-outlined text-outline-variant text-4xl mb-2">add_circle</span>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Request Custom Script</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Tactical Tips & CTA -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Pro Tips Sidebar -->
+<div class="bg-tertiary text-on-tertiary p-8 rounded-xl shadow-xl">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed">lightbulb</span>
+                        Tactical Pro Tips
+                    </h3>
+<div class="space-y-8">
+<div>
+<span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-fixed-dim">Tip 01</span>
+<h4 class="font-bold mt-1 text-surface-container-lowest">The Power of Silence</h4>
+<p class="text-sm text-on-tertiary-container mt-2 leading-relaxed">After receiving an offer, wait 3-5 seconds. This non-confrontational silence often prompts recruiters to clarify or soften their stance immediately.</p>
+</div>
+<div>
+<span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-fixed-dim">Tip 02</span>
+<h4 class="font-bold mt-1 text-surface-container-lowest">Focus on Total Value</h4>
+<p class="text-sm text-on-tertiary-container mt-2 leading-relaxed">Don't fixate on base salary. Equity, signing bonuses, and professional development budgets are often more flexible levers.</p>
+</div>
+<div>
+<span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-fixed-dim">Tip 03</span>
+<h4 class="font-bold mt-1 text-surface-container-lowest">Data is Objective</h4>
+<p class="text-sm text-on-tertiary-container mt-2 leading-relaxed">Frame requests around "market alignment" rather than personal "need." It depersonalizes the request and makes it professional.</p>
+</div>
+</div>
+</div>
+<!-- Call to Action Module -->
+<div class="bg-primary-container p-8 rounded-xl text-on-primary relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="text-2xl font-bold mb-2">Personalized Strategy</h3>
+<p class="text-sm text-on-primary-container mb-6">Need a expert to review your specific offer? Schedule a private 1:1 strategy session.</p>
+<button class="w-full bg-white text-primary font-bold py-4 rounded-xl hover:bg-surface-container-low transition-colors shadow-lg">
+                            Book a 1:1 Consultation
+                        </button>
+</div>
+<!-- Abstract pattern -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
+</div>
+<!-- Featured Success Story -->
+<div class="bg-surface-container-highest p-6 rounded-xl">
+<div class="flex gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-sm text-on-secondary-container italic mb-4">"The scripts provided here helped me secure a $35k increase on my initial base offer. The data-backed approach changed everything."</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-xs text-primary">JD</div>
+<div class="text-[10px] font-bold text-secondary uppercase tracking-widest">Jonathan D., Tech Lead</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Guide Download CTA -->
+<section class="max-w-7xl mx-auto px-6 mt-20">
+<div class="bg-surface-container-lowest border border-outline-variant/10 rounded-xl p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-xl">
+<h2 class="text-3xl font-black text-primary mb-2">Negotiation Masterclass</h2>
+<p class="text-on-surface-variant">Download our 40-page definitive guide on executive-level salary negotiations and bonus structuring.</p>
+</div>
+<div class="flex w-full md:w-auto gap-4">
+<input class="bg-surface-container-low border-none rounded-full px-8 py-4 focus:ring-2 focus:ring-primary/20 w-full md:w-64" placeholder="Enter your email" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold whitespace-nowrap">Send Guide</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 border-t border-slate-200/20 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<div class="text-lg font-black text-blue-900">Curated Career Architect</div>
+<div class="flex gap-8 font-['Inter'] text-xs uppercase tracking-widest font-semibold text-slate-400">
+<a class="hover:text-blue-600 underline underline-offset-4 transition-opacity hover:opacity-80" href="#">Privacy Policy</a>
+<a class="hover:text-blue-600 underline underline-offset-4 transition-opacity hover:opacity-80" href="#">Terms of Service</a>
+<a class="hover:text-blue-600 underline underline-offset-4 transition-opacity hover:opacity-80" href="#">Expert Advice</a>
+<a class="hover:text-blue-600 underline underline-offset-4 transition-opacity hover:opacity-80" href="#">Support</a>
+</div>
+<div class="text-xs text-slate-400 font-['Inter'] uppercase tracking-widest font-semibold">
+                © 2024 Curated Career Architect. Editorial-grade career consultancy.
+            </div>
+</div>
+</footer>
+
+</div>
+<div id="page-community_chat_hub" class="page-section" style="display:none;">
+
+<!-- Top Navigation (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)] flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-br from-[#003c90] to-[#0f52ba] bg-clip-text text-transparent">Vector Career</span>
+<nav class="hidden md:flex items-center gap-6 font-['Inter'] tracking-tight">
+<a class="text-[#555f71] hover:text-[#0f52ba] transition-colors duration-200" href="#">Network</a>
+<a class="text-[#555f71] hover:text-[#0f52ba] transition-colors duration-200" href="#">Jobs</a>
+<a class="text-[#555f71] hover:text-[#0f52ba] transition-colors duration-200" href="#">Events</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#555f71] hover:text-[#0f52ba] transition-colors">notifications</button>
+<button class="material-symbols-outlined text-[#555f71] hover:text-[#0f52ba] transition-colors">settings</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a kind expression in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCiHtIu_0Ag9TkzHyX_9u29ZV-BqOZgl0pEPYPxWzMx-jfDTRQ4vNbFWWLutTPtVQ83ZUK2kSWX6r9Z537F-M213N1zWAoRxI3vjqvk-BrIPxVtday1GySVkDiLE4sZXeQ6oa1Uyf3Q3zEa3caHmqLxIHXiGLZxAsWuY2ysjZhnXs47RHVpoRP23ldj_Muk-u87uSqSrc1OCBK0rCNuAZZ2cG9e06499xj6cNq7gRBJqb6FD0rsiCGcqDno4TJ8RI0R8vhOhQpy1U"/>
+</div>
+<button class="px-4 py-1.5 bg-gradient-to-br from-[#003c90] to-[#0f52ba] text-white rounded-xl text-sm font-medium active:scale-95 transition-transform">Post</button>
+</div>
+</header>
+<div class="flex pt-16 h-screen overflow-hidden">
+<!-- Side Navigation (Shared Component) -->
+<aside class="h-screen w-64 hidden md:flex flex-col p-4 gap-2 bg-[#f9f9ff] dark:bg-slate-950 border-r border-outline-variant/15">
+<div class="px-2 py-4 mb-2">
+<h2 class="text-lg font-bold text-[#003c90]">Global Network</h2>
+<p class="text-xs text-[#555f71]">Senior Architects</p>
+</div>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">chat_bubble</span> Channels
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] bg-[#d9e2ff] text-[#003c90] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">mail</span> Direct Messages
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">school</span> Career Prep
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">group</span> Mentors
+                </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium font-['Inter'] text-[#555f71] hover:bg-[#f0f3ff] rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-lg">settings</span> Settings
+                </button>
+</div>
+<div class="mt-8 px-2">
+<h3 class="text-[10px] uppercase tracking-wider font-bold text-outline mb-3">Channels</h3>
+<div class="space-y-1">
+<a class="block px-3 py-1.5 text-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#"># product-management</a>
+<a class="block px-3 py-1.5 text-sm font-semibold text-primary bg-surface-container-low rounded-lg" href="#"># ux-design</a>
+<a class="block px-3 py-1.5 text-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#"># tech-interviews</a>
+<a class="block px-3 py-1.5 text-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#"># referrals</a>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/15">
+<div class="p-4 bg-primary-fixed rounded-xl mb-4">
+<p class="text-xs font-bold text-on-primary-fixed mb-1">Go Premium</p>
+<p class="text-[10px] text-on-primary-fixed-variant mb-3">Unlock exclusive career roadmaps</p>
+<button class="w-full py-2 bg-primary text-white text-xs font-bold rounded-lg">Upgrade to Pro</button>
+</div>
+<div class="flex flex-col gap-1">
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs text-[#555f71] hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-sm">help</span> Help Center
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs text-[#555f71] hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-sm">shield</span> Privacy
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Chat Canvas -->
+<main class="flex-1 flex flex-col bg-surface relative">
+<!-- Channel Header -->
+<div class="h-16 flex items-center justify-between px-8 bg-surface-container-lowest border-b border-outline-variant/10 shadow-sm">
+<div class="flex items-center gap-3">
+<span class="text-xl font-bold text-primary"># ux-design</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="text-sm text-on-surface-variant">1,204 members</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Search in channel..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg">search</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">star</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">info</button>
+</div>
+</div>
+<!-- Messages Area -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8 custom-scrollbar">
+<!-- Date Separator -->
+<div class="flex items-center gap-4">
+<div class="flex-1 h-px bg-outline-variant/15"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">Today, October 24</span>
+<div class="flex-1 h-px bg-outline-variant/15"></div>
+</div>
+<!-- Message 1 -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Sarah Chen Avatar" class="w-full h-full object-cover" data-alt="professional portrait of a woman with a confident smile against a clean neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWRqGhQMIfUhSejiuluhu2NPPgQGOVXGITVLp6J803SAoVIZX9PIdbB9Jwm59eW-8W5H7xpEpHom0eVFbi5sIxpMPhxByjZTQoPHbC3x1lHnSTNBFzxyknhAbzHOLq7fAa4QQUF2FlxhQPc4J5qEAXNMUOz489S44O3Skysi8oWtfvbttXuM7q3xCmhVpNZOERhycDZyJFLOwAJRNIWQMx-FICdlLI2lN1VlZjJLf3qQoP0AXsrCwc5fWkvNjv8M6CAtUXukI3at4"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface">Sarah Chen</span>
+<span class="text-[10px] font-medium text-white bg-primary-container px-1.5 py-0.5 rounded-md uppercase">Lead Designer</span>
+<span class="text-xs text-outline">10:24 AM</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl rounded-tl-none shadow-sm max-w-2xl text-on-surface-variant leading-relaxed">
+                            Hey everyone! I just finished a round of portfolio reviews for some junior candidates. One thing I noticed is a lack of focus on "business impact" in case studies. Make sure you quantify your design decisions! 🚀
+                        </div>
+</div>
+</div>
+<!-- Message 2 (Asymmetric Layout / Bento Card Style for Link) -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Marcus Thompson Avatar" class="w-full h-full object-cover" data-alt="portrait of a creative professional man with glasses in a modern studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBSQ4U2Nn7P0j4bIzc9u6bHRttvb0P3sAt688FxpdNJnylS4P0lVBRRZ2qz3RPCXQhlaxaMMMK6JNPIbAuLjrwcK4YXtzhrHPaJH3WtGl8yGVTNhb9UDzFNWnC2PdEJ0pEqgABAo0LnHMI7r5qPNlPcvDf4d_eRuESO_0kD29MDhvZNxpVvVx0wyOs-rdY-p1LqVt3YYATwVqiwf7p4bWrjKIVUKqSe7VEmyyDOFMLKS0_AzH-MvkAuiYneJOZOYNb4wmhV2wVtpE"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface">Marcus Thompson</span>
+<span class="text-xs text-outline">10:28 AM</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl rounded-tl-none shadow-sm max-w-2xl text-on-surface-variant leading-relaxed mb-3">
+                            Thanks for the tip, Sarah! Speaking of portfolios, I found this amazing resource for structuring high-converting UX case studies.
+                        </div>
+<div class="max-w-md bg-white border border-outline-variant/20 rounded-xl overflow-hidden flex hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-32 h-24 bg-surface-container-high flex-shrink-0">
+<img alt="Resource Preview" class="w-full h-full object-cover" data-alt="close-up of a high-end designer workspace with a tablet and sleek wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVDvKMGE1yqISH3IJYQQwVcyDH-7VFjqBZi_rWvCrrqzphUN7YKnHzuY6zcZIvZ_Qh0s_eeqdisJGEnXQ5ZnBCSIo8tPTxryJOZGZeeVNjQxADDz5xuea2yhRDXqMvtgT17ZxLaAOmas7Pq6XDEjfZH2e3FZZ0l4d01JP1Hq8H-j7Pl2ByQK2_qg56PZ1kgqj5ujXtOFk3tDKk1XOx9n7PyeXSJ_NdnHDwQukmZIl3MBJEocAX3_XUyfF7FK69asUfODbuZz0YWME"/>
+</div>
+<div class="p-3 flex flex-col justify-center">
+<p class="text-xs font-bold text-primary mb-1">ux-mastery.io</p>
+<p class="text-sm font-medium text-on-surface line-clamp-1">The Architecture of a 6-Figure Design Portfolio</p>
+<p class="text-[10px] text-on-surface-variant mt-1">4 minute read • Shared by Marcus</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Message 3 -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Elena Rodriguez Avatar" class="w-full h-full object-cover" data-alt="portrait of a focused professional woman with dark hair in a light-filled office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrkezROvIF9o5r5oJ19zFog0v0RBVDXMzx2mKoRlfOBZLoLBNXTld6nE2fHaHYKJrOg7iOYORQLp2_Nizipo_WTwyMQFHc_5gWXzHati1lpsGWzL4AqwKoqi5BGEaZMeydD7I0JPQmlzd2Y3pz08hCFUZRnv9bNiHvRnicu_NoszJ1_atAVZ-HnCt86U7ybymQoRk6B5-d9CxPY2pgxrIl7dNRFWXx8-K4_V4pwP36CxAHAKWsrTqjbTfmK55ioCdABpNow8SQTvE"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface">Elena Rodriguez</span>
+<span class="text-xs text-outline">10:45 AM</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl rounded-tl-none shadow-sm max-w-2xl text-on-surface-variant leading-relaxed">
+                            I have a final round interview at a FinTech startup tomorrow. Any specific tips for the whiteboarding challenge? 🎨
+                        </div>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-surface-container-high hover:bg-surface-container-highest text-primary text-[10px] font-bold rounded-full transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span> 12
+                            </button>
+<button class="px-3 py-1 bg-surface-container-high hover:bg-surface-container-highest text-primary text-[10px] font-bold rounded-full transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">reply</span> Reply
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Input Area -->
+<div class="px-8 pb-8">
+<div class="bg-surface-container-lowest rounded-2xl shadow-[0_-10px_40px_rgba(18,28,44,0.03)] border border-outline-variant/10 p-2">
+<div class="flex items-center gap-1 px-2 mb-2 border-b border-outline-variant/5 pb-2">
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">format_bold</button>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">format_italic</button>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">link</button>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">list</button>
+<div class="w-px h-4 bg-outline-variant/20 mx-1"></div>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-lg material-symbols-outlined text-lg">code</button>
+</div>
+<div class="flex items-end gap-3 px-2">
+<button class="p-2 bg-surface-container-low text-primary rounded-xl hover:bg-primary/10 transition-colors material-symbols-outlined">add</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2.5 resize-none" placeholder="Message #ux-design" rows="1"></textarea>
+<div class="flex items-center gap-2 pb-1.5">
+<button class="p-2 text-on-surface-variant hover:text-primary material-symbols-outlined text-xl">mood</button>
+<button class="p-2 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl active:scale-95 transition-transform material-symbols-outlined">send</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Side Panel -->
+<aside class="w-80 hidden xl:flex flex-col bg-surface-container-lowest border-l border-outline-variant/15 p-6 overflow-y-auto custom-scrollbar">
+<div class="mb-8">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Channel Info</h3>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-sm text-on-surface font-medium mb-2">About this channel</p>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-4">
+                        A space for professional UX designers to share resources, critique work, and discuss career growth.
+                    </p>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Created Feb 2024</span>
+</div>
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>Public Channel</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline">Pinned Messages</h3>
+<span class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary-fixed rounded-full">3</span>
+</div>
+<div class="space-y-3">
+<div class="p-3 bg-white border border-outline-variant/10 rounded-xl hover:shadow-sm transition-all cursor-pointer group">
+<p class="text-xs font-bold text-on-surface mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-amber-500" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+                            Channel Guidelines
+                        </p>
+<p class="text-[10px] text-on-surface-variant line-clamp-2">Please read the updated community standards before posting your first portfolio piece...</p>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline">Active Members</h3>
+<button class="text-[10px] font-bold text-primary hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full overflow-hidden">
+<img alt="Active Member" class="w-full h-full object-cover" data-alt="close-up portrait of a professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCFHKF3NqGzKYNh9o71cLkc3oLWhXucJFS6xR-_jVd8m41BZh9dseTuhIH44l5UlrEj5O3pQC9UGXVp-7RjsV-ZtmlCDZKtbiX5_PUzHZaL9eTsbGu1iWklALxcxW-rm_Ib_6YBif_F9wf_bt2N9zoy9LMbti-fSkZAkPdx3W4tktNrfRsfUbAhuB0_Fwkf7cJLuSlW5Do8CvBa5ggDAKC4NSgCuB9A05-4EaiTRDo9_zSZjDeZfMaV_YX0qrNq05egbjcfghr8Fk"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Sarah Chen</p>
+<p class="text-[10px] text-on-surface-variant">Design Lead</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full overflow-hidden">
+<img alt="Active Member" class="w-full h-full object-cover" data-alt="portrait of a creative professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAYIgesfRpqEAl77njco49Kija-ZBRPnsoj7mr8ixAosCriM28SyIVsTrMbISdJ5jpzqhoeMS4U5ZxxKGdn-sHJw-hAFqDB-DuEtVPFGk-F-QaxihZCkOwhTbQaXGmLyjhr6p-JldwXIdzEW6zU862PJOy4ZgpKIR3yASa7WHi6tiLOe0dQWcEC4kaAsKluuEKHCD2oNpzOHJy9iGw4ycomPEjL1Bj41gSM4Myn3woTRzHJcuZSUe0EE7E1RDUH8askkmd0UjAR6M"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Marcus Thompson</p>
+<p class="text-[10px] text-on-surface-variant">Senior Product Designer</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative w-8 h-8 rounded-full overflow-hidden">
+<div class="w-full h-full bg-surface-container-highest flex items-center justify-center text-primary font-bold text-xs">ER</div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-outline border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-[10px] text-on-surface-variant">UX Researcher</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6">
+<button class="w-full py-3 bg-surface-container-low text-primary font-bold text-xs rounded-xl hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">group_add</span>
+                    Invite Colleagues
+                </button>
+</div>
+</aside>
+</div>
+
+</div>
+<div id="page-company_deep_dive" class="page-section" style="display:none;">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-3 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-blue-900 dark:text-blue-100 font-sans antialiased tracking-tight">
+                Architect
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Jobs</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Prep Hub</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Resume</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Network</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">settings</span>
+</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYnlVHjqyow38PVTWDd74Vs9aiAEHIm5xAVobO51pMlkaVnyxVFa_3yXcZfZJwD6PTlD9TqWjMS8yD-6isgApFvmXlmdd5ITnFL-KGPY-6MqwrARjcmfF-pEXNgnVn_rV4H6-ItR0KTcoAjeDi0700uI7VkLCdLX-m08DdqqYwaFtSKJz7rHGD-wFPD3pgcY2Z7CWHpYTG1Vzu3wMFXlJQyjeMFnxSfSTXMF1ye2qRPwIU-mwGqK3QiXwCDSkIncpXaK5sJwI3sLE"/>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-px"></div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 py-6 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r-0 z-40">
+<div class="px-6 mb-10 flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-blue-900 dark:text-blue-50 leading-tight">Career Architect</h2>
+<p class="text-[10px] uppercase tracking-widest text-secondary font-bold">The Digital Curator</p>
+</div>
+</div>
+<nav class="space-y-1 px-3 flex-1">
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">work</span> Jobs
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">psychology</span> Prep Hub
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">description</span> Resume
+            </div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center px-4 py-3 cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-200 text-sm font-medium Inter">
+<span class="material-symbols-outlined mr-3">hub</span> Networking
+            </div>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-primary-container text-white rounded-xl font-bold text-sm shadow-md active:scale-95 transition-all">
+                Upgrade to Pro
+            </button>
+<div class="mt-6 flex flex-col space-y-2 border-t border-outline-variant/10 pt-4">
+<div class="text-slate-600 dark:text-slate-400 flex items-center px-2 py-1 text-sm hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-lg">settings</span> Settings
+                </div>
+<div class="text-slate-600 dark:text-slate-400 flex items-center px-2 py-1 text-sm hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-lg">help_outline</span> Help
+                </div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-20 pb-24 min-h-screen">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+<!-- Hero Section: Organic Asymmetry -->
+<section class="mb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-16 h-16 bg-surface-container-highest rounded-xl flex items-center justify-center">
+<img alt="Stripe Logo" class="w-10 h-10 object-contain" data-alt="Stripe Company Logo Minimalist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9zdncQWIDBv5YiqLB8xV_30t3aXI5jXQrAOrlYbIxeOGPtzaj1dFtliZeJp14A9UhpbaIgjh_uhU8G8K33P8Vf26dTeRaDZLHND2N7WbODevvM7Xg6cfJtB4piHk12lZ5pbwI4190GTVI7uKzb1HRp-JurHDjFhgLdVgYgvSRWmqKA_RXnm45a-jIiA8ggUBaIgkYMt5mEO-rWun3H-JJp9CIfyagfVmCGnQDDor12HefCXirJK9UZDwfk6Med34sccSJwAj0OIo"/>
+</div>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-xs font-bold rounded-full">Active Hiring</span>
+</div>
+<h1 class="text-6xl font-headline font-bold tracking-tight text-on-surface mb-6 leading-[1.1]">
+                        Stripe: Building <br/><span class="text-primary italic">Financial Infrastructure</span> for the Internet.
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed mb-8">
+                        Stripe is a technology company that builds economic infrastructure for the internet. Businesses of every size use their software to accept payments and manage their businesses online.
+                    </p>
+<div class="flex space-x-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+                            View Open Roles
+                        </button>
+<button class="bg-surface-container-highest text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-high transition-all">
+                            Save Company
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square bg-surface-container rounded-[2rem] overflow-hidden rotate-3 shadow-xl">
+<img alt="Stripe Office" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern high-end office interior with glass walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMDhDpwJmN11UiU5T6mDEqXtFP9eRqqXu8XzMni1Ks7YF5JSUs3x8TJ580hN3yXLYd24DSuxeSp5qzOaBxC2U-w3UPaxkT3qVHENbXLeDyJZ9UNyRzekDH5Sc8MnP5Qrw5SQHL6mReh375Q4yaBT27s23rQQX2kNiaZeHDVvgSsTJos_sM6L1auL2XjjFAh405GX8lDeoRfJcSeCoYQtI9F8xVvhwIOeVmKK9CXQpWazOqdVDhQ1lK2IuSk9nal-FwNntP17DDPo4"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-2xl shadow-2xl max-w-[240px]">
+<p class="text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">Headquarters</p>
+<p class="text-sm font-semibold text-on-surface">San Francisco, CA</p>
+<div class="mt-4 flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2RuFzNdbHMYA5k69sQjEf39gVdi4OTiS7K9jmX-bm-9aCUaGiw4YSjN5qUVRqmxJy9ANa9sdpu2Wh3HPv0bYE4zMfgWUtcaXoZ-2nmLfuOfDT70QWOCmBVb7RKqRtwdIEP54Sk8WSQ5lWFcwYcwrISdBEIdwBRTExnSJMN3QKYHIKW2tThjy2SvsiccSngIQH0TtxsL_juuXv2os-hbHfWt4vfKjJNMuzxu0XRjGqNk9viaBjyvAp-PltNO3GVNtJSRwoU28fyP0"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbJt6Bt9Un_rHFbKo50Ryv8Irb6EDVldSx1yD3L9BMjc1NT3kOXzokJvS1dmC4sDH0gAepsJ5IhibcZuhhuC4Ip-UyHj8zXT0V4hj4m0rg-o0g6vRDXkqndZ5VWdxf_axQ6v1bWY4pPPNbUF8pf2ydZ4fS4MAUZ7dpa-TV866g2Ink_WxHlLeJKbvyafFaadb0W5VmOIu3STiCSeCHs8HoLuTD9WFgLasY5U5ym1lt_P37q_af8xwTESFzE_Ks_jrZh-qOB4TiwBA"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPacMhOrZ8Hk_9yQFPG2Qk8Bh3TwN4UHn6Zo3WZBEhRFxwV961n_wa6iCItuf7CUs6rtDPqh0dOWHE67E5NLMGnKX_dhhqVFZEHAw0QtCnfPaIi8svaXDCvchXAdDKcZqqqJQf2Ec7CE5ZQ54YlB0iWJ1I3cOGU8Ytnkj8zJLN_Y284vQKzvCtiPi0eluWCufb6IrKFib6cZBI1s_zgXOMAxxdaYSry5kAKUYyWXxZ2MYJagFXQUru6YiqesDN8ZmcFGEURj4Tpk"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Culture Showcase: Bento Large -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-2xl font-bold text-on-surface tracking-tight">Operating Principles</h3>
+<span class="material-symbols-outlined text-primary">diversity_3</span>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-sm font-bold text-primary mb-2">Users First</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We obsess over the customer experience and prioritize long-term user value over short-term gains.
+                            </p>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-2">Move Fast</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Stripe is a place for builders who value velocity and iterate quickly to solve complex problems.
+                            </p>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-2">Micro-Excellence</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We believe details matter. From API design to documentation, we strive for craft and precision.
+                            </p>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-2">Think Rigorously</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We value clear thinking and debate. Decisions are data-driven and backed by strong logical foundations.
+                            </p>
+</div>
+</div>
+<div class="mt-10 grid grid-cols-3 gap-4">
+<div class="h-32 bg-surface-container-low rounded-lg overflow-hidden">
+<img alt="Team Work" class="w-full h-full object-cover" data-alt="Team of developers collaborating in a lounge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqSk6-MdN1_UFmdZnAfJNvZ0UKBqcmS5kCxepNgjuEgUUnRsM9O2RMfIdQ9U47Wy9dqJsTIg3YXfZEdXU4Y_BDv0CC14yu1y6LsUu1ZDe4PHGOcVOCJWo5cBY9gOe8b0lj1Pydr3QhJkt9vtUbs8BPW6jCzktWKYJvz1jqPCiFM5trFaxfZSOyHdUSHuFnIJSIL3owT4mZto19rZi2XmWz7RvYpquukXMzrGk3--4NqLNU6r2pEsNe-7hsLAc3WlYfO1wSu-bDYL0"/>
+</div>
+<div class="h-32 bg-surface-container-low rounded-lg overflow-hidden">
+<img alt="Office Culture" class="w-full h-full object-cover" data-alt="Spacious modern office with wooden tables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaT2PRb_pWaXUX1bcWujRJ9UhOrmiUSUWCCexqPgjVHRHibQ4_f0J-QVy-vTE98jCoi_OLRrlM3L0m6q7O9SiFea9hUTWABNmKgGgzOdxbDbZ8OUKnCFVEvYe-myBJdDGG1jIyprncoYfHkhm-LFCaB-SjChZBoPsXo4rBAqkwhUpO_TsLv39BePVqRXR4VcuVxAgbFpj4lgoKzzC74GS4qM5RKquQQN1EtQ6uwcGbe5mMnOW8CX2WlyVlTb3Yqyllvy7oSBiBric"/>
+</div>
+<div class="h-32 bg-surface-container-low rounded-lg overflow-hidden">
+<img alt="Tech Setup" class="w-full h-full object-cover" data-alt="Close up of developer code on monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHGSk4WFgXmBx0UMXZtuOiSwSC8W-4QKpXYZCtSACuRsoGvUNJqy5u03-W6mzkaFsFYPfobVMHeYhUDRZCDZl1rpiZhIblOS1CLssObN4nKYrQFyq4C3ha0Uvkjlc7rLJobmIRoN9Ps64KcUyEjHTq5HAwqw4MVLpKhShBvx0TSJ_dwQ3i6kY1nqS77KRjJbxkSBt23vo2xroP9B3GR4ftWjU5klfXa9OuylcWkgzbzPQMNoRyzQgyQWeMgpg6qaDF-O_v0mSqHNQ"/>
+</div>
+</div>
+</div>
+<!-- Salary Intelligence -->
+<div class="bg-surface-container p-8 rounded-xl flex flex-col">
+<h3 class="text-xl font-bold text-on-surface tracking-tight mb-8">Compensation</h3>
+<div class="space-y-6 flex-1">
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Software Engineer L4</span>
+<span class="text-primary">$210k - $285k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Product Designer</span>
+<span class="text-primary">$180k - $240k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Site Reliability Eng</span>
+<span class="text-primary">$195k - $260k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-4/5 rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-secondary mb-2 uppercase tracking-tighter">
+<span>Data Scientist</span>
+<span class="text-primary">$175k - $230k</span>
+</div>
+<div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/2 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<p class="text-[10px] text-on-surface-variant italic">Data sourced from crowdsourced verified offers and internal benchmarks.</p>
+</div>
+</div>
+<!-- Interview Hub: Hackerrank Insights -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-error">terminal</span>
+<h3 class="text-xl font-bold text-on-surface tracking-tight">Interview Lab</h3>
+</div>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 block">Coding Challenge</span>
+<h4 class="text-sm font-bold text-on-surface mb-2">Idempotency Key Implementation</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">How would you design a system to ensure that repeated API calls with the same key don't trigger duplicate transactions?</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 block">System Design</span>
+<h4 class="text-sm font-bold text-on-surface mb-2">Design a Global Ledger</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Scale requirements: 100k TPS with strong consistency and auditability across multiple regions.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 block">Behavioral</span>
+<h4 class="text-sm font-bold text-on-surface mb-2">Disagreement with Data</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Tell me about a time you disagreed with a peer's technical approach and how you used data to find the best outcome.</p>
+</div>
+</div>
+<button class="w-full mt-6 py-3 text-sm font-bold text-primary hover:underline flex items-center justify-center">
+                        View All 42 Questions <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Alumni Network -->
+<div class="md:col-span-2 bg-surface-container-highest p-8 rounded-xl">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="text-2xl font-bold text-on-surface tracking-tight">Your Network Alumni</h3>
+<p class="text-sm text-on-secondary-container">6 connections from your network currently or previously worked at Stripe.</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYXfeRjXHTd0XvUUgEFiQE543gg78W0XLEDez8y4g-YNnbCusgq_VItXfwws3AAMRSRm0JkMZA7Hf_5OrRAPNbKWfIRi2MUJv5LHA7TXOivTLGxWYAkxFESkaM9RrUeqP2K14g1J9ZBoT03Q5-vWNCo4FmMCFZvqEEshOeZeeEhMu4qnHxPuMv0nLlVZUakdyWrolFm0SJvXEMSIAW1LuTgG4Geoqq5y_fBoPAXo_dqlSInflleM04L3SAC2A-4AG7TLvfAYL1Ho0"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Alex Rivera</h4>
+<p class="text-xs text-on-surface-variant">Senior Staff Engineer • Worked 2018-2022</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Request Intro</button>
+</div>
+</div>
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbjaEln8qziCybLlu6UcLyTx-2YarV8DUr_yJuArPFAWvMSVF1G-Sro7aT94Bf7t14I5qEuK69-4iS9-khMMLTAvOS-z_92hZytrxpmHk6uwri1cIrtNRA0zezObOy8IaSOonLTBufvWx18yJ70Oe3_Wta13OlmSJZQTM3GS3Z5MBkSqWZvjMJY0M7yvKdrao1rRym5FbvTMXKE07qRc0IJBcZ5JSKOYPaclFTudbHAcoPm3bHTlPc8of5tYISm12mN_gCg3_zxAw"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Sarah Jenkins</h4>
+<p class="text-xs text-on-surface-variant">Product Manager • Current</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Send Message</button>
+</div>
+</div>
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpOUicYX5RRzVwW5dd4Pe7me3VdQzY5Azgrx0CX1Dt5ZJDjW-Fv1bDd9nFRoKZMf8r7X7AzsOITpwB_boRLgyVa1sXRU90US1PnEqLmL2xWQjajk0i-lP5FKQf4vQALPxCHo4m6FrMgaM8IwcfoPuRow8DCArin7LuImhjON9QnSa5oaMvwCQ4ZrodoqU3_J5sh9TNI5BiIVUEwYRMSK0hPU3xsxqBYgSisnhPpXGKvXLLg9r5AaZy2CdOEpIPovD2KW-z11hT83g"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Marcus Thorne</h4>
+<p class="text-xs text-on-surface-variant">Infrastructure Lead • Worked 2016-2020</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Request Intro</button>
+</div>
+</div>
+<div class="flex items-center p-4 bg-surface-container-lowest rounded-xl">
+<img alt="Alumni" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCk2gllgLt56Q1D55DJZ2yQO_ytwkxc9Mo7uR8jwJR2Y4e6FzY1c4_K4ivzRwY2Hujtj2XLQ043Fyo88wduEGCFI02D1owLRFGJRFdkvUpiHFob8Rp37l-dT2G1wp_INAS1XNy6hH6zZx3ybiC6gf_es3zLn8Rx4eDeWQTomDXZcsEdxzGi7Pt0gTHSumIvDCXK2xg_l4jzoFV-rtcPWqqQqvGYhlzGcIE7ALL20LLPK4Ck_CzJ9oxI-SxGSHife-iB3xJkHNvWqI"/>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Elena Zhao</h4>
+<p class="text-xs text-on-surface-variant">UX Researcher • Current</p>
+<button class="mt-2 text-[10px] font-bold text-primary uppercase">Send Message</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- News & Impact Section -->
+<section class="mt-20">
+<div class="flex justify-between items-end mb-10">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Latest Updates</span>
+<h3 class="text-4xl font-headline font-bold text-on-surface mt-2">Market Impact</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="space-y-8">
+<article class="flex space-x-6">
+<div class="w-24 h-24 bg-surface-container rounded-lg flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover rounded-lg" data-alt="Financial data dashboard on a screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeOXvk72S9XcXuBbRnGrXDPFdHrTWsctd2NKHA5TtuSYssRBxIiTuumPBWkCEpeKPtZ9DUitx4IlTT5KgdtEPjDkHc-YiDGmc5YdDpnmpJa8ecM5U8YRdYPgmemrvAQGRK4uJPYm0OEs6s-EmEUvemVwDlBeolWLZmW9wrtJfUmhBPnp3pur-WQ_Bpyzgu474bbPDUxQK3_Cjf3yTrrcqee_BKsr5L7SqnLB4M3pF6cAUqrmV40IsgJrmE0NbxEMdPJF-webMkG98"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">Stripe expands global footprint with new Asia-Pacific hub</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">The company announced a significant expansion in Singapore, aiming to hire 500+ engineers in the region over the next 24 months.</p>
+<span class="text-xs text-secondary font-medium">3 days ago • Business Insider</span>
+</div>
+</article>
+<article class="flex space-x-6">
+<div class="w-24 h-24 bg-surface-container rounded-lg flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover rounded-lg" data-alt="Close up of a keyboard and workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm6tRv4Qjcw7xtvEJC3gzay09rc2JegTy7s8mfNueGLRAWsFMff3JwbEnVT75LirbjL86Sqhu6KFMvui5Qh7zQ2RQa-g2WmG_Dtr_iOI3nmwuVZjBTntaxgLTLPv_-XxtPSa9VXUOuPdXF42FZdL8aFHpiDNoOMonXvLYsHVnnQbycWXDr5erBwyM7-neASqJNlubV9piVacEGfXltKnQInJZc3q2HpeKfLyA1ppEIpHTMnDeEySF7WdFLRMDL9jYBnoS8k13cQRk"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">Unveiling Stripe Apps: A new platform for developer tools</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">The new marketplace allows third-party developers to build custom workflows directly into the Stripe dashboard interface.</p>
+<span class="text-xs text-secondary font-medium">1 week ago • TechCrunch</span>
+</div>
+</article>
+</div>
+<div class="bg-primary text-white p-10 rounded-[2rem] flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-primary-container rounded-full opacity-50 blur-3xl"></div>
+<h4 class="text-3xl font-bold mb-6 relative z-10 italic">"The internet is still in its early stages."</h4>
+<p class="text-on-primary-container text-lg leading-relaxed relative z-10 opacity-90">
+                            Stripe’s mission is to increase the GDP of the internet. This isn't just about moving money; it's about building the complex systems that allow new businesses to exist.
+                        </p>
+<div class="mt-8 flex items-center relative z-10">
+<img alt="CEO" class="w-12 h-12 rounded-full border-2 border-primary-container mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOUCb71w2EqughWkpcbF5NiY22miBvNKhJCtGZj_bH2XiUFpJVZL_yqq4jNAMKnCJxb5WuXs--lktJFt3iphuhmQK-DCli4u0ldyVqMNVxMUf74n6gX5uWSogcVYJHMg9gWTLeOEGdGBRjs-b6TadGPAc7FfwHwZ1GcGs6GYTPf4Jp2JTTON4f41jyfMaOLjlRg_71Ay-l30NKhgofHokyZZrPYf4JNpWNioUX3_kUrID2xrU9S2ynB38TJEXt5cDSveo8lHHPO24"/>
+<div>
+<p class="text-sm font-bold">Patrick Collison</p>
+<p class="text-xs opacity-70">CEO &amp; Co-founder</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white/90 backdrop-blur-xl border-t border-slate-100 dark:bg-slate-900/90 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-[10px] font-bold mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] font-bold mt-1">Prep</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Dash</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="text-[10px] font-bold mt-1">Network</span>
+</a>
+</nav>
+
+</div>
+<div id="page-mock_interview_simulator" class="page-section" style="display:none;">
+
+<div style="padding-top:80px; padding-bottom:48px; min-height:100vh; background:#f9f9ff;">
+
+  <!-- Header -->
+  <div style="max-width:1200px; margin:0 auto; padding:0 32px 40px;">
+    <h1 style="font-size:3rem; font-weight:900; color:#003c90; letter-spacing:-0.02em; margin-bottom:8px;">AI Mock Interview</h1>
+    <p style="color:#555f71; font-size:1.1rem;">A real Claude AI conducts your interview, asks follow-ups, and gives scored feedback.</p>
+  </div>
+
+  <div style="max-width:1200px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:300px 1fr; gap:24px; align-items:start;">
+
+    <!-- Left: Config -->
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div style="background:#fff; border-radius:16px; padding:28px; box-shadow:0 2px 16px rgba(18,28,44,0.07);">
+        <h2 style="font-size:1.1rem; font-weight:700; color:#003c90; margin-bottom:20px;">Session Setup</h2>
+        
+        <label style="display:block; font-size:12px; font-weight:600; color:#434653; margin-bottom:6px;">Target Role</label>
+        <div style="position:relative; margin-bottom:20px;">
+          <select id="mi-role" style="width:100%; background:#f0f3ff; border:none; border-radius:12px; padding:12px 16px; font-family:Inter,sans-serif; font-size:14px; color:#121c2c; appearance:none; cursor:pointer;">
+            <option>Senior UX Designer</option>
+            <option>Software Engineer</option>
+            <option>Product Manager</option>
+            <option>Data Scientist</option>
+            <option>Marketing Manager</option>
+            <option>Business Analyst</option>
+          </select>
+          <span class="material-symbols-outlined" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none; color:#555f71; font-size:18px;">expand_more</span>
+        </div>
+
+        <label style="display:block; font-size:12px; font-weight:600; color:#434653; margin-bottom:8px;">Interview Focus</label>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+          <button onclick="toggleFocus(this)" class="focus-chip active-chip" data-focus="Behavioral" style="padding:8px 14px; border-radius:8px; background:#003c90; color:#fff; border:none; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.15s;">Behavioral</button>
+          <button onclick="toggleFocus(this)" class="focus-chip" data-focus="Technical" style="padding:8px 14px; border-radius:8px; background:#dee8ff; color:#434653; border:none; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.15s;">Technical</button>
+          <button onclick="toggleFocus(this)" class="focus-chip" data-focus="Culture Fit" style="padding:8px 14px; border-radius:8px; background:#dee8ff; color:#434653; border:none; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.15s;">Culture Fit</button>
+          <button onclick="toggleFocus(this)" class="focus-chip" data-focus="Leadership" style="padding:8px 14px; border-radius:8px; background:#dee8ff; color:#434653; border:none; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.15s;">Leadership</button>
+        </div>
+
+        <label style="display:block; font-size:12px; font-weight:600; color:#434653; margin-bottom:6px;">Difficulty</label>
+        <div style="position:relative; margin-bottom:24px;">
+          <select id="mi-difficulty" style="width:100%; background:#f0f3ff; border:none; border-radius:12px; padding:12px 16px; font-family:Inter,sans-serif; font-size:14px; color:#121c2c; appearance:none; cursor:pointer;">
+            <option>Entry Level</option>
+            <option selected>Mid-Level</option>
+            <option>Senior</option>
+            <option>Director / VP</option>
+          </select>
+          <span class="material-symbols-outlined" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none; color:#555f71; font-size:18px;">expand_more</span>
+        </div>
+
+        <button onclick="startInterview()" id="mi-start-btn" style="width:100%; background:linear-gradient(135deg,#003c90,#0f52ba); color:#fff; border:none; border-radius:12px; padding:16px; font-size:16px; font-weight:700; cursor:pointer; transition:all 0.2s; font-family:Inter,sans-serif;">
+          Start Interview
+        </button>
+        <button onclick="restartInterview()" id="mi-restart-btn" style="display:none; width:100%; background:#e7eeff; color:#003c90; border:none; border-radius:12px; padding:12px; font-size:14px; font-weight:600; cursor:pointer; margin-top:10px; font-family:Inter,sans-serif;">
+          ↺ New Session
+        </button>
+      </div>
+
+      <!-- Live Score Card (hidden until interview starts) -->
+      <div id="mi-score-card" style="display:none; background:#fff; border-radius:16px; padding:28px; box-shadow:0 2px 16px rgba(18,28,44,0.07);">
+        <h2 style="font-size:1rem; font-weight:700; color:#003c90; margin-bottom:16px;">Live Insights</h2>
+        <div id="mi-insights" style="display:flex; flex-direction:column; gap:12px;">
+          <div style="background:#f0f3ff; border-radius:10px; padding:12px;">
+            <p style="font-size:11px; font-weight:700; color:#121c2c; margin-bottom:4px;">Questions Asked</p>
+            <p id="mi-q-count" style="font-size:24px; font-weight:900; color:#003c90;">0</p>
+          </div>
+          <div style="background:#f0f3ff; border-radius:10px; padding:12px;">
+            <p style="font-size:11px; font-weight:700; color:#121c2c; margin-bottom:4px;">Last Score</p>
+            <p id="mi-last-score" style="font-size:24px; font-weight:900; color:#003c90;">—</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Chat Interface -->
+    <div style="background:#fff; border-radius:20px; box-shadow:0 4px 24px rgba(18,28,44,0.09); overflow:hidden; display:flex; flex-direction:column;">
+      
+      <!-- Chat header -->
+      <div style="background:linear-gradient(135deg,#003c90,#0f52ba); padding:20px 28px; display:flex; align-items:center; gap:16px;">
+        <div style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
+          <span class="material-symbols-outlined" style="color:#fff; font-size:22px;">smart_toy</span>
+        </div>
+        <div>
+          <p style="font-weight:700; color:#fff; font-size:1rem;">Sarah — AI Interviewer</p>
+          <p style="font-size:11px; color:rgba(255,255,255,0.7);" id="mi-status">Configure your session and click Start Interview</p>
+        </div>
+        <div id="mi-live-dot" style="display:none; margin-left:auto; width:10px; height:10px; border-radius:50%; background:#4ade80; box-shadow:0 0 8px #4ade80; animation:pulse 1.5s infinite;"></div>
+      </div>
+
+      <!-- Messages -->
+      <div id="mi-messages" style="flex:1; overflow-y:auto; padding:28px; display:flex; flex-direction:column; gap:20px; min-height:400px; max-height:520px;">
+        <div style="text-align:center; padding:40px 20px;">
+          <span class="material-symbols-outlined" style="font-size:48px; color:#c3c6d5; display:block; margin-bottom:12px;">record_voice_over</span>
+          <p style="color:#737784; font-size:14px;">Set up your session on the left and click <strong>Start Interview</strong> to begin.</p>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div id="mi-input-area" style="display:none; padding:20px 28px; border-top:1px solid #f0f3ff; background:#f9f9ff;">
+        <div style="display:flex; gap:12px; align-items:flex-end;">
+          <textarea id="mi-input" placeholder="Type your answer here..." rows="3"
+            style="flex:1; background:#fff; border:1.5px solid #e7eeff; border-radius:12px; padding:14px 16px; font-family:Inter,sans-serif; font-size:14px; color:#121c2c; resize:none; outline:none; transition:border 0.2s; line-height:1.5;"
+            onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault(); sendAnswer();}"
+            onfocus="this.style.borderColor='#003c90'" onblur="this.style.borderColor='#e7eeff'"></textarea>
+          <button onclick="sendAnswer()" id="mi-send-btn" style="background:linear-gradient(135deg,#003c90,#0f52ba); color:#fff; border:none; border-radius:12px; padding:14px 20px; cursor:pointer; transition:all 0.2s; flex-shrink:0;">
+            <span class="material-symbols-outlined" style="font-size:20px; display:block;">send</span>
+          </button>
+        </div>
+        <p style="font-size:11px; color:#737784; margin-top:8px;">Press Enter to send · Shift+Enter for new line</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .focus-chip { transition: all 0.15s; }
+  .active-chip { background: #003c90 !important; color: #fff !important; }
+  .mi-msg-ai { display:flex; gap:14px; align-items:flex-start; }
+  .mi-msg-user { display:flex; gap:14px; align-items:flex-start; flex-direction:row-reverse; }
+  .mi-bubble-ai { background:#f0f3ff; border-radius:4px 16px 16px 16px; padding:14px 18px; max-width:85%; font-size:14px; line-height:1.6; color:#121c2c; }
+  .mi-bubble-user { background:linear-gradient(135deg,#003c90,#0f52ba); border-radius:16px 4px 16px 16px; padding:14px 18px; max-width:85%; font-size:14px; line-height:1.6; color:#fff; }
+  .mi-feedback { background:#fff; border-left:3px solid #003c90; border-radius:0 10px 10px 0; padding:12px 16px; margin-top:10px; font-size:12px; color:#434653; max-width:85%; }
+  .mi-score-badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; margin-bottom:6px; }
+  .typing-dot { width:7px; height:7px; border-radius:50%; background:#003c90; animation:typing-bounce 1s infinite; display:inline-block; margin:0 2px; }
+  .typing-dot:nth-child(2){animation-delay:0.2s} .typing-dot:nth-child(3){animation-delay:0.4s}
+  @keyframes typing-bounce {0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)}}
+</style>
+
+<script>
+(function() {
+  let miHistory = [];
+  let miQCount = 0;
+  let miActive = false;
+
+  function getSelectedFocuses() {
+    return [...document.querySelectorAll('.active-chip')].map(b => b.dataset.focus).join(', ');
+  }
+
+  window.toggleFocus = function(btn) {
+    btn.classList.toggle('active-chip');
+    if(btn.classList.contains('active-chip')) {
+      btn.style.background='#003c90'; btn.style.color='#fff';
+    } else {
+      btn.style.background='#dee8ff'; btn.style.color='#434653';
+    }
+  };
+
+  window.startInterview = async function() {
+    const role = document.getElementById('mi-role').value;
+    const focus = getSelectedFocuses() || 'Behavioral';
+    const difficulty = document.getElementById('mi-difficulty').value;
+
+    miHistory = [];
+    miQCount = 0;
+    miActive = true;
+    document.getElementById('mi-messages').innerHTML = '';
+    document.getElementById('mi-start-btn').style.display = 'none';
+    document.getElementById('mi-restart-btn').style.display = 'block';
+    document.getElementById('mi-input-area').style.display = 'block';
+    document.getElementById('mi-score-card').style.display = 'block';
+    document.getElementById('mi-live-dot').style.display = 'block';
+    document.getElementById('mi-status').textContent = 'Interview in progress...';
+
+    const systemPrompt = `You are Sarah, a sharp, warm, and professional interviewer conducting a real job interview for the role of ${role} at a top tech company.
+
+Your interview focus areas: ${focus}
+Difficulty level: ${difficulty}
+
+Rules:
+- Ask ONE focused interview question at a time
+- After the candidate answers, give brief, honest feedback in this exact JSON format:
+  {"score": X, "feedback": "...", "next_question": "..."}
+  where score is 1-10 and feedback is 2-3 sentences of direct coaching
+- Keep feedback constructive but honest - don't be overly positive
+- Vary question types based on focus areas
+- After 5 questions total, give a final summary instead of another question - use:
+  {"score": X, "feedback": "...", "final_summary": "..."}
+  where final_summary is a 3-4 sentence overall assessment
+
+Start with a warm greeting (NOT in JSON) then ask your first question. Keep greeting to 2 sentences max.`;
+
+    const systemMsg = { role: 'user', content: systemPrompt };
+    showTyping();
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: `You are Sarah, a professional job interviewer for the role of ${role}. Focus: ${focus}. Difficulty: ${difficulty}. Ask one question at a time. After each answer, respond ONLY in JSON: {"score": 1-10, "feedback": "2-3 sentence coaching", "next_question": "..."}. After 5 questions use {"score":X,"feedback":"...","final_summary":"4 sentence overall assessment"}.`,
+          messages: [{ role: 'user', content: 'Start the interview with a brief 2-sentence warm greeting, then ask your first interview question.' }]
+        })
+      });
+      const data = await res.json();
+      removeTyping();
+      const text = data.content?.[0]?.text || 'Hello! Let's begin the interview.';
+      miHistory.push({ role: 'assistant', content: text });
+      addAIMessage(text, null);
+    } catch(e) {
+      removeTyping();
+      addAIMessage('Hello! I'm Sarah. Let's start your mock interview. Tell me about yourself and why you're interested in this role.', null);
+    }
+  };
+
+  window.restartInterview = function() {
+    miHistory = [];
+    miQCount = 0;
+    miActive = false;
+    document.getElementById('mi-messages').innerHTML = '<div style="text-align:center;padding:40px 20px;"><span class="material-symbols-outlined" style="font-size:48px;color:#c3c6d5;display:block;margin-bottom:12px;">record_voice_over</span><p style="color:#737784;font-size:14px;">Set up your session and click <strong>Start Interview</strong> to begin.</p></div>';
+    document.getElementById('mi-start-btn').style.display = 'block';
+    document.getElementById('mi-restart-btn').style.display = 'none';
+    document.getElementById('mi-input-area').style.display = 'none';
+    document.getElementById('mi-score-card').style.display = 'none';
+    document.getElementById('mi-live-dot').style.display = 'none';
+    document.getElementById('mi-status').textContent = 'Configure your session and click Start Interview';
+    document.getElementById('mi-q-count').textContent = '0';
+    document.getElementById('mi-last-score').textContent = '—';
+  };
+
+  window.sendAnswer = async function() {
+    const input = document.getElementById('mi-input');
+    const answer = input.value.trim();
+    if (!answer || !miActive) return;
+
+    input.value = '';
+    addUserMessage(answer);
+    miHistory.push({ role: 'user', content: answer });
+
+    showTyping();
+    document.getElementById('mi-send-btn').disabled = true;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 600,
+          system: `You are Sarah, a professional interviewer. Respond ONLY in JSON: {"score":1-10,"feedback":"2-3 sentence coaching","next_question":"..."}. After 5 user answers, use {"score":X,"feedback":"...","final_summary":"3-4 sentence overall assessment"} instead. Questions answered so far: ${miQCount}.`,
+          messages: miHistory
+        })
+      });
+      const data = await res.json();
+      removeTyping();
+      document.getElementById('mi-send-btn').disabled = false;
+
+      const raw = data.content?.[0]?.text || '{}';
+      let parsed;
+      try {
+        const clean = raw.replace(/```json|```/g,'').trim();
+        parsed = JSON.parse(clean);
+      } catch(e) {
+        parsed = { score: null, feedback: raw, next_question: null };
+      }
+
+      miQCount++;
+      document.getElementById('mi-q-count').textContent = miQCount;
+
+      if(parsed.score) {
+        const scoreColor = parsed.score >= 7 ? '#16a34a' : parsed.score >= 5 ? '#d97706' : '#dc2626';
+        const scoreBg = parsed.score >= 7 ? '#dcfce7' : parsed.score >= 5 ? '#fef3c7' : '#fee2e2';
+        document.getElementById('mi-last-score').textContent = parsed.score + '/10';
+        document.getElementById('mi-last-score').style.color = scoreColor;
+
+        if(parsed.final_summary) {
+          miActive = false;
+          document.getElementById('mi-input-area').style.display = 'none';
+          document.getElementById('mi-live-dot').style.display = 'none';
+          document.getElementById('mi-status').textContent = 'Interview complete ✓';
+          addAIMessage(null, { score: parsed.score, scoreColor, scoreBg, feedback: parsed.feedback, final_summary: parsed.final_summary });
+        } else if(parsed.next_question) {
+          miHistory.push({ role: 'assistant', content: JSON.stringify(parsed) });
+          addAIMessage(null, { score: parsed.score, scoreColor, scoreBg, feedback: parsed.feedback, next_question: parsed.next_question });
+        } else {
+          addAIMessage(parsed.feedback || raw, null);
+        }
+      } else {
+        addAIMessage(parsed.feedback || raw, null);
+      }
+    } catch(e) {
+      removeTyping();
+      document.getElementById('mi-send-btn').disabled = false;
+      addAIMessage('Good answer! Let me ask you another question...', null);
+    }
+  };
+
+  function addAIMessage(text, parsed) {
+    const msgs = document.getElementById('mi-messages');
+    const div = document.createElement('div');
+    div.className = 'mi-msg-ai';
+
+    let inner = `<div style="width:36px;height:36px;border-radius:50%;background:#d9e2ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span class="material-symbols-outlined" style="color:#003c90;font-size:18px;">smart_toy</span></div>`;
+
+    if(text && !parsed) {
+      inner += `<div><p style="font-size:11px;font-weight:700;color:#555f71;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;">Sarah — Interviewer</p>
+        <div class="mi-bubble-ai">${text}</div></div>`;
+    } else if(parsed) {
+      const scoreBadge = parsed.score ? `<span class="mi-score-badge" style="background:${parsed.scoreBg};color:${parsed.scoreColor};">Score: ${parsed.score}/10</span>` : '';
+      if(parsed.final_summary) {
+        inner += `<div style="max-width:85%">
+          <p style="font-size:11px;font-weight:700;color:#555f71;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;">Sarah — Final Assessment</p>
+          <div class="mi-bubble-ai" style="background:linear-gradient(135deg,#003c90,#0f52ba);color:#fff;">
+            ${scoreBadge}<br/><strong>Overall Feedback:</strong> ${parsed.feedback}</div>
+          <div class="mi-feedback" style="border-color:#16a34a;background:#f0fdf4;">
+            <strong style="color:#16a34a;">Summary:</strong> ${parsed.final_summary}<br/><br/>
+            <em style="color:#555f71;">Click "New Session" to practice again with different settings.</em>
+          </div>
+        </div>`;
+      } else {
+        inner += `<div style="max-width:85%">
+          <p style="font-size:11px;font-weight:700;color:#555f71;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;">Sarah — Feedback</p>
+          <div class="mi-feedback" style="max-width:100%">${scoreBadge}<br/>${parsed.feedback}</div>
+          <div class="mi-bubble-ai" style="margin-top:10px;">${parsed.next_question}</div>
+        </div>`;
+      }
+    }
+
+    div.innerHTML = inner;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function addUserMessage(text) {
+    const msgs = document.getElementById('mi-messages');
+    const div = document.createElement('div');
+    div.className = 'mi-msg-user';
+    div.innerHTML = `<div style="width:36px;height:36px;border-radius:50%;background:#e7eeff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span class="material-symbols-outlined" style="color:#434653;font-size:18px;">person</span></div>
+      <div><p style="font-size:11px;font-weight:700;color:#555f71;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;text-align:right;">You</p>
+      <div class="mi-bubble-user">${text}</div></div>`;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    const msgs = document.getElementById('mi-messages');
+    const div = document.createElement('div');
+    div.className = 'mi-msg-ai';
+    div.id = 'mi-typing';
+    div.innerHTML = `<div style="width:36px;height:36px;border-radius:50%;background:#d9e2ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span class="material-symbols-outlined" style="color:#003c90;font-size:18px;">smart_toy</span></div>
+      <div class="mi-bubble-ai" style="padding:14px 20px;">
+        <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+      </div>`;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('mi-typing');
+    if(t) t.remove();
+  }
+})();
+</script>
+
+</div>
+<div id="page-ai_resume_builder" class="page-section" style="display:none;">
+
+<div style="padding-top:80px; padding-bottom:48px; min-height:100vh; background:#f9f9ff;">
+  
+  <div style="max-width:1200px; margin:0 auto; padding:0 32px 40px;">
+    <h1 style="font-size:3rem; font-weight:900; color:#003c90; letter-spacing:-0.02em; margin-bottom:8px;">AI Resume Optimizer</h1>
+    <p style="color:#555f71; font-size:1.1rem;">Paste your resume + a job description. Claude will score it, find gaps, and rewrite weak sections.</p>
+  </div>
+
+  <div style="max-width:1200px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:1fr 360px; gap:24px; align-items:start;">
+
+    <!-- Left: Inputs -->
+    <div style="display:flex; flex-direction:column; gap:20px;">
+
+      <!-- Step 1: Job Description -->
+      <div style="background:#fff; border-radius:16px; padding:28px; box-shadow:0 2px 16px rgba(18,28,44,0.07);">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:#d9e2ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:#003c90;font-size:14px;">1</div>
+          <h3 style="font-size:1.1rem; font-weight:700; color:#121c2c;">Target Job Description</h3>
+        </div>
+        <textarea id="rb-jd" placeholder="Paste the job description here (or just the role title if you don't have one)..." rows="6"
+          style="width:100%; box-sizing:border-box; background:#f0f3ff; border:1.5px solid transparent; border-radius:12px; padding:14px 16px; font-family:Inter,sans-serif; font-size:13px; color:#121c2c; resize:vertical; outline:none; transition:border 0.2s; line-height:1.6;"
+          onfocus="this.style.borderColor='#003c90'" onblur="this.style.borderColor='transparent'"></textarea>
+      </div>
+
+      <!-- Step 2: Resume -->
+      <div style="background:#fff; border-radius:16px; padding:28px; box-shadow:0 2px 16px rgba(18,28,44,0.07);">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:#d9e2ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:#003c90;font-size:14px;">2</div>
+          <h3 style="font-size:1.1rem; font-weight:700; color:#121c2c;">Your Resume Text</h3>
+        </div>
+        <textarea id="rb-resume" placeholder="Paste your full resume text here..." rows="12"
+          style="width:100%; box-sizing:border-box; background:#f0f3ff; border:1.5px solid transparent; border-radius:12px; padding:14px 16px; font-family:Inter,sans-serif; font-size:13px; color:#121c2c; resize:vertical; outline:none; transition:border 0.2s; line-height:1.6;"
+          onfocus="this.style.borderColor='#003c90'" onblur="this.style.borderColor='transparent'"></textarea>
+      </div>
+
+      <button onclick="analyzeResume()" id="rb-analyze-btn"
+        style="background:linear-gradient(135deg,#003c90,#0f52ba); color:#fff; border:none; border-radius:12px; padding:18px; font-size:16px; font-weight:700; cursor:pointer; transition:all 0.2s; font-family:Inter,sans-serif; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <span class="material-symbols-outlined" style="font-size:20px;">auto_awesome</span>
+        Analyze & Optimize Resume
+      </button>
+
+      <!-- Results area -->
+      <div id="rb-results" style="display:none;"></div>
+    </div>
+
+    <!-- Right: Score + Tips Sidebar -->
+    <div style="display:flex; flex-direction:column; gap:20px;">
+
+      <!-- Score Card -->
+      <div id="rb-score-card" style="background:#fff; border-radius:16px; padding:28px; box-shadow:0 2px 16px rgba(18,28,44,0.07);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
+          <div>
+            <h4 style="font-weight:700; color:#121c2c; margin-bottom:4px;">Optimization Score</h4>
+            <p style="font-size:11px; color:#555f71;" id="rb-score-sub">Paste your resume to get scored</p>
+          </div>
+          <span id="rb-score-num" style="font-size:2.5rem; font-weight:900; color:#c3c6d5;">—</span>
+        </div>
+        <div style="width:100%; background:#e7eeff; height:8px; border-radius:9999px; margin-bottom:20px; overflow:hidden;">
+          <div id="rb-score-bar" style="height:100%; width:0%; border-radius:9999px; background:linear-gradient(90deg,#003c90,#0f52ba); transition:width 1s ease;"></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;" id="rb-sub-scores">
+          <div style="background:#f0f3ff; padding:14px; border-radius:10px;">
+            <p style="font-size:10px; font-weight:700; color:#434653; text-transform:uppercase; margin-bottom:4px;">Keywords</p>
+            <p id="rb-kw-score" style="font-size:1.4rem; font-weight:900; color:#c3c6d5;">—</p>
+          </div>
+          <div style="background:#f0f3ff; padding:14px; border-radius:10px;">
+            <p style="font-size:10px; font-weight:700; color:#434653; text-transform:uppercase; margin-bottom:4px;">Impact</p>
+            <p id="rb-imp-score" style="font-size:1.4rem; font-weight:900; color:#c3c6d5;">—</p>
+          </div>
+          <div style="background:#f0f3ff; padding:14px; border-radius:10px;">
+            <p style="font-size:10px; font-weight:700; color:#434653; text-transform:uppercase; margin-bottom:4px;">Format</p>
+            <p id="rb-fmt-score" style="font-size:1.4rem; font-weight:900; color:#c3c6d5;">—</p>
+          </div>
+          <div style="background:#f0f3ff; padding:14px; border-radius:10px;">
+            <p style="font-size:10px; font-weight:700; color:#434653; text-transform:uppercase; margin-bottom:4px;">Clarity</p>
+            <p id="rb-cla-score" style="font-size:1.4rem; font-weight:900; color:#c3c6d5;">—</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Status -->
+      <div id="rb-ai-status" style="background:#121c2c; border-radius:16px; padding:20px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#4ade80;"></div>
+          <span style="font-size:10px; font-weight:700; color:#d9e3f9; letter-spacing:0.1em; text-transform:uppercase;">AI Agent Ready</span>
+        </div>
+        <p id="rb-ai-msg" style="font-size:12px; line-height:1.6; color:rgba(217,227,249,0.75);">Paste your resume and job description, then click Analyze to get real AI-powered optimization from Claude.</p>
+      </div>
+
+      <!-- Missing Keywords (hidden until analysis) -->
+      <div id="rb-keywords-card" style="display:none; background:#fff; border-radius:16px; padding:28px; box-shadow:0 2px 16px rgba(18,28,44,0.07);">
+        <h4 style="font-weight:700; color:#121c2c; margin-bottom:16px;">Missing Keywords</h4>
+        <div id="rb-keywords-list" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .rb-suggestion { background:#fff; border-radius:12px; padding:20px; border-left:4px solid; box-shadow:0 1px 8px rgba(18,28,44,0.06); margin-bottom:16px; }
+  .rb-section-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
+  .rb-rewrite-box { background:#f0f3ff; border-radius:8px; padding:12px 14px; font-size:13px; line-height:1.6; color:#121c2c; margin-top:8px; }
+  .rb-loading { display:flex; align-items:center; gap:12px; padding:20px; background:#fff; border-radius:12px; color:#555f71; font-size:14px; }
+</style>
+
+<script>
+(function() {
+  window.analyzeResume = async function() {
+    const jd = document.getElementById('rb-jd').value.trim();
+    const resume = document.getElementById('rb-resume').value.trim();
+
+    if(!resume) { alert('Please paste your resume text first.'); return; }
+
+    const btn = document.getElementById('rb-analyze-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;animation:spin 1s linear infinite;">autorenew</span> Analyzing...';
+    document.getElementById('rb-ai-msg').textContent = 'Claude is reading your resume and cross-referencing it with the job description...';
+    document.getElementById('rb-results').style.display = 'block';
+    document.getElementById('rb-results').innerHTML = '<div class="rb-loading"><span class="material-symbols-outlined" style="color:#003c90;animation:spin 1s linear infinite;">autorenew</span> Claude is analyzing your resume...</div>';
+
+    const prompt = `You are an expert career coach and resume optimizer. Analyze this resume${jd ? ' against the job description' : ''} and respond ONLY with valid JSON.
+
+${jd ? `JOB DESCRIPTION:
+${jd}
+
+` : ''}RESUME:
+${resume}
+
+Respond with this exact JSON structure (no extra text, no markdown):
+{
+  "overall_score": 72,
+  "keyword_score": 65,
+  "impact_score": 58,
+  "format_score": 85,
+  "clarity_score": 78,
+  "missing_keywords": ["keyword1", "keyword2", "keyword3"],
+  "suggestions": [
+    {
+      "type": "critical",
+      "title": "Issue title",
+      "problem": "What's wrong (1-2 sentences)",
+      "rewrite": "Improved version of the weakest bullet or section"
+    },
+    {
+      "type": "improvement", 
+      "title": "Issue title",
+      "problem": "What's wrong",
+      "rewrite": "Improved version"
+    },
+    {
+      "type": "improvement",
+      "title": "Issue title", 
+      "problem": "What's wrong",
+      "rewrite": "Improved version"
+    }
+  ],
+  "summary": "3-sentence overall assessment of the resume's strengths and main areas for improvement."
+}`;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1500,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      const data = await res.json();
+      const raw = data.content?.[0]?.text || '{}';
+
+      let parsed;
+      try {
+        const clean = raw.replace(/```json|```/g,'').trim();
+        parsed = JSON.parse(clean);
+      } catch(e) {
+        parsed = null;
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;">auto_awesome</span> Re-Analyze Resume';
+
+      if(parsed) {
+        renderResults(parsed);
+      } else {
+        document.getElementById('rb-results').innerHTML = `<div style="background:#fff;border-radius:12px;padding:24px;"><p style="color:#555f71;font-size:14px;line-height:1.6;">${raw}</p></div>`;
+      }
+    } catch(e) {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;">auto_awesome</span> Analyze & Optimize Resume';
+      document.getElementById('rb-results').innerHTML = '<div style="background:#fee2e2;border-radius:12px;padding:20px;color:#dc2626;font-size:14px;">Error connecting to AI. Please try again.</div>';
+    }
+  };
+
+  function renderResults(d) {
+    // Update score card
+    const score = d.overall_score || 0;
+    const scoreColor = score >= 75 ? '#16a34a' : score >= 55 ? '#d97706' : '#dc2626';
+    document.getElementById('rb-score-num').textContent = score + '%';
+    document.getElementById('rb-score-num').style.color = scoreColor;
+    document.getElementById('rb-score-bar').style.width = score + '%';
+    document.getElementById('rb-score-sub').textContent = score >= 75 ? 'Strong match ✓' : score >= 55 ? 'Needs improvement' : 'Significant gaps found';
+    document.getElementById('rb-kw-score').textContent = (d.keyword_score || 0) + '%';
+    document.getElementById('rb-kw-score').style.color = getScoreColor(d.keyword_score);
+    document.getElementById('rb-imp-score').textContent = (d.impact_score || 0) + '%';
+    document.getElementById('rb-imp-score').style.color = getScoreColor(d.impact_score);
+    document.getElementById('rb-fmt-score').textContent = (d.format_score || 0) + '%';
+    document.getElementById('rb-fmt-score').style.color = getScoreColor(d.format_score);
+    document.getElementById('rb-cla-score').textContent = (d.clarity_score || 0) + '%';
+    document.getElementById('rb-cla-score').style.color = getScoreColor(d.clarity_score);
+
+    // AI msg
+    document.getElementById('rb-ai-msg').textContent = d.summary || 'Analysis complete.';
+
+    // Keywords
+    if(d.missing_keywords && d.missing_keywords.length) {
+      document.getElementById('rb-keywords-card').style.display = 'block';
+      document.getElementById('rb-keywords-list').innerHTML = d.missing_keywords.map(k =>
+        `<span style="background:#fee2e2;color:#dc2626;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;">${k}</span>`
+      ).join('');
+    }
+
+    // Suggestions
+    let html = '<h3 style="font-size:1.1rem;font-weight:700;color:#003c90;margin-bottom:16px;">AI Recommendations</h3>';
+    (d.suggestions || []).forEach(s => {
+      const isCrit = s.type === 'critical';
+      const borderColor = isCrit ? '#dc2626' : '#003c90';
+      const badgeBg = isCrit ? '#fee2e2' : '#d9e2ff';
+      const badgeColor = isCrit ? '#dc2626' : '#003c90';
+      html += `<div class="rb-suggestion" style="border-color:${borderColor};">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span style="background:${badgeBg};color:${badgeColor};padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;">${s.type}</span>
+          <span style="font-weight:700;font-size:14px;color:#121c2c;">${s.title}</span>
+        </div>
+        <p style="font-size:13px;color:#434653;line-height:1.5;margin-bottom:10px;">${s.problem}</p>
+        ${s.rewrite ? `<div class="rb-rewrite-box"><span style="font-size:10px;font-weight:700;color:#003c90;display:block;margin-bottom:4px;">✦ REWRITE SUGGESTION</span>${s.rewrite}</div>` : ''}
+      </div>`;
+    });
+
+    document.getElementById('rb-results').innerHTML = html;
+  }
+
+  function getScoreColor(s) {
+    if(!s) return '#c3c6d5';
+    return s >= 75 ? '#16a34a' : s >= 55 ? '#d97706' : '#dc2626';
+  }
+})();
+</script>
+
+<style>
+  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+</style>
+
+</div>
+
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll(".page-section").forEach(el => el.style.display = "none");
+  const target = document.getElementById("page-" + pageId);
+  if(target) target.style.display = "block";
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+  const activeBtn = document.getElementById("nav-" + pageId);
+  if(activeBtn) activeBtn.classList.add("active");
+  window.scrollTo(0, 0);
+}
+document.getElementById("nav-landing_page").classList.add("active");
+document.addEventListener("click", function(e) {
+  const a = e.target.closest("a");
+  if(a && (!a.href || a.getAttribute("href") === "#" || a.href === window.location.href + "#")) e.preventDefault();
+});
+</script>
+</body>
+</html>

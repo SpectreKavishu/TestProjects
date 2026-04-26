@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetHalfway India - Find Perfect Meeting Spots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>MeetHalfway <span class="india-flag">🇮🇳</span></h1>
+                    <p>Find Perfect Meeting Spots Across India</p>
+                </div>
+                <nav class="header-nav">
+                    <button class="btn btn--secondary" id="about-btn">About</button>
+                    <button class="btn btn--primary" id="save-search-btn">Save Search</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application -->
+    <main class="main-app">
+        <div class="container">
+            <div class="app-layout">
+                <!-- Location Input Section -->
+                <section class="input-section">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Enter Two Locations</h2>
+                            <p class="text-secondary">Select starting and destination points to find the perfect meeting spot in between</p>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="location-a">Starting Location</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        type="text" 
+                                        id="location-a" 
+                                        class="form-control location-input" 
+                                        placeholder="Enter starting location (e.g., Mumbai, Delhi)"
+                                        autocomplete="off"
+                                    >
+                                    <button class="use-location-btn" data-target="location-a" title="Use Current Location">
+                                        📍
+                                    </button>
+                                </div>
+                                <div class="autocomplete-dropdown" id="dropdown-a"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="location-b">Destination</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        type="text" 
+                                        id="location-b" 
+                                        class="form-control location-input" 
+                                        placeholder="Enter destination (e.g., Bangalore, Chennai)"
+                                        autocomplete="off"
+                                    >
+                                    <button class="use-location-btn" data-target="location-b" title="Use Current Location">
+                                        📍
+                                    </button>
+                                </div>
+                                <div class="autocomplete-dropdown" id="dropdown-b"></div>
+                            </div>
+
+                            <button id="find-spots-btn" class="btn btn--primary btn--full-width btn--lg" disabled>
+                                Find Meeting Spots
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Popular Cities Quick Select -->
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Popular Cities</h3>
+                            <div class="city-buttons" id="city-buttons">
+                                <button class="city-btn" data-city="Mumbai">Mumbai</button>
+                                <button class="city-btn" data-city="Delhi">Delhi</button>
+                                <button class="city-btn" data-city="Bangalore">Bangalore</button>
+                                <button class="city-btn" data-city="Chennai">Chennai</button>
+                                <button class="city-btn" data-city="Kolkata">Kolkata</button>
+                                <button class="city-btn" data-city="Hyderabad">Hyderabad</button>
+                                <button class="city-btn" data-city="Pune">Pune</button>
+                                <button class="city-btn" data-city="Ahmedabad">Ahmedabad</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Searches -->
+                    <div class="card" id="recent-searches-card">
+                        <div class="card__body">
+                            <h3>Recent Searches</h3>
+                            <div id="recent-searches-list" class="recent-searches-list">
+                                <p class="text-secondary">No recent searches</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section" id="results-section">
+                    <!-- Map Container -->
+                    <div class="card map-card">
+                        <div class="card__body">
+                            <div class="map-header">
+                                <h3>Meeting Location Map</h3>
+                                <div class="map-info" id="map-info">
+                                    <span class="midpoint-info">Calculating midpoint...</span>
+                                </div>
+                            </div>
+                            <div class="map-container" style="position: relative; height: 400px;">
+                                <div id="map" class="map">
+                                    <div class="map-marker marker-a" id="marker-a">
+                                        <span class="marker-label">A</span>
+                                        <div class="marker-tooltip">Starting Location</div>
+                                    </div>
+                                    <div class="map-marker marker-b" id="marker-b">
+                                        <span class="marker-label">B</span>
+                                        <div class="marker-tooltip">Destination</div>
+                                    </div>
+                                    <div class="map-marker marker-mid" id="marker-mid">
+                                        <span class="marker-label">M</span>
+                                        <div class="marker-tooltip">Meeting Point</div>
+                                    </div>
+                                </div>
+                                <div class="map-controls">
+                                    <button class="map-control" id="zoom-in" title="Zoom In">+</button>
+                                    <button class="map-control" id="zoom-out" title="Zoom Out">−</button>
+                                    <button class="map-control" id="center-map" title="Center Map">⌂</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Venue Filters and Results -->
+                    <div class="venues-container">
+                        <!-- Filter Section -->
+                        <div class="card filter-card">
+                            <div class="card__body">
+                                <h3>Filter Venues</h3>
+                                <div class="filter-controls">
+                                    <div class="filter-group">
+                                        <label class="form-label">Venue Type</label>
+                                        <select id="venue-type-filter" class="form-control">
+                                            <option value="All Venues">All Venues</option>
+                                            <option value="Café">Cafés</option>
+                                            <option value="Restaurant">Restaurants</option>
+                                            <option value="Park">Parks & Gardens</option>
+                                            <option value="Mall">Shopping Malls</option>
+                                            <option value="Co-working">Co-working Spaces</option>
+                                            <option value="Library">Libraries</option>
+                                            <option value="Hotel Lounge">Hotel Lounges</option>
+                                            <option value="Fast Food">Fast Food</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label class="form-label">Price Range</label>
+                                        <select id="price-filter" class="form-control">
+                                            <option value="All Prices">All Prices</option>
+                                            <option value="Free">Free</option>
+                                            <option value="₹">₹ (Budget)</option>
+                                            <option value="₹₹">₹₹ (Moderate)</option>
+                                            <option value="₹₹₹">₹₹₹ (Premium)</option>
+                                            <option value="₹₹₹₹">₹₹₹₹ (Luxury)</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label class="form-label">Amenities</label>
+                                        <div class="amenity-filters" id="amenity-filters">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" value="WiFi"> WiFi
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" value="AC"> AC
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" value="Parking"> Parking
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" value="Pure Veg"> Pure Veg
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="clear-filters-btn" class="btn btn--secondary btn--sm">Clear Filters</button>
+                            </div>
+                        </div>
+
+                        <!-- Venues List -->
+                        <div class="card venues-card">
+                            <div class="card__body">
+                                <div class="venues-header">
+                                    <h3>Suggested Meeting Spots</h3>
+                                    <div class="venues-count" id="venues-count">0 venues found</div>
+                                </div>
+                                <div id="venues-list" class="venues-list">
+                                    <div class="loading-state">
+                                        <p>Enter two locations to find meeting spots</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Venue Detail Modal -->
+    <div id="venue-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-venue-name">Venue Name</h2>
+                <button id="close-modal" class="close-btn" title="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="venue-image">
+                    <div class="image-placeholder" id="modal-image">📍 Venue Photo</div>
+                </div>
+                
+                <div class="venue-rating-display" id="modal-rating"></div>
+                
+                <div class="venue-details-grid">
+                    <div class="detail-item">
+                        <strong>Type:</strong> <span id="modal-type"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Distance:</strong> <span id="modal-distance"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Price Range:</strong> <span id="modal-price"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Address:</strong> <span id="modal-address"></span>
+                    </div>
+                    <div class="detail-item" id="modal-phone-item">
+                        <strong>Phone:</strong> <span id="modal-phone"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Hours:</strong> <span id="modal-hours"></span>
+                    </div>
+                </div>
+
+                <div class="detail-item description-item">
+                    <strong>Description:</strong>
+                    <p id="modal-description"></p>
+                </div>
+
+                <div class="amenities-section" id="modal-amenities-section">
+                    <strong>Amenities:</strong>
+                    <div class="amenities-list" id="modal-amenities"></div>
+                </div>
+
+                <div class="suitable-for-section" id="modal-suitable-section">
+                    <strong>Suitable For:</strong>
+                    <div class="suitable-for-list" id="modal-suitable"></div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn btn--primary" id="get-directions">Get Directions</button>
+                    <button class="btn btn--secondary" id="share-venue">Share Venue</button>
+                    <button class="btn btn--outline" id="save-venue">Save Venue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Meeting Spot</h2>
+                <button class="close-btn" onclick="closeShareModal()" title="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="share-options">
+                    <button class="share-option" onclick="copyToClipboard()">
+                        <span class="share-icon">📋</span>
+                        Copy Link
+                    </button>
+                    <button class="share-option" onclick="shareViaWhatsApp()">
+                        <span class="share-icon">💬</span>
+                        Share on WhatsApp
+                    </button>
+                    <button class="share-option" onclick="shareViaEmail()">
+                        <span class="share-icon">📧</span>
+                        Share via Email
+                    </button>
+                    <button class="share-option" onclick="shareViaSMS()">
+                        <span class="share-icon">📱</span>
+                        Send SMS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 MeetHalfway India. Connecting people across the nation. 🇮🇳</p>
+                <div class="footer-links">
+                    <a href="#" target="_blank">Privacy Policy</a>
+                    <a href="#" target="_blank">Terms of Service</a>
+                    <a href="#" target="_blank">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

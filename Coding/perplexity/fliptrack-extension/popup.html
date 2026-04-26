@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlipTrack Pro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🏷️ FlipTrack Pro</h1>
+      <p class="subtitle">Smart Price Tracking</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-label">Tracked</span>
+        <span class="stat-value" id="productCount">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Alerts</span>
+        <span class="stat-value" id="alertCount">0</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Your Tracked Products</h2>
+      <div id="productsList" class="products-list">
+        <p class="empty-state">No tracked products yet</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="viewDashboard" class="btn btn-primary">
+        📊 View Dashboard
+      </button>
+      <button id="settings" class="btn btn-secondary">
+        ⚙️ Settings
+      </button>
+    </div>
+
+    <div class="footer">
+      <p>v1.0.0 • <a href="#">Support</a></p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

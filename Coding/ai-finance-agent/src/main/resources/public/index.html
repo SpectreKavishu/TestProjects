@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Finance Agent</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <main class="container">
+        <header class="hero">
+            <h1>Indian Stocks <span class="gradient-text">AI Agent</span></h1>
+            <p>Query the pgvector database utilizing the local LangChain4j embedding engine. Ask anything!</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="e.g. 'Which company is the largest private sector bank?'" autocomplete="off" />
+                <button id="searchBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="loader" class="loader hidden"></div>
+        </section>
+
+        <section id="resultsContainer" class="results-grid">
+            <!-- Dynamic Stock Cards stream here -->
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

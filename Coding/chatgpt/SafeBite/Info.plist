@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>SafeBite</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Allow access to location to show nearby food vendors.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Allow camera to take photos of vendors for hygiene scoring.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Allow photo library access to upload images for scoring.</string>
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-xxxxxxxx~yyyyyyyy</string>
+</dict>
+</plist>

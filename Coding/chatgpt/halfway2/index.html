@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meet-in-the-Middle • India</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- inline svg icons -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ic-restaurant" viewBox="0 0 24 24"><path fill="currentColor" d="M8 2v10a2 2 0 0 0 2 2h1v6h2v-6h1a2 2 0 0 0 2-2V2h-8zM3 7h2v13H3z"/></symbol>
+    <symbol id="ic-cafe" viewBox="0 0 24 24"><path fill="currentColor" d="M3 19h14a3 3 0 0 0 0-6h-1V5H3v14zM20 8v2a5 5 0 0 1 0 10h-1v-2h1a3 3 0 0 0 0-6h-1V8h1z"/></symbol>
+    <symbol id="ic-bar" viewBox="0 0 24 24"><path fill="currentColor" d="M3 2v2h18V2H3zm3 6v12h2V8H6zm4 0v12h2V8h-2zm4 0v12h2V8h-2z"/></symbol>
+    <symbol id="ic-hotel" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11v7h2v3h2v-3h8v3h2v-3h2v-7H3zm3-7h12v4H6V4z"/></symbol>
+    <symbol id="ic-park" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L8 8h3v6h2V8h3l-4-6zM4 18h16v2H4z"/></symbol>
+    <symbol id="ic-location" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 2.05l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17.24 19.16l1.8 1.79 1.79-1.79-1.79-1.79-1.8 1.79zM20 11v2h3v-2h-3zM11 23h2v-3h-2v3zM4.24 19.16l-1.79 1.79 1.79 1.79 1.79-1.79-1.79-1.79z"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></symbol>
+    <!-- AC and parking icons (small) -->
+    <symbol id="ic-ac" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3h14v6H5zM3 11h18v2H3zM7 15h10v6H7z"/></symbol>
+    <symbol id="ic-parking" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2H7v20h5a4 4 0 0 0 0-8H9v-4h3a2 2 0 0 1 0 4H9V6h3a4 4 0 0 1 0 8H7V2z"/></symbol>
+  </svg>
+
+  <main class="page" id="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🧭</div>
+        <div>
+          <h1>Meet‑in‑the‑Middle (India)</h1>
+          <p class="muted">Restaurants · Cafés · Bars · Hotels · Parks — top 5 closest to midpoint</p>
+        </div>
+      </div>
+
+      <div class="controls-right">
+        <div class="filter-inline">
+          <label title="Require venue to have AC"><input type="checkbox" id="filterAC" /> AC</label>
+          <label title="Require venue to have parking"><input type="checkbox" id="filterParking" /> Parking</label>
+        </div>
+
+        <select id="rankPref" title="Ranking preference">
+          <option value="balanced">Balanced (equal)</option>
+          <option value="favorA">Favor Location A (closer to A)</option>
+          <option value="favorB">Favor Location B (closer to B)</option>
+        </select>
+
+        <button id="themeToggle" aria-label="Toggle theme" class="icon-btn" title="Toggle dark/light"></button>
+        <button id="shareBtn" title="Copy link with current inputs">Share</button>
+      </div>
+    </header>
+
+    <section class="controls glass">
+      <div class="row">
+        <div class="field">
+          <label for="aInput">Location A</label>
+          <input id="aInput" placeholder="Start typing (city/place) — suggestions appear" autocomplete="off" />
+          <ul class="suggestions" id="aSuggestions" role="listbox" aria-label="Suggestions for A"></ul>
+        </div>
+
+        <div class="col-tools">
+          <button id="useMyLoc" class="secondary">Use my location</button>
+          <button id="swapBtn" class="secondary">Swap ↔</button>
+        </div>
+
+        <div class="field">
+          <label for="bInput">Location B</label>
+          <input id="bInput" placeholder="Start typing (city/place) — suggestions appear" autocomplete="off" />
+          <ul class="suggestions" id="bSuggestions" role="listbox" aria-label="Suggestions for B"></ul>
+        </div>
+
+        <div class="field narrow">
+          <label for="typeSelect">Prefer</label>
+          <select id="typeSelect">
+            <option value="any">Any (recommended)</option>
+            <option value="restaurant">Restaurants</option>
+            <option value="cafe">Cafés</option>
+            <option value="bar">Bars / Pubs</option>
+            <option value="hotel">Hotels</option>
+            <option value="park">Parks / Gardens</option>
+          </select>
+        </div>
+
+        <div class="field narrow">
+          <label>&nbsp;</label>
+          <button id="goBtn" class="primary">Find</button>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div id="midplace" class="muted">Midpoint place: —</div>
+        <div id="distanceInfo" class="muted">Total distance: —</div>
+        <div id="radiusInfo" class="muted">Radius used: —</div>
+      </div>
+    </section>
+
+    <section class="mapwrap">
+      <div id="map" aria-label="Map"></div>
+    </section>
+
+    <section class="results-wrap">
+      <div class="results-header">
+        <h2>Top 5 closest places</h2>
+        <div id="resultsCount" class="badge">0</div>
+      </div>
+
+      <div id="resultsGrid" class="results-grid"></div>
+
+      <div id="fallbackNote" class="muted small centered hidden"></div>
+    </section>
+
+    <footer class="footer muted">
+      Map & data © OpenStreetMap contributors · Nominatim & Overpass
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

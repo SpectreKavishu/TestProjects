@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_3_0.dtd">
+<look-and-feel>
+    <theme id="sample-theme" name="Sample Theme"/>
+</look-and-feel>

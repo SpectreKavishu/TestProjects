@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curated Career Architect | High-Impact Career Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f0f3ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#35424e",
+                        "surface-dim": "#d0daf0",
+                        "on-primary-container": "#bcceff",
+                        "tertiary-fixed-dim": "#bac8d7",
+                        "on-background": "#121c2c",
+                        "on-secondary-container": "#596376",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#273141",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "primary-fixed": "#d9e2ff",
+                        "secondary-fixed": "#d9e3f9",
+                        "on-primary-fixed": "#001945",
+                        "surface-bright": "#f9f9ff",
+                        "secondary": "#555f71",
+                        "on-surface": "#121c2c",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "primary-container": "#0f52ba",
+                        "tertiary-fixed": "#d6e4f4",
+                        "on-tertiary-fixed": "#0f1d28",
+                        "on-tertiary-fixed-variant": "#3b4855",
+                        "surface": "#f9f9ff",
+                        "secondary-container": "#d6e0f6",
+                        "outline": "#737784",
+                        "surface-tint": "#1d59c1",
+                        "surface-container-high": "#dee8ff",
+                        "on-secondary-fixed": "#121c2c",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9ff",
+                        "on-tertiary-container": "#c2d0df",
+                        "surface-variant": "#d9e3f9",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed-variant": "#00419c",
+                        "primary": "#003c90",
+                        "surface-container-highest": "#d9e3f9",
+                        "on-surface-variant": "#434653",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e7eeff",
+                        "tertiary-container": "#4c5966",
+                        "inverse-primary": "#b0c6ff",
+                        "outline-variant": "#c3c6d5",
+                        "error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9ff]/80 dark:bg-[#121c2c]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(18,28,44,0.06)]">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-[#003c90] dark:text-[#d9e2ff]">
+                Curated Career Architect
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Jobs</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Prep Hub</a>
+<a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#003c90] transition-colors" href="#">Dashboard</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff]">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#e7eeff] dark:hover:bg-[#334155] rounded-lg transition-all active:scale-95 duration-200 ease-out">
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff]">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary-fixed">
+<img alt="User Profile Avatar" data-alt="Professional user avatar illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo71J98XCu2DYP0y6nIJ9nBzvXwuEyjplbSIM04tOIMAuxYLnlb_MNZB2ewxqAuzUx4TaVJcnoWefQej14F8r0W3wdFWOt4tLzXPlNH3IPkNdlwbMV9Ipif2U4AU9DYedR369VxuGefEpP1oAGcZJqWummJYeSumO9JgYFMzj4tBbh6A3TTVS7JhSSZLhq7lvRf7BgXePLS2u9Fle992-0ejArWTLF3-T3-fJCXVp1UFRGJsNGjuItvaFXsRPkJc2Nb0rz8_mNeOI"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex flex-col items-center justify-center px-8 py-20 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20">
+<div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary-container blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-secondary-container blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-4xl text-center space-y-8">
+<h1 class="text-6xl md:text-7xl font-extrabold text-primary tracking-tighter leading-[1.1]">
+                    Architect Your <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Next Big Move.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                    A bespoke recruitment consultancy experience, digitally curated for precision career advancement. No noise, just focus.
+                </p>
+<!-- Powerful Search Bar -->
+<div class="mt-12 bg-surface-container-lowest p-2 rounded-full shadow-[0_20px_40px_rgba(18,28,44,0.06)] flex flex-col md:flex-row items-center w-full max-w-3xl mx-auto border border-outline-variant/10">
+<div class="flex items-center flex-1 px-6 py-3 w-full border-b md:border-b-0 md:border-r border-outline-variant/15">
+<span class="material-symbols-outlined text-secondary mr-3">work</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-secondary/60" placeholder="Job Title or Keyword" type="text"/>
+</div>
+<div class="flex items-center flex-1 px-6 py-3 w-full">
+<span class="material-symbols-outlined text-secondary mr-3">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-secondary/60" placeholder="City or Remote" type="text"/>
+</div>
+<button class="w-full md:w-auto px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-full hover:shadow-lg transition-all active:scale-95">
+                        Search Jobs
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Jobs Grid -->
+<section class="max-w-[1440px] mx-auto px-8 py-24 bg-surface">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs">Curated Selection</span>
+<h2 class="text-4xl font-bold text-on-surface mt-2">Featured Positions</h2>
+</div>
+<button class="text-primary font-semibold flex items-center hover:underline">
+                    View All Jobs <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Job Card 1 (LinkedIn) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center p-2">
+<img alt="LinkedIn Logo" data-alt="LinkedIn company logo square" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjRAMJNTxxu8jNwRCZaqQ6DAHu1MN4S1967d6OlvvBnPKkf0GAh1qiMZB6G0ddEClH_7OudtfR7Fdi0Ih85kZ-3ath9qvbhtCLT815LtEHfMpZAyCqPdMiDSH8MB2qEjCOTRlmgHMBszJmd0R6AdFRuWa-RFoWTh2g-4UFSG8pjq_tQf_NIWKGMywTcgeJodEg4t_PszwMVVT3Jmz2Xbqub7ia8RoVt9vZzLTQqrZizV1i_HndIMPXftLTG0-EYcMI9MgT93BRZGI"/>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-md text-xs font-medium text-on-secondary-container">Full-time</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Senior UX Architect</h3>
+<p class="text-on-surface-variant text-sm mb-6">LinkedIn · San Francisco, CA</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">System Design</span>
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Leadership</span>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface">$160k - $210k</span>
+<span class="text-xs text-secondary italic">Posted 4h ago</span>
+</div>
+</div>
+<!-- Job Card 2 (Nauru.com) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center p-2">
+<span class="material-symbols-outlined text-primary text-3xl">language</span>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-md text-xs font-medium text-on-secondary-container">Remote</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Lead Backend Engineer</h3>
+<p class="text-on-surface-variant text-sm mb-6">Nauru.com · Global</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Go</span>
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Kubernetes</span>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface">$145k - $180k</span>
+<span class="text-xs text-secondary italic">Posted 1d ago</span>
+</div>
+</div>
+<!-- Job Card 3 (Design Agency) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(18,28,44,0.06)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center p-2 text-primary font-bold">
+                            CCA
+                        </div>
+<span class="bg-surface-container-high px-3 py-1 rounded-md text-xs font-medium text-on-secondary-container">Contract</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Visual Systems Designer</h3>
+<p class="text-on-surface-variant text-sm mb-6">Design Hub · London, UK</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Tokens</span>
+<span class="px-3 py-1 bg-surface-container rounded-md text-xs text-secondary">Figma</span>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface">£800/day</span>
+<span class="text-xs text-secondary italic">Posted 2h ago</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Elevate Your Interview Section -->
+<section class="bg-surface-container py-24">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="max-w-2xl mb-16">
+<h2 class="text-4xl font-bold text-primary mb-6">Elevate Your Interview</h2>
+<p class="text-lg text-secondary leading-relaxed">
+                        Getting the interview is only half the battle. Our curated resources ensure you're the most prepared candidate in the room.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Resource Card 1 -->
+<div class="flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="md:w-2/5 relative min-h-[240px]">
+<img alt="Interview Prep" class="absolute inset-0 w-full h-full object-cover" data-alt="Professional woman in a business meeting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkMWrK3sAriZKXsRDzO77yVwdBsO_8Bi7OsPkj21jK3Gn9-5e0mqs8pivCLQ_kFtqXaiyuBR53IYaqaeuuq_nntldrnFwEvxGnKCCAW8S9fucUgAxEgCYwWylbJU0i_4mkqlvxpwT3Oy22CN3m_T1RSorj9GxZ5aSjd4m6bogrCDgagsFNa2VOo9d6cvBC7MeIcTrfOLZ5OguEsAgNrI_Vm59N_A2zQ6oa-PQ9ckHaYtJUmA8DvijWtl2MPnDFeWWmKWRqOMgbXA0"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="md:w-3/5 p-8 flex flex-col justify-center">
+<div class="flex items-center text-primary-container text-xs font-bold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm mr-2">psychology</span> Behavioral Mastery
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Master Behavioral Questions</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                                Learn the STAR method through actual case studies from FAANG hiring managers.
+                            </p>
+<button class="text-primary font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                                Explore Guide <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Resource Card 2 -->
+<div class="flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="md:w-2/5 relative min-h-[240px]">
+<img alt="Technical Prep" class="absolute inset-0 w-full h-full object-cover" data-alt="Coding lines on a dark screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCuURKd2X4NlmILlRCSuJjioXvjB3ngN-emOQeQHNnM2K1DzTdjiO52v_Bti5G8gzg_p6Wcqe_e_sVDv4PNA8uqr6t5MThPdOLTTkYG6RqV5sbhhvFncTMlTFNC1qlzJaN9DY7j1SHjMqDoJ4E6iBj4B5H-XOgzcFYNY_RXNoKbBb31T_JyrE_jkGfQq-2RVYP2y4dV5JlLdfA1j32vX94OZ66Km6D9heJ7CbZiHGNlGcWI5rHCesq8-NEh_qFq8cNIdExXh1ccT0"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="md:w-3/5 p-8 flex flex-col justify-center">
+<div class="flex items-center text-primary-container text-xs font-bold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm mr-2">code</span> Engineering Track
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Technical Prep with HackerRank</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                                Integrated coding challenges and system design drills tailored to your target role.
+                            </p>
+<button class="text-primary font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                                Start Drills <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Use Our Platform (Asymmetric Bento Grid) -->
+<section class="max-w-[1440px] mx-auto px-8 py-32">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-bold text-on-surface">The Curator's Edge</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]">
+<div class="md:col-span-2 md:row-span-2 bg-primary rounded-xl p-12 text-on-primary flex flex-col justify-end relative overflow-hidden">
+<span class="material-symbols-outlined absolute top-12 right-12 text-[120px] opacity-10">verified_user</span>
+<h3 class="text-3xl font-bold mb-4">Unrivaled Security</h3>
+<p class="text-on-primary/80 max-w-md text-lg">
+                        Your career data is encrypted and confidential. We ensure your job search remains private from current employers with advanced stealth mode.
+                    </p>
+</div>
+<div class="bg-surface-container-high rounded-xl p-8 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Instant Sync</h3>
+<p class="text-sm text-on-surface-variant">Real-time alerts for jobs that match your exact profile criteria.</p>
+</div>
+</div>
+<div class="bg-secondary-container rounded-xl p-8 flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl">inventory_2</span>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Total Resources</h3>
+<p class="text-sm text-on-surface-variant">From CV templates to salary negotiation scripts, all in one place.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1440px] mx-auto px-8 mb-24">
+<div class="bg-gradient-to-r from-primary to-primary-container rounded-[2rem] p-16 text-center text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<h2 class="text-4xl md:text-5xl font-extrabold mb-6 relative z-10">Ready to Architect Your Future?</h2>
+<p class="text-xl text-primary-fixed mb-10 max-w-2xl mx-auto relative z-10">Join 50,000+ professionals who have elevated their careers through our curated ecosystem.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="px-12 py-5 bg-surface-container-lowest text-primary font-bold rounded-full hover:shadow-xl transition-all active:scale-95">Get Started for Free</button>
+<button class="px-12 py-5 border-2 border-primary-fixed text-on-primary font-bold rounded-full hover:bg-primary-fixed/10 transition-all">Book a Demo</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 bg-[#e7eeff] dark:bg-[#0f172a] mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto text-sm font-['Inter'] leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<div class="font-bold text-[#003c90] dark:text-[#d9e2ff] text-lg mb-6">
+                    Curated Career Architect
+                </div>
+<p class="text-[#555f71] dark:text-[#94a3b8] mb-6">
+                    © 2024 Curated Career Architect. Organic Functionalism in Recruitment.
+                </p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff] cursor-pointer opacity-80 hover:opacity-100 transition-opacity">language</span>
+<span class="material-symbols-outlined text-[#003c90] dark:text-[#d9e2ff] cursor-pointer opacity-80 hover:opacity-100 transition-opacity">share</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6 uppercase tracking-widest text-xs">Platform</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Jobs</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">LinkedIn Integration</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Prep Hub</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Salary Benchmarks</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6 uppercase tracking-widest text-xs">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Help Center</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#555f71] dark:text-[#94a3b8] hover:text-[#0f52ba] dark:hover:text-white transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#003c90] dark:text-[#d9e2ff] mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
+<p class="text-[#555f71] dark:text-[#94a3b8] mb-4">Curated career insights delivered weekly.</p>
+<div class="flex">
+<input class="bg-surface-container-lowest border-none rounded-l-lg px-4 py-2 w-full focus:ring-1 focus:ring-primary text-xs" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-r-lg">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

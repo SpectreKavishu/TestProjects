@@ -1,0 +1,44 @@
+"app_title" = "Panchang";
+"today_title" = "Today";
+"upcoming_title" = "Upcoming";
+"settings_title" = "Settings";
+"day_details_title" = "Day Details";
+
+"tab_today" = "Today";
+"tab_upcoming" = "Upcoming";
+"tab_settings" = "Settings";
+
+"time_ist" = "India Standard Time";
+
+"key_observances" = "Key Observances";
+"astronomical_details" = "Astronomical Details";
+
+"sunrise" = "Sunrise";
+"sunset" = "Sunset";
+"moonrise" = "Moonrise";
+"moonset" = "Moonset";
+
+"nakshatra" = "Nakshatra";
+"yoga" = "Yoga";
+"karana" = "Karana";
+"paksha" = "Paksha";
+"month" = "Month";
+"auspicious" = "Auspicious";
+
+"no_data_title" = "No data yet";
+"no_data_body" = "Connect to a Panchang data provider to see today's details.";
+
+"section_tithi" = "Tithi";
+"section_panchang" = "Panchang";
+"section_sun_moon" = "Sun & Moon";
+"section_auspicious" = "Auspicious Window";
+"section_festivals" = "Festivals";
+
+"location_title" = "Location";
+"data_source_title" = "Data Source";
+
+"timezone_label" = "Timezone: %@";
+"gps_coming" = "GPS support coming soon.";
+
+"data_source_name" = "Sample Panchang feed";
+"data_source_body" = "Connect an API to sync live tithi, nakshatra, and festival data.";

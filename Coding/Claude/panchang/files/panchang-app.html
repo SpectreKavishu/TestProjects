@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchang - Hindu Calendar</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Lora:wght@400;500;600&family=Tiro+Devanagari+Hindi:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel Standalone for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Lucide Icons as SVG components
+        const Globe = ({ size = 24, color = "currentColor" }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+        );
+
+        const RefreshCw = ({ size = 24, color = "currentColor", style }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+        );
+
+        const Sun = ({ size = 24, color = "currentColor", style }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+        );
+
+        const Moon = ({ size = 24, color = "currentColor", style }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        );
+
+        const Star = ({ size = 24, color = "currentColor", fill = "none", opacity = 1 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity={opacity}>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+        );
+
+        function HinduCalendarApp() {
+            const [panchangData, setPanchangData] = useState(null);
+            const [upcomingEvents, setUpcomingEvents] = useState([]);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
+            const [location, setLocation] = useState({ lat: 28.6139, lon: 77.2090, name: 'New Delhi' });
+            const [scrollY, setScrollY] = useState(0);
+            const [language, setLanguage] = useState('en');
+
+            useEffect(() => {
+                const handleScroll = () => setScrollY(window.scrollY);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            useEffect(() => {
+                const savedLang = localStorage.getItem('appLanguage');
+                if (savedLang) {
+                    setLanguage(savedLang);
+                }
+            }, []);
+
+            useEffect(() => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            setLocation({
+                                lat: position.coords.latitude,
+                                lon: position.coords.longitude,
+                                name: language === 'hi' ? 'आपका स्थान' : 'Your Location'
+                            });
+                        },
+                        (error) => {
+                            console.log('Location error:', error);
+                        }
+                    );
+                }
+            }, [language]);
+
+            useEffect(() => {
+                loadSampleData();
+                fetchUpcomingFestivals();
+            }, [language]);
+
+            const toggleLanguage = () => {
+                const newLang = language === 'en' ? 'hi' : 'en';
+                setLanguage(newLang);
+                localStorage.setItem('appLanguage', newLang);
+            };
+
+            const translations = {
+                en: {
+                    appTitle: 'Panchang',
+                    todayTithi: "Today's Tithi",
+                    endsAt: 'Ends at',
+                    nakshatra: 'Nakshatra',
+                    yoga: 'Yoga',
+                    karana: 'Karana',
+                    lord: 'Lord',
+                    sun: 'Sun',
+                    moon: 'Moon',
+                    auspiciousTimes: 'Auspicious Times',
+                    inauspiciousTimes: 'Inauspicious Times',
+                    rahuKaal: 'Rahu Kaal',
+                    gulikaKaal: 'Gulika Kaal',
+                    upcomingFestivals: 'Upcoming Festivals & Fasts',
+                    fasting: 'Fasting',
+                    brahmaVela: 'Brahma Muhurta',
+                    abhijitMuhurta: 'Abhijit Muhurta',
+                    vijayaMuhurta: 'Vijaya Muhurta',
+                    paksha: {
+                        shukla: 'Shukla Paksha',
+                        krishna: 'Krishna Paksha'
+                    }
+                },
+                hi: {
+                    appTitle: 'पंचांग',
+                    todayTithi: 'आज की तिथि',
+                    endsAt: 'समाप्ति',
+                    nakshatra: 'नक्षत्र',
+                    yoga: 'योग',
+                    karana: 'करण',
+                    lord: 'देवता',
+                    sun: 'सूर्य',
+                    moon: 'चंद्र',
+                    auspiciousTimes: 'शुभ मुहूर्त',
+                    inauspiciousTimes: 'अशुभ काल',
+                    rahuKaal: 'राहु काल',
+                    gulikaKaal: 'गुलिक काल',
+                    upcomingFestivals: 'आगामी त्यौहार और व्रत',
+                    fasting: 'उपवास',
+                    brahmaVela: 'ब्रह्म मुहूर्त',
+                    abhijitMuhurta: 'अभिजीत मुहूर्त',
+                    vijayaMuhurta: 'विजय मुहूर्त',
+                    paksha: {
+                        shukla: 'शुक्ल पक्ष',
+                        krishna: 'कृष्ण पक्ष'
+                    }
+                }
+            };
+
+            const t = translations[language];
+
+            const fetchUpcomingFestivals = () => {
+                const eventsEn = [
+                    {
+                        title: 'Maha Shivaratri',
+                        date: 'February 26, 2026',
+                        type: 'Festival',
+                        significance: 'Major festival dedicated to Lord Shiva',
+                        fasting: 'Complete fast with night vigil',
+                        color: '#FF6B35'
+                    },
+                    {
+                        title: 'Ekadashi',
+                        date: 'February 10, 2026',
+                        type: 'Fasting',
+                        significance: 'Jaya Ekadashi - auspicious for spiritual practices',
+                        fasting: 'No grains, cereals, or pulses',
+                        color: '#F7931E'
+                    },
+                    {
+                        title: 'Purnima',
+                        date: 'February 12, 2026',
+                        type: 'Full Moon',
+                        significance: 'Magha Purnima - sacred bath in holy rivers',
+                        fasting: 'Optional fasting until moonrise',
+                        color: '#4ECDC4'
+                    },
+                    {
+                        title: 'Holi',
+                        date: 'March 14, 2026',
+                        type: 'Festival',
+                        significance: 'Festival of colors celebrating victory of good over evil',
+                        fasting: 'No fasting - celebration day',
+                        color: '#FF006E'
+                    }
+                ];
+
+                const eventsHi = [
+                    {
+                        title: 'महा शिवरात्रि',
+                        date: '26 फरवरी, 2026',
+                        type: 'त्यौहार',
+                        significance: 'भगवान शिव को समर्पित प्रमुख त्यौहार',
+                        fasting: 'रात्रि जागरण के साथ पूर्ण उपवास',
+                        color: '#FF6B35'
+                    },
+                    {
+                        title: 'एकादशी',
+                        date: '10 फरवरी, 2026',
+                        type: 'व्रत',
+                        significance: 'जया एकादशी - आध्यात्मिक साधना के लिए शुभ',
+                        fasting: 'अनाज, अनाज या दालों का सेवन नहीं',
+                        color: '#F7931E'
+                    },
+                    {
+                        title: 'पूर्णिमा',
+                        date: '12 फरवरी, 2026',
+                        type: 'पूर्णिमा',
+                        significance: 'माघ पूर्णिमा - पवित्र नदियों में स्नान',
+                        fasting: 'चंद्रोदय तक वैकल्पिक उपवास',
+                        color: '#4ECDC4'
+                    },
+                    {
+                        title: 'होली',
+                        date: '14 मार्च, 2026',
+                        type: 'त्यौहार',
+                        significance: 'बुराई पर अच्छाई की जीत का उत्सव',
+                        fasting: 'उपवास नहीं - उत्सव का दिन',
+                        color: '#FF006E'
+                    }
+                ];
+
+                setUpcomingEvents(language === 'hi' ? eventsHi : eventsEn);
+            };
+
+            const loadSampleData = () => {
+                const sampleDataEn = {
+                    day: 'Sunday',
+                    sunrise: '06:42',
+                    sunset: '18:15',
+                    moonrise: '15:30',
+                    moonset: '04:45',
+                    tithi: {
+                        details: {
+                            tithi_name: 'Dashami',
+                            tithi_number: 10
+                        },
+                        end_time: { hour: 14, minute: 23, second: 0 }
+                    },
+                    paksha: 'Shukla Paksha',
+                    nakshatra: {
+                        details: {
+                            nak_name: 'Uttara Phalguni',
+                            deity: 'Aryaman'
+                        }
+                    },
+                    yog: { details: { yog_name: 'Shiva' } },
+                    karan: { details: { karan_name: 'Baalava' } },
+                    rahukaal: { start: '16:30', end: '18:00' },
+                    guliKaal: { start: '13:30', end: '15:00' }
+                };
+
+                const sampleDataHi = {
+                    day: 'रविवार',
+                    sunrise: '06:42',
+                    sunset: '18:15',
+                    moonrise: '15:30',
+                    moonset: '04:45',
+                    tithi: {
+                        details: {
+                            tithi_name: 'दशमी',
+                            tithi_number: 10
+                        },
+                        end_time: { hour: 14, minute: 23, second: 0 }
+                    },
+                    paksha: 'शुक्ल पक्ष',
+                    nakshatra: {
+                        details: {
+                            nak_name: 'उत्तरा फाल्गुनी',
+                            deity: 'अर्यमा'
+                        }
+                    },
+                    yog: { details: { yog_name: 'शिव' } },
+                    karan: { details: { karan_name: 'बालव' } },
+                    rahukaal: { start: '16:30', end: '18:00' },
+                    guliKaal: { start: '13:30', end: '15:00' }
+                };
+
+                setPanchangData(language === 'hi' ? sampleDataHi : sampleDataEn);
+                setLoading(false);
+            };
+
+            const formatTime = (timeObj) => {
+                if (!timeObj) return 'N/A';
+                const hour = timeObj.hour || 0;
+                const minute = timeObj.minute || 0;
+                return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+            };
+
+            const calculateTithiProgress = () => {
+                return 68;
+            };
+
+            const auspiciousTimes = [
+                { name: t.brahmaVela, time: '04:48 - 05:36', type: 'meditation' },
+                { name: t.abhijitMuhurta, time: '12:15 - 13:03', type: 'auspicious' },
+                { name: t.vijayaMuhurta, time: '14:30 - 15:18', type: 'success' }
+            ];
+
+            const formatDate = () => {
+                const date = new Date();
+                if (language === 'hi') {
+                    const days = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'];
+                    const months = ['जनवरी', 'फरवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
+                    return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+                } else {
+                    return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                }
+            };
+
+            if (loading) {
+                return (
+                    <div style={{
+                        minHeight: '100vh',
+                        background: 'linear-gradient(135deg, #FFF8F0 0%, #FFEEDD 50%, #FFE4CC 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontFamily: language === 'hi' ? "'Tiro Devanagari Hindi', serif" : "'Crimson Text', serif"
+                    }}>
+                        <div style={{ textAlign: 'center' }}>
+                            <RefreshCw size={48} color="#FF6B35" style={{ animation: 'spin 2s linear infinite' }} />
+                            <p style={{ marginTop: '20px', color: '#8B4513', fontSize: '18px' }}>Loading...</p>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div style={{
+                    minHeight: '100vh',
+                    background: 'linear-gradient(135deg, #FFF8F0 0%, #FFEEDD 50%, #FFE4CC 100%)',
+                    fontFamily: language === 'hi' ? "'Tiro Devanagari Hindi', serif" : "'Crimson Text', serif",
+                    overflow: 'hidden',
+                    position: 'relative'
+                }}>
+                    {/* Decorative elements */}
+                    <div style={{
+                        position: 'fixed',
+                        top: '-10%',
+                        right: '-5%',
+                        width: '400px',
+                        height: '400px',
+                        background: 'radial-gradient(circle, rgba(255,107,53,0.1) 0%, rgba(255,107,53,0) 70%)',
+                        borderRadius: '50%',
+                        pointerEvents: 'none',
+                        transform: `translateY(${scrollY * 0.3}px)`
+                    }} />
+
+                    {/* Header */}
+                    <header style={{
+                        padding: '60px 24px 24px 24px',
+                        position: 'relative',
+                        zIndex: 10
+                    }}>
+                        <div style={{ maxWidth: '420px', margin: '0 auto' }}>
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '8px'
+                            }}>
+                                <h1 style={{
+                                    fontSize: language === 'hi' ? '36px' : '38px',
+                                    fontWeight: '600',
+                                    color: '#2C1810',
+                                    margin: 0
+                                }}>
+                                    {t.appTitle}
+                                </h1>
+                                <button
+                                    onClick={toggleLanguage}
+                                    style={{
+                                        background: 'linear-gradient(135deg, #FF6B35 0%, #F7931E 100%)',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        padding: '8px 16px',
+                                        borderRadius: '12px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '6px',
+                                        color: 'white',
+                                        fontSize: '14px',
+                                        fontWeight: '600',
+                                        boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)'
+                                    }}
+                                >
+                                    <Globe size={16} />
+                                    {language === 'en' ? 'हिं' : 'EN'}
+                                </button>
+                            </div>
+                            <p style={{
+                                fontSize: '15px',
+                                color: '#8B4513',
+                                opacity: 0.8,
+                                margin: 0
+                            }}>
+                                {formatDate()}
+                            </p>
+                            <p style={{
+                                fontSize: '13px',
+                                color: '#8B4513',
+                                opacity: 0.6,
+                                margin: '4px 0 0 0'
+                            }}>
+                                📍 {location.name}
+                            </p>
+                        </div>
+                    </header>
+
+                    {/* Main Content */}
+                    <main style={{
+                        padding: '0 24px 100px 24px',
+                        position: 'relative',
+                        zIndex: 5
+                    }}>
+                        <div style={{ maxWidth: '420px', margin: '0 auto' }}>
+                            {/* Tithi Card */}
+                            <div style={{
+                                background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF9F5 100%)',
+                                borderRadius: '24px',
+                                padding: '28px',
+                                marginBottom: '20px',
+                                boxShadow: '0 8px 32px rgba(139, 69, 19, 0.08)',
+                                animation: 'fadeInUp 0.6s ease-out'
+                            }}>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: '24px'
+                                }}>
+                                    <h2 style={{
+                                        fontSize: language === 'hi' ? '22px' : '24px',
+                                        fontWeight: '600',
+                                        color: '#2C1810',
+                                        margin: 0
+                                    }}>
+                                        {t.todayTithi}
+                                    </h2>
+                                    <div style={{
+                                        background: 'linear-gradient(135deg, #FF6B35 0%, #F7931E 100%)',
+                                        color: 'white',
+                                        padding: '6px 14px',
+                                        borderRadius: '12px',
+                                        fontSize: '13px',
+                                        fontWeight: '600'
+                                    }}>
+                                        {panchangData?.paksha}
+                                    </div>
+                                </div>
+
+                                <div style={{
+                                    fontSize: language === 'hi' ? '38px' : '42px',
+                                    fontWeight: '600',
+                                    color: '#FF6B35',
+                                    marginBottom: '8px'
+                                }}>
+                                    {panchangData?.tithi?.details?.tithi_name}
+                                </div>
+
+                                <div style={{
+                                    fontSize: '15px',
+                                    color: '#8B4513',
+                                    opacity: 0.7,
+                                    marginBottom: '20px'
+                                }}>
+                                    {t.endsAt} {formatTime(panchangData?.tithi?.end_time)}
+                                </div>
+
+                                {/* Progress bar */}
+                                <div style={{
+                                    background: 'rgba(255, 107, 53, 0.1)',
+                                    height: '6px',
+                                    borderRadius: '3px',
+                                    overflow: 'hidden',
+                                    marginBottom: '28px'
+                                }}>
+                                    <div style={{
+                                        background: 'linear-gradient(90deg, #FF6B35 0%, #F7931E 100%)',
+                                        height: '100%',
+                                        width: `${calculateTithiProgress()}%`,
+                                        borderRadius: '3px'
+                                    }} />
+                                </div>
+
+                                {/* Details Grid */}
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: '1fr 1fr',
+                                    gap: '16px',
+                                    paddingTop: '20px',
+                                    borderTop: '1px solid rgba(139, 69, 19, 0.1)'
+                                }}>
+                                    <div>
+                                        <div style={{
+                                            fontSize: '13px',
+                                            color: '#8B4513',
+                                            opacity: 0.6,
+                                            marginBottom: '4px',
+                                            textTransform: 'uppercase'
+                                        }}>
+                                            {t.nakshatra}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '17px',
+                                            fontWeight: '600',
+                                            color: '#2C1810'
+                                        }}>
+                                            {panchangData?.nakshatra?.details?.nak_name}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '13px',
+                                            color: '#8B4513',
+                                            opacity: 0.6
+                                        }}>
+                                            {t.lord} {panchangData?.nakshatra?.details?.deity}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div style={{
+                                            fontSize: '13px',
+                                            color: '#8B4513',
+                                            opacity: 0.6,
+                                            marginBottom: '4px',
+                                            textTransform: 'uppercase'
+                                        }}>
+                                            {t.yoga}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '17px',
+                                            fontWeight: '600',
+                                            color: '#2C1810'
+                                        }}>
+                                            {panchangData?.yog?.details?.yog_name}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div style={{
+                                            fontSize: '13px',
+                                            color: '#8B4513',
+                                            opacity: 0.6,
+                                            marginBottom: '4px',
+                                            textTransform: 'uppercase'
+                                        }}>
+                                            {t.karana}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '17px',
+                                            fontWeight: '600',
+                                            color: '#2C1810'
+                                        }}>
+                                            {panchangData?.karan?.details?.karan_name}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Sun & Moon */}
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: '1fr 1fr',
+                                gap: '16px',
+                                marginBottom: '20px'
+                            }}>
+                                <div style={{
+                                    background: 'linear-gradient(135deg, #FFF9E6 0%, #FFE4CC 100%)',
+                                    borderRadius: '20px',
+                                    padding: '24px',
+                                    boxShadow: '0 4px 16px rgba(255, 107, 53, 0.06)'
+                                }}>
+                                    <Sun size={28} color="#FF6B35" style={{ marginBottom: '12px' }} />
+                                    <div style={{
+                                        fontSize: '13px',
+                                        color: '#8B4513',
+                                        opacity: 0.7,
+                                        marginBottom: '8px',
+                                        textTransform: 'uppercase'
+                                    }}>
+                                        {t.sun}
+                                    </div>
+                                    <div style={{ fontSize: '15px', color: '#2C1810', lineHeight: '1.6' }}>
+                                        <div>↑ {panchangData?.sunrise}</div>
+                                        <div>↓ {panchangData?.sunset}</div>
+                                    </div>
+                                </div>
+
+                                <div style={{
+                                    background: 'linear-gradient(135deg, #E8F4F8 0%, #D4E9F0 100%)',
+                                    borderRadius: '20px',
+                                    padding: '24px',
+                                    boxShadow: '0 4px 16px rgba(78, 205, 196, 0.06)'
+                                }}>
+                                    <Moon size={28} color="#4ECDC4" style={{ marginBottom: '12px' }} />
+                                    <div style={{
+                                        fontSize: '13px',
+                                        color: '#2C5F6F',
+                                        opacity: 0.7,
+                                        marginBottom: '8px',
+                                        textTransform: 'uppercase'
+                                    }}>
+                                        {t.moon}
+                                    </div>
+                                    <div style={{ fontSize: '15px', color: '#2C1810', lineHeight: '1.6' }}>
+                                        <div>↑ {panchangData?.moonrise}</div>
+                                        <div>↓ {panchangData?.moonset}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Auspicious Times */}
+                            <div style={{ marginBottom: '20px' }}>
+                                <h3 style={{
+                                    fontSize: language === 'hi' ? '20px' : '22px',
+                                    fontWeight: '600',
+                                    color: '#2C1810',
+                                    marginBottom: '16px',
+                                    paddingLeft: '4px'
+                                }}>
+                                    {t.auspiciousTimes}
+                                </h3>
+
+                                {auspiciousTimes.map((time, index) => (
+                                    <div
+                                        key={index}
+                                        style={{
+                                            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF9F5 100%)',
+                                            borderRadius: '18px',
+                                            padding: '20px 24px',
+                                            marginBottom: '12px',
+                                            boxShadow: '0 4px 16px rgba(139, 69, 19, 0.04)',
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center'
+                                        }}
+                                    >
+                                        <div>
+                                            <div style={{
+                                                fontSize: '17px',
+                                                fontWeight: '600',
+                                                color: '#2C1810',
+                                                marginBottom: '2px'
+                                            }}>
+                                                {time.name}
+                                            </div>
+                                            <div style={{
+                                                fontSize: '14px',
+                                                color: '#8B4513',
+                                                opacity: 0.7
+                                            }}>
+                                                {time.time}
+                                            </div>
+                                        </div>
+                                        <Star size={20} color="#F7931E" fill="#F7931E" opacity={0.8} />
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Inauspicious Times */}
+                            <div style={{
+                                background: 'linear-gradient(135deg, #FFE8E8 0%, #FFD4D4 100%)',
+                                borderRadius: '20px',
+                                padding: '24px',
+                                marginBottom: '20px',
+                                boxShadow: '0 4px 16px rgba(255, 107, 53, 0.06)'
+                            }}>
+                                <h4 style={{
+                                    fontSize: '17px',
+                                    fontWeight: '600',
+                                    color: '#8B2835',
+                                    marginBottom: '16px',
+                                    margin: 0
+                                }}>
+                                    {t.inauspiciousTimes}
+                                </h4>
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: '1fr 1fr',
+                                    gap: '16px',
+                                    fontSize: '15px'
+                                }}>
+                                    <div>
+                                        <div style={{
+                                            fontSize: '13px',
+                                            color: '#8B2835',
+                                            opacity: 0.7,
+                                            marginBottom: '4px',
+                                            textTransform: 'uppercase'
+                                        }}>
+                                            {t.rahuKaal}
+                                        </div>
+                                        <div style={{ color: '#5C1B23', fontWeight: '500' }}>
+                                            {panchangData?.rahukaal?.start} - {panchangData?.rahukaal?.end}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style={{
+                                            fontSize: '13px',
+                                            color: '#8B2835',
+                                            opacity: 0.7,
+                                            marginBottom: '4px',
+                                            textTransform: 'uppercase'
+                                        }}>
+                                            {t.gulikaKaal}
+                                        </div>
+                                        <div style={{ color: '#5C1B23', fontWeight: '500' }}>
+                                            {panchangData?.guliKaal?.start} - {panchangData?.guliKaal?.end}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Upcoming Events */}
+                            <div>
+                                <h3 style={{
+                                    fontSize: language === 'hi' ? '20px' : '22px',
+                                    fontWeight: '600',
+                                    color: '#2C1810',
+                                    marginBottom: '16px',
+                                    paddingLeft: '4px'
+                                }}>
+                                    {t.upcomingFestivals}
+                                </h3>
+
+                                {upcomingEvents.map((event, index) => (
+                                    <div
+                                        key={index}
+                                        style={{
+                                            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF9F5 100%)',
+                                            borderRadius: '20px',
+                                            padding: '24px',
+                                            marginBottom: '16px',
+                                            boxShadow: '0 6px 24px rgba(139, 69, 19, 0.06)',
+                                            position: 'relative',
+                                            overflow: 'hidden'
+                                        }}
+                                    >
+                                        <div style={{
+                                            position: 'absolute',
+                                            left: 0,
+                                            top: 0,
+                                            bottom: 0,
+                                            width: '5px',
+                                            background: event.color
+                                        }} />
+                                        
+                                        <div style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'flex-start',
+                                            marginBottom: '12px'
+                                        }}>
+                                            <div>
+                                                <div style={{
+                                                    fontSize: '20px',
+                                                    fontWeight: '600',
+                                                    color: '#2C1810',
+                                                    marginBottom: '4px'
+                                                }}>
+                                                    {event.title}
+                                                </div>
+                                                <div style={{
+                                                    fontSize: '14px',
+                                                    color: '#8B4513',
+                                                    opacity: 0.7
+                                                }}>
+                                                    {event.date}
+                                                </div>
+                                            </div>
+                                            <div style={{
+                                                background: event.color,
+                                                color: 'white',
+                                                padding: '6px 12px',
+                                                borderRadius: '10px',
+                                                fontSize: '12px',
+                                                fontWeight: '600'
+                                            }}>
+                                                {event.type}
+                                            </div>
+                                        </div>
+
+                                        <p style={{
+                                            fontSize: '15px',
+                                            color: '#5C3D2E',
+                                            lineHeight: '1.6',
+                                            margin: '0 0 12px 0'
+                                        }}>
+                                            {event.significance}
+                                        </p>
+
+                                        <div style={{
+                                            background: 'rgba(139, 69, 19, 0.05)',
+                                            padding: '12px 16px',
+                                            borderRadius: '12px',
+                                            fontSize: '14px',
+                                            color: '#5C3D2E',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '8px'
+                                        }}>
+                                            <span style={{ opacity: 0.7 }}>🍽️</span>
+                                            <span><strong>{t.fasting}:</strong> {event.fasting}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            );
+        }
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<HinduCalendarApp />);
+    </script>
+</body>
+</html>

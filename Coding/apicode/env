@@ -1,0 +1,17 @@
+# Environment Variables
+PORT=3000
+NODE_ENV=production
+
+# API Keys (In production, store these securely)
+DEMO_API_KEY=demo_key_12345
+PREMIUM_API_KEY=premium_key_67890
+
+# Database (Optional - for production)
+# DATABASE_URL=postgresql://username:password@localhost:5432/api_calculator
+
+# Stripe (Optional - for payments)
+# STRIPE_SECRET_KEY=sk_live_your_stripe_secret_key
+# STRIPE_PUBLISHABLE_KEY=pk_live_your_stripe_publishable_key
+
+# Security
+# JWT_SECRET=your_jwt_secret_key_here

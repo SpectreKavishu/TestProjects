@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Revenue & Cost Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>API Revenue & Cost Calculator</h1>
+            <p>Estimate your potential profits from selling APIs online</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-tab="cost-estimation">Cost Estimation</button>
+                <button class="tab-btn" data-tab="revenue-projection">Revenue Projection</button>
+                <button class="tab-btn" data-tab="profit-analysis">Profit Analysis</button>
+                <button class="tab-btn" data-tab="market-insights">Market Insights</button>
+            </nav>
+
+            <!-- Cost Estimation Section -->
+            <section id="cost-estimation" class="tab-content active">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Development & Operational Costs</h2>
+                    </div>
+                    <div class="card__body">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="api-complexity">API Complexity Level</label>
+                                <select id="api-complexity" class="form-control">
+                                    <option value="simple">Simple API - Basic CRUD operations</option>
+                                    <option value="moderate">Moderate API - Authentication, payments, integrations</option>
+                                    <option value="complex">Complex API - Enterprise-grade security, real-time processing</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="custom-dev-cost">Custom Development Cost ($)</label>
+                                <input type="number" id="custom-dev-cost" class="form-control" placeholder="Or enter custom amount">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="hosting-cost">Monthly Hosting & Infrastructure ($)</label>
+                                <input type="number" id="hosting-cost" class="form-control" value="200" min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="marketing-cost">Monthly Marketing Budget ($)</label>
+                                <input type="number" id="marketing-cost" class="form-control" value="500" min="0">
+                            </div>
+                        </div>
+
+                        <div class="cost-summary">
+                            <div class="cost-item">
+                                <span class="cost-label">Development Cost:</span>
+                                <span class="cost-value" id="dev-cost-display">$5,000 - $20,000</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Annual Maintenance:</span>
+                                <span class="cost-value" id="maintenance-cost-display">$750 - $3,000</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Monthly Operational:</span>
+                                <span class="cost-value" id="operational-cost-display">$700</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="cost-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Revenue Projection Section -->
+            <section id="revenue-projection" class="tab-content">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Revenue Projections</h2>
+                    </div>
+                    <div class="card__body">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="monetization-model">Monetization Model</label>
+                                <select id="monetization-model" class="form-control">
+                                    <option value="pay-per-use">Pay-per-use - Charge per API call</option>
+                                    <option value="subscription">Subscription - Fixed monthly/annual fee</option>
+                                    <option value="freemium">Freemium - Free tier + premium features</option>
+                                    <option value="revenue-sharing">Revenue Sharing - Percentage of transactions</option>
+                                </select>
+                            </div>
+
+                            <div class="pricing-inputs">
+                                <div class="form-group" id="price-per-call-group">
+                                    <label class="form-label" for="price-per-call">Price per API Call ($)</label>
+                                    <input type="number" id="price-per-call" class="form-control" value="0.01" step="0.001" min="0">
+                                </div>
+
+                                <div class="form-group hidden" id="subscription-price-group">
+                                    <label class="form-label" for="subscription-price">Monthly Subscription Price ($)</label>
+                                    <input type="number" id="subscription-price" class="form-control" value="99" min="0">
+                                </div>
+
+                                <div class="form-group hidden" id="revenue-share-group">
+                                    <label class="form-label" for="revenue-share">Revenue Share Percentage (%)</label>
+                                    <input type="number" id="revenue-share" class="form-control" value="5" min="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="expected-users">Expected Active Users</label>
+                                <input type="number" id="expected-users" class="form-control" value="1000" min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="calls-per-user">Average API Calls per User/Month</label>
+                                <input type="number" id="calls-per-user" class="form-control" value="100" min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="market-penetration">Market Penetration Rate (%)</label>
+                                <input type="range" id="market-penetration" min="1" max="100" value="10" class="form-range">
+                                <span class="range-value" id="penetration-value">10%</span>
+                            </div>
+                        </div>
+
+                        <div class="revenue-summary">
+                            <div class="revenue-item">
+                                <span class="revenue-label">Monthly Revenue:</span>
+                                <span class="revenue-value" id="monthly-revenue-display">$10,000</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span class="revenue-label">Annual Revenue:</span>
+                                <span class="revenue-value" id="annual-revenue-display">$120,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profit Analysis Section -->
+            <section id="profit-analysis" class="tab-content">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Profit Analysis & ROI</h2>
+                    </div>
+                    <div class="card__body">
+                        <div class="profit-metrics">
+                            <div class="metric-card">
+                                <h3>Monthly Profit</h3>
+                                <div class="metric-value" id="monthly-profit">$8,600</div>
+                                <div class="metric-change positive" id="profit-margin">86% margin</div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <h3>Annual ROI</h3>
+                                <div class="metric-value" id="annual-roi">864%</div>
+                                <div class="metric-change" id="roi-description">Excellent return</div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <h3>Break-even Time</h3>
+                                <div class="metric-value" id="breakeven-time">1.4 months</div>
+                                <div class="metric-change" id="breakeven-description">Very fast payback</div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <h3>Time to Profitability</h3>
+                                <div class="metric-value" id="profitability-time">2.1 months</div>
+                                <div class="metric-change" id="profitability-description">Including development</div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <canvas id="profit-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Insights Section -->
+            <section id="market-insights" class="tab-content">
+                <div class="insights-grid">
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>Popular API Categories</h2>
+                        </div>
+                        <div class="card__body">
+                            <div class="category-list" id="api-categories">
+                                <!-- Categories will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>Monetization Models Comparison</h2>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/f1179c5ba0c62e0551424b1e67b453da/94f9c2b7-32f3-477b-ae43-1182f2222782/4f7fc196.png" alt="API Monetization Models Comparison" class="insight-image">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>Development Cost Breakdown</h2>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/f1179c5ba0c62e0551424b1e67b453da/102a93bb-5712-4c8d-b13d-0ed5df901020/648fc492.png" alt="API Development Cost Ranges" class="insight-image">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>Success Factors</h2>
+                        </div>
+                        <div class="card__body">
+                            <div class="success-checklist" id="success-factors">
+                                <!-- Success factors will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card full-width">
+                        <div class="card__header">
+                            <h2>API Business Ecosystem</h2>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/35ea1a8c-4bc8-4146-b97c-5d9b31d9b621.png" alt="API Business Ecosystem Workflow" class="insight-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

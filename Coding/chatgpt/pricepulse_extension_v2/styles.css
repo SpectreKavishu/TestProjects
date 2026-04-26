@@ -1,0 +1,16 @@
+
+body {
+  width: 300px;
+  background: #f8f9ff;
+  padding: 15px;
+  font-family: Arial;
+}
+#app { display: flex; flex-direction: column; gap: 10px; }
+input { padding: 8px; border-radius: 6px; border: 1px solid #ddd; }
+button {
+  padding: 10px;
+  background: #4e5cf3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}

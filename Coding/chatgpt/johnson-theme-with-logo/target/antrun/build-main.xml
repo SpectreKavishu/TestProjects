@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <copy file="/Users/kavishugoyal/Downloads/Coding/chatgpt/johnson-theme-with-logo/target/johnson-theme-1.0.0.war" todir="/Users/kavishugoyal/Downloads/liferay-ce-portal-7.3.5-ga6/deploy" overwrite="true" />
+  </target>
+</project>

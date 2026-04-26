@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alien Wallpaper Studio</title>
+    <meta
+      name="description"
+      content="Generate and sell hyper-realistic alien world wallpapers with AI."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <header class="site-header">
+      <div class="brand">Alien Wallpaper Studio</div>
+      <nav>
+        <a href="#pricing">Pricing</a>
+        <a href="#generator">Generator</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Monetizable AI Wallpaper Business</p>
+        <h1>Create photoreal alien planet wallpapers and sell instantly</h1>
+        <p>
+          Launch with near-zero cost using a free AI generation backend, then charge for high-res packs,
+          custom requests, or memberships.
+        </p>
+      </section>
+
+      <section class="panel" id="authPanel">
+        <h2>Sign up / Login</h2>
+        <p id="freeCreditsText"></p>
+        <form id="authForm">
+          <div class="row">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password (min 8 chars)" required />
+          </div>
+          <div class="row buttons">
+            <button type="button" id="signupBtn">Create Account</button>
+            <button type="button" id="loginBtn" class="secondary">Login</button>
+            <button type="button" id="logoutBtn" class="ghost hidden">Logout</button>
+          </div>
+        </form>
+        <p id="authStatus" class="status"></p>
+      </section>
+
+      <section class="panel hidden" id="generator">
+        <div class="panel-head">
+          <h2>Generator</h2>
+          <p class="credits">Credits left: <span id="creditCount">0</span></p>
+        </div>
+        <form id="generateForm">
+          <textarea
+            id="prompt"
+            placeholder="Example: A colossal ringed gas giant over black crystal mountains, fine atmospheric haze, realistic shadows"
+            required
+          ></textarea>
+          <div class="row">
+            <select id="style">
+              <option value="cinematic">Cinematic</option>
+              <option value="sunrise">Sunrise</option>
+              <option value="nocturnal">Nocturnal</option>
+              <option value="storm">Storm</option>
+            </select>
+            <select id="aspect">
+              <option value="16:9">Desktop (16:9)</option>
+              <option value="9:16">Phone (9:16)</option>
+              <option value="1:1">Square (1:1)</option>
+            </select>
+            <button type="submit">Generate Wallpaper</button>
+          </div>
+        </form>
+
+        <div id="payBox" class="pay-box hidden">
+          <p>You are out of credits. Buy credits to continue selling and generating.</p>
+          <button id="buyCreditsBtn">Buy Credits</button>
+          <p class="hint">Connect Stripe payment link in `.env` to make this live.</p>
+        </div>
+
+        <p id="genStatus" class="status"></p>
+        <div id="gallery" class="gallery"></div>
+      </section>
+
+      <section class="panel" id="pricing">
+        <h2>Simple Money Model</h2>
+        <div class="cards">
+          <article>
+            <h3>Starter Funnel</h3>
+            <p>Give 3-5 free credits. Collect emails and build audience quickly.</p>
+          </article>
+          <article>
+            <h3>Paid Packs</h3>
+            <p>Sell curated wallpaper bundles: “Alien Ocean Worlds”, “Volcanic Moons”, “Ice Giants”.</p>
+          </article>
+          <article>
+            <h3>Custom Commissions</h3>
+            <p>Offer premium custom prompts for creators, streamers, and desktop setup enthusiasts.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
