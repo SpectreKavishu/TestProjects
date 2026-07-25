@@ -17,9 +17,4 @@ A free, open-source, self-hosted alternative to the mymind iOS app. No card limi
 
 ## Usage
 
-Simply open `index.html` in any modern browser. No build step, no server required.
-
-```bash
-git clone https://github.com/YOUR_USERNAME/mymind-open-source.git
-cd mymind-open-source
-open index.html
+Simply open `index3.html` in any modern browser. No build step, no server required.

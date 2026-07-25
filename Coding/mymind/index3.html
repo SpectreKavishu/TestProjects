@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mymind — Open Source</title>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('mymind_theme');
+        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) {}
+    })();
+  </script>
   <style>
     :root {
       --bg: #0a0a0a;
@@ -15,6 +23,26 @@
       --border: #222;
       --radius: 16px;
       --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    :root[data-theme="light"] {
+      --bg: #f5f5f3;
+      --surface: #ffffff;
+      --surface-hover: #ececea;
+      --text: #14140f;
+      --text-secondary: #6b6b66;
+      --accent: #14140f;
+      --border: #e2e2de;
+      --shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    :root[data-theme="light"] .btn-primary { color: #fff; }
+    :root[data-theme="light"] .btn-primary:hover { background: #333; }
+    :root[data-theme="light"] .card-action-btn { background: rgba(255,255,255,0.75); color: #14140f; }
+    :root[data-theme="light"] .card-action-btn:hover { background: rgba(255,255,255,0.95); }
+    :root[data-theme="light"] .detail-close { background: rgba(0,0,0,0.06); color: #14140f; }
+    :root[data-theme="light"] .filter-tag.active { color: #fff; }
+    :root[data-theme="light"] .type-option.active { background: rgba(20,20,15,0.06); }
+    body, .card, .btn, .search-box, .modal, .toast, .detail-card, .filter-tag, .type-option, .card-action-btn {
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -200,6 +228,24 @@
     }
     .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: #444; }
     .form-textarea { min-height: 100px; resize: vertical; }
+    .meta-status {
+      display: none;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      align-items: center;
+      gap: 6px;
+    }
+    .meta-status.show { display: flex; }
+    .meta-status.error { color: #b56; }
+    .meta-spinner {
+      width: 12px; height: 12px;
+      border: 2px solid var(--border);
+      border-top-color: var(--text-secondary);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .form-actions {
       display: flex; gap: 10px; justify-content: flex-end;
       padding: 0 24px 24px;
@@ -303,6 +349,7 @@
     <div class="logo">mymind <span>— Open Source</span></div>
     <div class="header-actions">
       <input type="text" class="search-box" id="searchBox" placeholder="Search your mind...">
+      <button class="btn" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark and light mode">🌙</button>
       <button class="btn btn-primary" onclick="openModal()">+ Add</button>
     </div>
   </div>
@@ -324,13 +371,14 @@
           <div class="type-option" data-type="note" onclick="selectType('note')">Note</div>
           <div class="type-option" data-type="link" onclick="selectType('link')">Link</div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Title</label>
-          <input type="text" class="form-input" id="inputTitle" placeholder="Give it a name...">
-        </div>
         <div class="form-group" id="urlGroup">
           <label class="form-label">Image URL</label>
           <input type="text" class="form-input" id="inputUrl" placeholder="https://...">
+          <div id="metaStatus" class="meta-status"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-input" id="inputTitle" placeholder="Give it a name...">
         </div>
         <div class="form-group">
           <label class="form-label">Description</label>
@@ -344,6 +392,7 @@
       <div class="form-actions">
         <button class="btn" onclick="closeModal()">Cancel</button>
         <button class="btn btn-primary" onclick="addCard()">Save</button>
+
       </div>
     </div>
   </div>
@@ -355,6 +404,23 @@
   
   <div class="toast" id="toast"></div>
   <script>
+    const THEME_KEY = 'mymind_theme';
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      const btn = document.getElementById('themeToggle');
+      if (btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    }
+
+    applyTheme(localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark');
+
     const STORAGE_KEY = 'mymind_cards';
     
     const defaultCards = [
@@ -397,6 +463,9 @@
     let currentType = 'image';
     let activeTag = null;
     let searchQuery = '';
+    let fetchedMeta = null;
+    let metaFetchTimer = null;
+    let metaFetchToken = 0;
     
     function renderCards() {
       const masonry = document.getElementById('masonry');
@@ -430,9 +499,16 @@
             <div class="card-title">${escapeHtml(card.title)}</div><div class="card-desc">${escapeHtml(card.desc).replace(/\n/g, '<br>')}</div><div class="card-tags">${card.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
           </div>`;
         } else if (card.type === 'link') {
+          const logoHtml = card.logo
+            ? `<img src="${escapeHtml(card.logo)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:10px;" onerror="this.parentElement.textContent='${(card.favicon || '🔗').replace(/'/g, "\\'")}'">`
+            : escapeHtml(card.favicon || '🔗');
+          const heroImg = card.image
+            ? `<img class="card-image" src="${escapeHtml(card.image)}" alt="${escapeHtml(card.title)}" loading="lazy">`
+            : '';
           return `<div class="card" onclick="openDetail(${card.id})">
             <div class="card-actions"><button class="card-action-btn" onclick="event.stopPropagation(); deleteCard(${card.id})">🗑</button></div>
-            <div class="card-link"><div class="link-favicon">${escapeHtml(card.favicon || '🔗')}</div><div class="link-info"><div class="card-title">${escapeHtml(card.title)}</div><div class="link-url">${escapeHtml(card.url)}</div></div></div>
+            ${heroImg}
+            <div class="card-link"><div class="link-favicon">${logoHtml}</div><div class="link-info"><div class="card-title">${escapeHtml(card.title)}</div><div class="link-url">${escapeHtml(card.url)}</div></div></div>
             <div class="card-content" style="padding-top: 0;"><div class="card-desc">${escapeHtml(card.desc)}</div><div class="card-tags">${card.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div></div>
           </div>`;
         }
@@ -451,7 +527,17 @@
     document.getElementById('searchBox').addEventListener('input', (e) => { searchQuery = e.target.value; renderCards(); });
     
     function openModal() { document.getElementById('modal').classList.add('active'); document.getElementById('inputTitle').focus(); }
-    function closeModal() { document.getElementById('modal').classList.remove('active'); document.getElementById('inputTitle').value = ''; document.getElementById('inputUrl').value = ''; document.getElementById('inputDesc').value = ''; document.getElementById('inputTags').value = ''; }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      document.getElementById('inputTitle').value = '';
+      document.getElementById('inputUrl').value = '';
+      document.getElementById('inputDesc').value = '';
+      document.getElementById('inputTags').value = '';
+      clearTimeout(metaFetchTimer);
+      metaFetchToken++;
+      fetchedMeta = null;
+      hideMetaStatus();
+    }
     
     function selectType(type) {
       currentType = type;
@@ -459,18 +545,85 @@
       const urlGroup = document.getElementById('urlGroup');
       const urlLabel = urlGroup.querySelector('.form-label');
       const urlInput = document.getElementById('inputUrl');
-      if (type === 'image') { urlGroup.style.display = 'block'; urlLabel.textContent = 'Image URL'; urlInput.placeholder = 'https://...'; }
-      else if (type === 'link') { urlGroup.style.display = 'block'; urlLabel.textContent = 'URL'; urlInput.placeholder = 'https://example.com'; }
-      else { urlGroup.style.display = 'none'; }
+      if (type === 'image') { urlGroup.style.display = 'block'; urlLabel.textContent = 'Image URL'; urlInput.placeholder = 'https://...'; hideMetaStatus(); }
+      else if (type === 'link') {
+        urlGroup.style.display = 'block'; urlLabel.textContent = 'URL'; urlInput.placeholder = 'https://example.com';
+        if (urlInput.value.trim()) fetchLinkMetadata();
+      }
+      else { urlGroup.style.display = 'none'; hideMetaStatus(); }
     }
+    
+    function normalizeUrl(raw) {
+      if (!raw) return raw;
+      return /^[a-z][a-z0-9+.-]*:\/\//i.test(raw) ? raw : 'https://' + raw;
+    }
+    
+    function setMetaStatus(text, opts) {
+      const el = document.getElementById('metaStatus');
+      opts = opts || {};
+      el.innerHTML = opts.spinner ? `<span class="meta-spinner"></span><span>${escapeHtml(text)}</span>` : escapeHtml(text);
+      el.classList.add('show');
+      el.classList.toggle('error', !!opts.error);
+    }
+    
+    function hideMetaStatus() {
+      const el = document.getElementById('metaStatus');
+      el.classList.remove('show', 'error');
+      el.innerHTML = '';
+    }
+    
+    async function fetchLinkMetadata() {
+      const urlInput = document.getElementById('inputUrl');
+      const raw = urlInput.value.trim();
+      if (!raw || currentType !== 'link') return;
+      const url = normalizeUrl(raw);
+      const token = ++metaFetchToken;
+      setMetaStatus('Fetching preview…', { spinner: true });
+      try {
+        const res = await fetch(`https://api.microlink.io?url=${encodeURIComponent(url)}`);
+        const json = await res.json();
+        if (token !== metaFetchToken) return; // a newer request superseded this one
+        if (json.status === 'success' && json.data) {
+          const d = json.data;
+          fetchedMeta = {
+            image: (d.image && d.image.url) || '',
+            logo: (d.logo && d.logo.url) || '',
+            siteName: d.publisher || (d.author || '') || ''
+          };
+          const titleInput = document.getElementById('inputTitle');
+          const descInput = document.getElementById('inputDesc');
+          if (!titleInput.value.trim() && d.title) titleInput.value = d.title;
+          if (!descInput.value.trim() && d.description) descInput.value = d.description;
+          urlInput.value = url;
+          setMetaStatus('✓ Preview loaded');
+          setTimeout(() => { if (token === metaFetchToken) hideMetaStatus(); }, 1800);
+        } else {
+          fetchedMeta = null;
+          setMetaStatus("Couldn't fetch a preview — fill this in manually", { error: true });
+        }
+      } catch (e) {
+        if (token !== metaFetchToken) return;
+        fetchedMeta = null;
+        setMetaStatus("Couldn't fetch a preview — fill this in manually", { error: true });
+      }
+    }
+    
+    document.getElementById('inputUrl').addEventListener('input', () => {
+      if (currentType !== 'link') return;
+      fetchedMeta = null;
+      clearTimeout(metaFetchTimer);
+      metaFetchTimer = setTimeout(fetchLinkMetadata, 700);
+    });
     
     function addCard() {
       const title = document.getElementById('inputTitle').value.trim();
       const desc = document.getElementById('inputDesc').value.trim();
-      const url = document.getElementById('inputUrl').value.trim();
+      let url = document.getElementById('inputUrl').value.trim();
       const tagsStr = document.getElementById('inputTags').value.trim();
       
       if (!title) { showToast('Please enter a title'); return; }
+      
+      if (currentType === 'link' && url) url = normalizeUrl(url);
       
       const newCard = {
         id: Date.now(),
@@ -486,6 +639,11 @@
       }
       if (currentType === 'link') {
         try { newCard.favicon = new URL(url).hostname[0].toUpperCase(); } catch { newCard.favicon = '🔗'; }
+        if (fetchedMeta) {
+          if (fetchedMeta.image) newCard.image = fetchedMeta.image;
+          if (fetchedMeta.logo) newCard.logo = fetchedMeta.logo;
+          if (fetchedMeta.siteName) newCard.siteName = fetchedMeta.siteName;
+        }
       }
       
       cards.unshift(newCard);
@@ -513,8 +671,12 @@
       const detailCard = document.getElementById('detailCard');
       let html = '';
       if (card.type === 'image' && card.url) html += `<img class="detail-image" src="${escapeHtml(card.url)}" alt="${escapeHtml(card.title)}">`;
+      if (card.type === 'link' && card.image) html += `<img class="detail-image" src="${escapeHtml(card.image)}" alt="${escapeHtml(card.title)}">`;
       html += `<div class="detail-content"><div class="detail-title">${escapeHtml(card.title)}</div><div class="detail-desc">${escapeHtml(card.desc).replace(/\n/g, '<br>')}</div>`;
-      if (card.type === 'link' && card.url) html += `<div style="margin-bottom: 16px;"><a href="${escapeHtml(card.url)}" target="_blank" style="color: #888; font-size: 14px; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px;">${escapeHtml(card.url)} →</a></div>`;
+      if (card.type === 'link' && card.url) {
+        const siteLabel = card.siteName ? `${escapeHtml(card.siteName)} — ` : '';
+        html += `<div style="margin-bottom: 16px;"><a href="${escapeHtml(card.url)}" target="_blank" rel="noopener" style="color: #888; font-size: 14px; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px;">${siteLabel}${escapeHtml(card.url)} →</a></div>`;
+      }
       html += `<div class="card-tags" style="margin-bottom: 20px;">${card.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`;
       html += `<div class="detail-meta"><span>📅 ${escapeHtml(card.date)}</span><span>🏷️ ${escapeHtml(card.type)}</span></div></div>`;
       detailCard.innerHTML = html;

@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mymind — Open Source</title>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('mymind_theme');
+        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) {}
+    })();
+  </script>
   <style>
     :root {
       --bg: #0a0a0a;
@@ -15,6 +23,26 @@
       --border: #222;
       --radius: 16px;
       --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    :root[data-theme="light"] {
+      --bg: #f5f5f3;
+      --surface: #ffffff;
+      --surface-hover: #ececea;
+      --text: #14140f;
+      --text-secondary: #6b6b66;
+      --accent: #14140f;
+      --border: #e2e2de;
+      --shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    :root[data-theme="light"] .btn-primary { color: #fff; }
+    :root[data-theme="light"] .btn-primary:hover { background: #333; }
+    :root[data-theme="light"] .card-action-btn { background: rgba(255,255,255,0.75); color: #14140f; }
+    :root[data-theme="light"] .card-action-btn:hover { background: rgba(255,255,255,0.95); }
+    :root[data-theme="light"] .detail-close { background: rgba(0,0,0,0.06); color: #14140f; }
+    :root[data-theme="light"] .filter-tag.active { color: #fff; }
+    :root[data-theme="light"] .type-option.active { background: rgba(20,20,15,0.06); }
+    body, .card, .btn, .search-box, .modal, .toast, .detail-card, .filter-tag, .type-option, .card-action-btn {
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -303,6 +331,7 @@
     <div class="logo">mymind <span>— Open Source</span></div>
     <div class="header-actions">
       <input type="text" class="search-box" id="searchBox" placeholder="Search your mind...">
+      <button class="btn" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark and light mode">🌙</button>
       <button class="btn btn-primary" onclick="openModal()">+ Add</button>
     </div>
   </div>
@@ -355,6 +384,23 @@
   
   <div class="toast" id="toast"></div>
   <script>
+    const THEME_KEY = 'mymind_theme';
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      const btn = document.getElementById('themeToggle');
+      if (btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    }
+
+    applyTheme(localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark');
+
     const STORAGE_KEY = 'mymind_cards';
     
     const defaultCards = [
